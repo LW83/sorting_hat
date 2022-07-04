@@ -14,3 +14,16 @@ SHEET = GSPREAD_CLIENT.open('hogwarts_houses')
 
 houses = SHEET.worksheet('Houses')
 data = houses.get_all_values()
+
+name = input("Please enter your Name:\n")
+input(f"Hi {name}, please tell us your age:\n")
+input("Thank you, finally please tell us what Country you are from:\n")
+
+print("Confirming non-Muggle status........\n")
+print("Non-muggle status validated\n")
+
+print(f"Welcome to Howgwarts School of Witchcraft and Wizardry {name}. \nWe are delighted to have you join us for the XXXX school term.\n")
+
+print("In order to place you in the correct house for your time with us, the Sorting Hat needs to know a little more about you...")
+
+
