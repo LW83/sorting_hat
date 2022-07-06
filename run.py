@@ -1,4 +1,6 @@
+import os
 from datetime import datetime 
+from time import sleep
 import gspread
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Style
@@ -92,9 +94,9 @@ def welcome():
     Welcome function to request name, age and 
     country inputs from user. 
     """
-
     print('THE SORTING HAT\n'.center(70))
 
+    sleep(2)
     while True: 
         name = input("Please tell me your name:".center(70))
     
@@ -102,6 +104,9 @@ def welcome():
             print(f"\nNice to meet you {name}!".center(70))
             break
     
+    sleep(1)
+    clear_display()
+
     while True:
         age = input(f"\nPlease tell me your age:".center(70))
         
@@ -109,15 +114,26 @@ def welcome():
             print(f"\nThank you!".center(70))
             break
     
+    sleep(1)
+    clear_display()
+
     country = input("\nFinally, please tell us what Country you are from:\n".center(70))
   
+    sleep(2)
+    clear_display()
+
     print("\nConfirming non-Muggle status........\n".center(70))
-    print("Non-Muggle status validated\n".center(70))
+    sleep(3)
+    print("Non-Muggle status VALIDATED\n".center(70))
+    sleep(2)
     print(f"Welcome to Hogwarts School of Witchcraft and Wizardry {name}.\n".center(70))
+    sleep(2)
     print(f"We are delighted to have you join us for the {year} school term.\n".center(70))
+    sleep(3)
     print("In order to place you in the correct house for your time with us, ".center(70))
     print("the Sorting Hat needs to know a little more about you...\n".center(70))
-    print(f"So, {name} are you ready to get started?\n".center(70))
+    sleep(2)
+    print(f"So, {name}, are you ready to get started?\n".center(70))
 
 def start_sorting():
     sort = input("Please enter y for 'Let's get sorted!' or n if you wish to remove the sorting hat.".center(70))
@@ -127,11 +143,20 @@ def start_sorting():
     elif sort == 'y':
         generate_questions()
     else:
-        print("Please enter either 'y' or 'n' in order to proceed.".center(70))
+        print("\nPlease enter either 'y' or 'n' in order to proceed.".center(70))
 
 #def generate_questions():#
 
-
+def clear_display(): #dnlBowers
+    """"
+    Clears the console
+    """
+    command = 'clear'
+    if os.name in (
+            'nt', 'dos'):  # If Machine is running on Windows, use cls
+        command = 'cls'
+    os.system(command)
+  
 def validate_name(name):
     """
     Raises error if name entered has numerical entries.
