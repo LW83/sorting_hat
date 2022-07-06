@@ -87,12 +87,24 @@ def intro_logo_2():
 
 def welcome():
     """
+    Welcome function to request name, age and 
+    country inputs from user. 
     """
-    name = input("Please enter your Name:\n")
-    validate_name(name)
-    age = input(f"Hi {name}, please tell us your age:\n")
-    validate_age(int(age))
-    country = input("Thank you, finally, please tell us what Country you are from:\n")
+    while True: 
+        name = input("Please enter your Name:\n")
+    
+        if validate_name(name):
+            print(f"Nice to meet you {name}")
+            break
+    
+    while True:
+        age = input(f"Please tell us your age:\n")
+        
+        if validate_age(int(age)):
+            print(f"Thank you {name}!")
+            break
+    
+    country = input("Finally, please tell us what Country you are from:\n")
 
     print("Confirming non-Muggle status........\n")
     print("Non-muggle status validated\n")
@@ -111,6 +123,9 @@ def validate_name(name):
         )
     except ValueError as e:
       print(f"{e}, please try again.\n")
+      return False
+    
+    return True
 
 def validate_age(number):
     """
@@ -123,9 +138,12 @@ def validate_age(number):
         )
     except ValueError as e:
       print(f"{e}, please re-count your years and try again.\n")
+      return False
+    
+    return True
 
 def main():
-    intro_logo_2()
+    #intro_logo_2()#
     welcome()
 
 main()
