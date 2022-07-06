@@ -91,7 +91,7 @@ def welcome():
     country inputs from user. 
     """
     while True: 
-        name = input("Please enter your Name:\n")
+        name = input("Please enter your name:\n")
     
         if validate_name(name):
             print(f"Nice to meet you {name}")
@@ -136,12 +136,17 @@ def validate_age(number):
         raise ValueError(
           f"{number}! Those over 18 are above the age of acceptance for Hogwarts"
         )
+      elif number < 4:
+        raise ValueError(
+          f"Unfortunately Hogwarts can only accept students over the age of 4. As you are only {number} you will need to wait a few years and come back."
+        )
+      else:
+        return True
+
     except ValueError as e:
-      print(f"{e}, please re-count your years and try again.\n")
+      print(f"{e} Please re-count your years and try again.\n")
       return False
     
-    return True
-
 def main():
     #intro_logo_2()#
     welcome()
