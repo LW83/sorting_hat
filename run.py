@@ -1,6 +1,8 @@
 from datetime import datetime 
 import gspread
 from google.oauth2.service_account import Credentials
+from colorama import Fore, Style
+from questions import questions
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -18,40 +20,40 @@ houses = SHEET.worksheet('Houses')
 data = houses.get_all_values()
 
 def intro_logo_1():
-    print(r"""
-    =                             
-    =:                            
-    :+                            
-    .#:                           
+    print(Fore.YELLOW + r"""
+   =                             
+   =:                            
+   :+                            
+   .#:                           
     *+                           
     =#-                          
     -##.                         
     :##=                         
-      ###.                        
-      *##=                :.      
-      =###.            .=*#+      
-      -###+          :+#####.     
-      .####-      :=*#######-     
+     ###.                        
+     *##=                :.      
+     =###.            .=*#+      
+     -###+          :+#####.     
+     .####-      :=*#######-     
       ####*   .=*##########+     
       +####--*##############.    
       -##############**#####-    
       .###########*=. .#####+    
-        *#######+-.     .#####.   
-        +####+:          -####=   
-        -*=:              +####.  
-                          .*###:  
+       *#######+-.     .#####.   
+       +####+:          -####=   
+       -*=:              +####.  
+                         .*###:  
                           .*##+  
-                            :###  
+                           :###  
                             =##: 
-                              +#= 
+                             +#= 
                               ** 
                               :#:
-                                ==
+                               ==
                                 +
                                 """)
 
 def intro_logo_2():
-    print(r"""
+    print(Fore.BLUE +r"""
                                         =++++=====.             
                                         +@@@@@@@@@: .-+*:       
                           :---------=   :@@@@@@@@@%@@%%@@#.     
@@ -90,27 +92,45 @@ def welcome():
     Welcome function to request name, age and 
     country inputs from user. 
     """
+
+    print('THE SORTING HAT\n'.center(70))
+
     while True: 
-        name = input("Please enter your name:\n")
+        name = input("Please tell me your name:".center(70))
     
         if validate_name(name):
-            print(f"Nice to meet you {name}")
+            print(f"\nNice to meet you {name}!".center(70))
             break
     
     while True:
-        age = input(f"Please tell us your age:\n")
+        age = input(f"\nPlease tell me your age:".center(70))
         
         if validate_age(int(age)):
-            print(f"Thank you {name}!")
+            print(f"\nThank you!".center(70))
             break
     
-    country = input("Finally, please tell us what Country you are from:\n")
+    country = input("\nFinally, please tell us what Country you are from:\n".center(70))
+  
+    print("\nConfirming non-Muggle status........\n".center(70))
+    print("Non-Muggle status validated\n".center(70))
+    print(f"Welcome to Hogwarts School of Witchcraft and Wizardry {name}.\n".center(70))
+    print(f"We are delighted to have you join us for the {year} school term.\n".center(70))
+    print("In order to place you in the correct house for your time with us, ".center(70))
+    print("the Sorting Hat needs to know a little more about you...\n".center(70))
+    print(f"So, {name} are you ready to get started?\n".center(70))
 
-    print("Confirming non-Muggle status........\n")
-    print("Non-muggle status validated\n")
-    print(f"Welcome to Howgwarts School of Witchcraft and Wizardry {name}. \nWe are delighted to have you join us for the {year} school term.\n")
-    print("In order to place you in the correct house for your time with us, the Sorting Hat needs to know a little more about you...")
-    print(f"So, {name} are you ready to get started?")
+def start_sorting():
+    sort = input("Please enter y for 'Let's get sorted!' or n if you wish to remove the sorting hat.".center(70))
+    if sort == 'n':
+        print(f"You have removed the sorting hat. Goodbye {name} maybe we will see you next term instead.".center(70))
+        welcome()
+    elif sort == 'y':
+        generate_questions()
+    else:
+        print("Please enter either 'y' or 'n' in order to proceed.".center(70))
+
+#def generate_questions():#
+
 
 def validate_name(name):
     """
@@ -148,7 +168,9 @@ def validate_age(number):
       return False
     
 def main():
-    #intro_logo_2()#
+    intro_logo_2()
+    print(Style.RESET_ALL)
     welcome()
+    start_sorting()
 
 main()

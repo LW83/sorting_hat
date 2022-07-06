@@ -1,6 +1,8 @@
 https://ascii-generator.site/ - to create ASCII version of images
 https://stackoverflow.com/questions/23623288/print-full-ascii-art - how to insert ASCII images into Python
 https://www.codespeedy.com/check-if-user-input-is-a-string-or-number-in-python/ - to check name input for digits instead of letters
+https://pypi.org/project/colorama/ - to add yellow to lightning bolt
+
 
 
 
