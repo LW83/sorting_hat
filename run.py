@@ -165,6 +165,7 @@ def generate_questions():
     Runs through sorting hat questions
     """
     clear_display()
+    answers = []
     for q in questions:  #https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
         print(q['question'])
         sleep(1)
@@ -176,10 +177,13 @@ def generate_questions():
     
             if validate_answer(answer):
                 print('\nThank you'.center(70))
+                answers.append(answer)
                 break
 
         sleep(1)
         clear_display()
+    
+    print(answers)
 
 def clear_display(): #dnlBowers
     """"
