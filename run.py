@@ -128,6 +128,7 @@ def welcome():
     print("Non-Muggle status VALIDATED\n".center(70))
     sleep(2)
     clear_display()
+    
     intro_logo_1()
     print(Style.RESET_ALL)
     print(f"Welcome to Hogwarts School of Witchcraft and Wizardry {name}.\n".center(70))
@@ -193,7 +194,7 @@ def validate_name(name):
         raise ValueError(
           f"\nPlease enter your name as text, you entered {name}"
         )
-      elif name == "":
+      elif len(name.strip()) == 0: #rockymiss
         raise ValueError(
           "\nPlease enter your name, we need this to ensure you can be accepted to Hogwarts"
         )
@@ -219,7 +220,7 @@ def validate_age(number):
           "\nAs you are only {number} you will need to wait a few years and come back."
           "Please re-counr your years and try again."
         )
-      elif number == '':
+      elif len(str(number.strip)) == 0
         raise ValueError(
           "\nPlease tell us your age so we are sure you can be accepted to Hogwarts."
         )
@@ -239,7 +240,7 @@ def validate_country(country):
         raise ValueError(
           f"\nPlease enter your country as text, you entered {name}"
         )
-      elif name == "":
+      elif len(name.strip() == 0:
         raise ValueError(
           "\nPlease enter your country, we need this to ensure you can be accepted to Hogwarts"
         )
