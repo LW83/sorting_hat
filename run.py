@@ -113,8 +113,13 @@ def welcome():
             break
     
     sleep(1)
-    country = input("\nFinally, please tell us what Country you are from:".center(70))
-  
+
+    while True: 
+        country = input("\nFinally, please tell us what Country you are from:".center(70))
+        if validate_country(country):
+            print(f"\nThank you {name}!".center(70))
+            break
+    
     sleep(2)
     clear_display()
 
