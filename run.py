@@ -97,9 +97,9 @@ def welcome():
     print('THE SORTING HAT\n'.center(70))
 
     sleep(2)
+    
     while True: 
         name = input("Please tell me your name:".center(70))
-    
         if validate_name(name):
             print(f"\nNice to meet you {name}!".center(70))
             break
@@ -107,8 +107,7 @@ def welcome():
     sleep(1)
 
     while True:
-        age = input(f"\nPlease tell me your age:".center(70))
-        
+        age = input(f"\nPlease tell me your age:".center(70))  
         if validate_age(int(age)):
             print(f"\nThank you!".center(70))
             break
@@ -136,16 +135,16 @@ def welcome():
     print(f"So, {name}, are you ready to get started?\n".center(70))
 
 def start_sorting():
-    sort = input("Please enter y for 'Let's get sorted!' or n if you wish to remove the sorting hat.".center(70))
+    sort = input("\nPlease enter y for 'Let's get sorted!' or n if you wish to remove the sorting hat.".center(70))
     if sort == 'n':
         print(f"\n\nYou have removed the sorting hat. Goodbye NAME maybe we will see you next term instead.".center(70))
         sleep (3)
         clear_display()
-        intro_logo_2()
-        print(Style.RESET_ALL)
-        welcome()
+        main()
     elif sort == 'y':
         generate_questions()
+    elif sort == '':
+        print("\nPlease enter either 'y' or 'n' in order to proceed.\n".center(70))
     else:
         print("\nPlease enter either 'y' or 'n' in order to proceed.\n".center(70))
 
@@ -187,7 +186,11 @@ def validate_name(name):
     try: 
       if name.isnumeric():
         raise ValueError(
-          f"Please enter your name as text, you entered {name}"
+          f"\nPlease enter your name as text, you entered {name}"
+        )
+      elif name == "":
+        raise ValueError(
+          "\nPlease enter your name, we need this to ensure you can be accepted to Hogwarts"
         )
     except ValueError as e:
       print(f"{e}, please try again.\n")
@@ -202,22 +205,44 @@ def validate_age(number):
     try: 
       if number > 18:
         raise ValueError(
-          f"\n{number}! Hogwarts cannot accept students over the age of 18"
+          f"\n{number}! Hogwarts cannot accept students over the age of 18."
+          "\n Please re-count your years and try again."
         )
       elif number < 4:
         raise ValueError(
-          f"\nHogwarts can only accept students over the age of 4. As you are only {number} you will need to wait a few years and come back."
+          f"\nHogwarts can only accept students over the age of 4." 
+          "\nAs you are only {number} you will need to wait a few years and come back."
+          "Please re-counr your years and try again."
         )
       elif number == '':
         raise ValueError(
-          "Please tell us your age so we are sure you can be accepted to Hogwarts."
+          "\nPlease tell us your age so we are sure you can be accepted to Hogwarts."
         )
       else:
         return True
 
     except ValueError as e:
-      print(f"{e} Please re-count your years and try again.\n")
+      print(f"\n{e}\n")
       return False
+
+def validate_country(country):
+    """
+    Raises error if name entered has numerical entries.
+    """
+    try: 
+      if name.isnumeric():
+        raise ValueError(
+          f"\nPlease enter your country as text, you entered {name}"
+        )
+      elif name == "":
+        raise ValueError(
+          "\nPlease enter your country, we need this to ensure you can be accepted to Hogwarts"
+        )
+    except ValueError as e:
+      print(f"{e}, please try again.\n")
+      return False
+    
+    return True
 
 def validate_answer(answer):
     """
@@ -226,11 +251,11 @@ def validate_answer(answer):
     try: 
       if answer not in {'a','b','c','d'}:
         raise ValueError(
-          f"You answered {answer},"
+          f"\nYou answered {answer},"
         )
       elif answer == '':
         raise ValueError(
-          "You did not provide an answer,"
+          "\nYou did not provide an answer,"
         )
       else:
         return True
