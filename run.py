@@ -123,7 +123,7 @@ def welcome():
         country = input("\nFinally, please tell us what Country you are from:".center(70))
         if validate_country(country):
             print(f"\nThank you {name}!".center(70))
-            student.update({"Name" : name})
+            student.update({"Country" : country})
             break
     
     sleep(2)
@@ -145,6 +145,8 @@ def welcome():
     print("the Sorting Hat needs to know a little more about you...\n".center(70))
     sleep(3)
     print(f"So, {name}, are you ready to get started?\n".center(70))
+
+    return student
 
 def start_sorting():
     sort = input("\nPlease enter y for 'Let's get sorted!' or n if you wish to remove the sorting hat.".center(70))
@@ -274,15 +276,19 @@ def validate_answer(answer):
       print(f"{e} please select a, b, c or d as your answer to proceed.\n")
       return False
 
-def update_house_spreadsheet(data):
+def update_house_spreadsheet():#rockymiss
     """
+    Populates Houses tab of Google spreadsheet
+    with name, age and country input data.
     """
-    print("test")
+    new_student = list(student.values())
+    houses.append_row(new_student)
 
 def main():
     intro_logo_2()
     print(Style.RESET_ALL)
     welcome()
+    update_house_spreadsheet()
     start_sorting()
     generate_questions()
 
