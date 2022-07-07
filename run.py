@@ -20,6 +20,7 @@ SHEET = GSPREAD_CLIENT.open('hogwarts_houses')
 year = datetime.now().year
 houses = SHEET.worksheet('Houses')
 data = houses.get_all_values()
+student = {"Name":"", "Age": "", "Country": "", "House": ""}
 
 def intro_logo_1():
     print(Fore.YELLOW + r"""
@@ -100,16 +101,20 @@ def welcome():
     
     while True: 
         name = input("Please tell me your name:".center(70))
+        
         if validate_name(name):
             print(f"\nNice to meet you {name}!".center(70))
+            student.update({"Name" : name}) #rockymiss
             break
     
     sleep(1)
 
     while True:
         age = input(f"\nPlease tell me your age:".center(70))  
-        if validate_age(int(age)):
+        
+        if validate_age(age):
             print(f"\nThank you!".center(70))
+            student.update({"Age" : age}) 
             break
     
     sleep(1)
@@ -118,6 +123,7 @@ def welcome():
         country = input("\nFinally, please tell us what Country you are from:".center(70))
         if validate_country(country):
             print(f"\nThank you {name}!".center(70))
+            student.update({"Name" : name})
             break
     
     sleep(2)
@@ -149,8 +155,6 @@ def start_sorting():
         main()
     elif sort == 'y':
         generate_questions()
-    elif sort == '':
-        print("\nPlease enter either 'y' or 'n' in order to proceed.\n".center(70))
     else:
         print("\nPlease enter either 'y' or 'n' in order to proceed.\n".center(70))
 
@@ -209,21 +213,21 @@ def validate_age(number):
     Raises error if age entered is over 18.
     """
     try: 
-      if number > 18:
+      if int(number) > 18:
         raise ValueError(
           f"\n{number}! Hogwarts cannot accept students over the age of 18."
-          "\n Please re-count your years and try again."
+          "\nPlease re-count your years and try again."
         )
-      elif number < 4:
+      elif int(number) < 4:
         raise ValueError(
-          f"\nHogwarts can only accept students over the age of 4." 
-          "\nAs you are only {number} you will need to wait a few years and come back."
-          "Please re-counr your years and try again."
+          "\nHogwarts can only accept students over the age of 4."
+          f"\nAs you are only {number} you will need to wait a few years and come back."
+          "Please re-count your years and try again."
         )
-      elif len(str(number.strip)) == 0
-        raise ValueError(
-          "\nPlease tell us your age so we are sure you can be accepted to Hogwarts."
-        )
+      #elif number.isnumeric() = False
+      #  raise ValueError(
+      #    "\nPlease tell us your age so we are sure you can be accepted to Hogwarts."
+      #  )
       else:
         return True
 
@@ -236,11 +240,11 @@ def validate_country(country):
     Raises error if name entered has numerical entries.
     """
     try: 
-      if name.isnumeric():
+      if country.isnumeric():
         raise ValueError(
-          f"\nPlease enter your country as text, you entered {name}"
+          f"\nPlease enter your country as text, you entered {country}"
         )
-      elif len(name.strip() == 0:
+      elif len(country.strip()) == 0:
         raise ValueError(
           "\nPlease enter your country, we need this to ensure you can be accepted to Hogwarts"
         )
@@ -269,7 +273,12 @@ def validate_answer(answer):
     except ValueError as e:
       print(f"{e} please select a, b, c or d as your answer to proceed.\n")
       return False
-    
+
+def update_house_spreadsheet(data):
+    """
+    """
+    print("test")
+
 def main():
     intro_logo_2()
     print(Style.RESET_ALL)
