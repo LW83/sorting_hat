@@ -4,6 +4,35 @@ https://www.codespeedy.com/check-if-user-input-is-a-string-or-number-in-python/ 
 https://pypi.org/project/colorama/ - to add yellow to lightning bolt
 
 
+'''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers
+    """
+    Runs through sorting hat questions
+    """
+    clear_display()
+    answers = []
+    for q in questions:  #https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
+        print(q['question'])
+        sleep(1)
+        for i, c in enumerate(q['options']):
+            print(chr(97 + i)+ ':', c)
+            
+        while True: 
+            answer = input("Enter your answer:\n>>> ".center(70))
+    
+            if validate_answer(answer):
+                print('\n\nThank you'.center(70))
+                answers.append(answer)
+                break
+
+        sleep(1)
+        clear_display()
+
+        return answers'''
+
+Bug
+Questions were looping twice - was calling fucntion from within sort function and then again in main
+Was breaking after two questions - 
+
 
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)

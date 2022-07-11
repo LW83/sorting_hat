@@ -1,4 +1,5 @@
 import os
+import statistics
 from datetime import datetime 
 from time import sleep
 import gspread
@@ -165,26 +166,26 @@ def generate_questions():
     Runs through sorting hat questions
     """
     clear_display()
+    
     answers = []
-    for q in questions:  #https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
-        print(q['question'])
+    
+    for q in questions:
+        print(q['question']) #https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
         sleep(1)
         for i, c in enumerate(q['options']):
-            print(chr(97 + i)+ ':', c)
-            
+            print(chr(97 + i) + ':', c)
+
         while True: 
             answer = input("Enter your answer:\n>>> ".center(70))
     
             if validate_answer(answer):
-                print('\nThank you'.center(70))
+                print('\n\nThank you'.center(70))
                 answers.append(answer)
                 break
 
         sleep(1)
         clear_display()
     
-    print(answers)
-
 def clear_display(): #dnlBowers
     """"
     Clears the console
@@ -288,12 +289,16 @@ def update_house_spreadsheet():#rockymiss
     new_student = list(student.values())
     houses.append_row(new_student)
 
+#def determine_house(data):
+    #house = statistics.mode(data)
+    #print(house)
+
 def main():
-    intro_logo_2()
-    print(Style.RESET_ALL)
+    #intro_logo_2()
+    #print(Style.RESET_ALL)
     welcome()
     update_house_spreadsheet()
     start_sorting()
-    generate_questions()
+    #determine_house(answers)
 
 main()
