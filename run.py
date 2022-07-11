@@ -20,8 +20,7 @@ SHEET = GSPREAD_CLIENT.open('hogwarts_houses')
 
 year = datetime.now().year
 houses = SHEET.worksheet('Houses')
-data = houses.get_all_values()
-student = {"Name":"", "Age": "", "Country": "", "House": ""}
+student = {"Name" : "", "Age" : "", "Country" : "", "House" : ""}
 
 def intro_logo_1():
     print(Fore.YELLOW + r"""
@@ -186,6 +185,20 @@ def generate_questions():
         sleep(1)
         clear_display()
     
+    house = statistics.mode(answers)
+    
+    if house == 'a':
+        student.update({"House" : "Griffyndor"})
+    elif house == 'b':
+        student.update({"House" : "Slytherin"})
+    elif house == 'c':
+        student.update({"House" : "Hufflepuff"})
+    elif house == 'd':
+        student.update({"House" : "Ravenclaw"})
+    else:
+        print("Hmmmmm...I am having some trouble sorting you.")
+        print("Perhaps we should run through the questions again..")
+    
 def clear_display(): #dnlBowers
     """"
     Clears the console
@@ -289,16 +302,178 @@ def update_house_spreadsheet():#rockymiss
     new_student = list(student.values())
     houses.append_row(new_student)
 
-#def determine_house(data):
-    #house = statistics.mode(data)
-    #print(house)
+def determine_house():
+    if (student['House'] == "Gryffindor"):
+        print(Fore.RED + r"""
+                                        
+                    :=*%%#:              
+                -*%@@@@@@@@*             
+            :+%@@@@@@@@@@@@@@-           
+         -*@@@@@@@@%+-.@@@@@@@#.         
+      -#@@@@@@@@+:     :@@@@@@@@=        
+   .*@@@@@@@@@+         +@@@@@@@@%      .
+   +@@@@@@@@@#           %@@@@@@@@+      
+   +@@@@@@@@@#           +@@@@@%=        
+   +@@@@@@@@@#           =@@@+:          
+   #@@@@@@@@@#           %#-             
+   #@@@@@@@@@*          -.               
+   #@@@@@@@@@+                           
+   @@@@@@@@@@+                           
+   @@@@@@@@@@+                           
+   @@@@@@@@@@+              :=+*#%%##    
+   @@@@@@@@@@+         .=*%@@@@@@@@@@    
+   @@@@@@@@@@+    .-+#@@@@@@@@@@@@@@@    
+   @@@@@@@@@@+   :+*%@@@@@%@@@@@@@@@%    
+   @@@@@@@@@@+         .   @@@@@@@@@#    
+   @@@@@@@@@@+             @@@@@@@@@#    
+   #@@@@@@@@@+             @@@@@@@@@@    
+   #@@@@@@@@@+             @@@@@@@@@@    
+   :@@@@@@@@@+             @@@@@@@@@@    
+    .#@@@@@@@+             @@@@@@@@@%    
+      -@@@@@@%:            @@@@@@@@*.    
+        -%@@@@@*.        -%@@@@@@*:      
+          -*@@@@@#=..-+%@@@@@@@+.        
+            .+@@@@@@@@@@@@@%*:           
+               =%@@@@@@%*=.              
+                 .:-:.      """)
+        print (f"Welcome to Gryffindor {student['Name']}!".center(80))
+        print(Style.RESET_ALL)
+        sleep(1)
+        print("\nGryffindor students are couragous and daring.".center(80))
+        print("\nGryffindor House values nerve, leadership and chivalry.".center(80))
+    elif (student['House'] == "Slytherin"):
+        print(Fore.GREEN + r"""
+                      .-*#%-              
+                  .=%@@@@@@%:            
+                -#@@@@@@@@@@@+           
+             .+@@@@@@@@@@@@@@@@-         
+           -#@@@@@@@@@@@@@@@@@@@%:       
+        :*@@@@@@*. .-*@@@@@@@@@@@@+      
+      =%@@@@@@@:       -#@@@@@@@@@@@:    
+    *@@@@@@@@@*          :*@@@@@@@@@@.   
+   %@@@@@@@@@@@:           .*@@@@@@@@%   
+    *@@@@@@@@@@@*            :%@@@@@@@.  
+     -@@@@@@@@@@@@-           =@@@@@%=   
+       +@@@@@@@@@@@%:       =##+=-:      
+        .#@@@@@@@@@@@*.                  
+          -%@@@@@@@@@@@+                 
+            =@@@@@@@@@@@@=               
+             .*@@@@@@@@@@@%-             
+               :%@@@@@@@@@@@#:           
+                 =@@@@@@@@@@@@*.         
+                   +@@@@@@@@@@@@+        
+         .:=++:     .#@@@@@@@@@@@@=      
+      -*@@@@=         =@@@@@@@@@@@@%:    
+    -@@@@@@#           .#@@@@@@@@@@@@+   
+    *@@@@@@@+            =@@@@@@@@@@@@#  
+    .@@@@@@@@#            =@@@@@@@@@@@@. 
+     -@@@@@@@@@-         .#@@@@@@@@@%-.#%
+      -@@@@@@@@@#.      +@@@@@@@@@*- =@@@
+        +@@@@@@@@@+   :%@@@@@@@@+.  :%@@@
+         .#@@@@@@@@@*+@@@@@@@#-       .-*
+           -@@@@@@@@@@@@@@%=.            
+             *@@@@@@@@@@*:               
+              :%@@@@@*-                  
+                ===:           """)
+        print (f"\nWelcome to Slytherin {student['Name']}!".center(80))
+        print(Style.RESET_ALL)
+        sleep(1)
+        print ("\nSlytherin students are ambitious and shrewd".center(80))
+        print("with a tendency to look after themselves instead of others.".center(80))
+        print("\nSlytherins are always striving to be the best and will do".center(80))
+        print("almost anything to achieve honor and glory.".center(80))
+    elif (student['House'] == "Hufflepuff"):
+        print(Fore.YELLOW + r"""
+                                            
+                                  ..     
+                       .=%@@@@@@@@@=     
+       :*@@@@@@@@@@=      @@@@@@@@.      
+         *@@@@@@@@*       @@@@@@@#       
+         =@@@@@@@@*       @@@@@@@%       
+         =@@@@@@@@*       @@@@@@@%       
+         =@@@@@@@@*       @@@@@@@%       
+         -@@@@@@@@*       @@@@@@@@       
+         -@@@@@@@@*       @@@@@@@@      
+         -@@@@@@@@*       @@@@@@@@     
+         -@@@@@@@@#       @@@@@@@@:=*%@@@
+     :-: -@@@@@@@@#       @@@@@@@@@@@@@@@
+   *@=   :@@@@@@@@#       @@@@@@@@-   .*@
+   =@#   :@@@@@@@@#     -*@@@@@@@@.    .@
+    =@@*--@@@@@@@@#.-+%@@@@@@@@@@@.    
+      -*%@@@@@@@@@@@@@%+-.@@@@@@@@:    
+         :@@@@@@@@@-.     @@@@@@@@:    
+         :@@@@@@@@%       @@@@@@@@:    
+         .@@@@@@@@%       @@@@@@@@-    
+         .@@@@@@@@%       @@@@@@@@-     
+         .@@@@@@@@%       @@@@@@@@-      
+         .@@@@@@@@@       @@@@@@@@=      
+         .@@@@@@@@@       @@@@@@@@=      
+         :@@@@@@@@@       @@@@@@@@=      
+       :+@@@@@@@@@@%-     @@@@@@@@+      
+       .........::::::   *@@@@@@@@#      
+                       :*##########*-  
+                       """)
+        print (f"\nWelcome to Hufflepuff {student['Name']}!".center(80))
+        print(Style.RESET_ALL)
+        sleep(1)
+        print("\nHufflepuff students are hard-working,".center(80)
+        print("friendly, loyal and honest.".center(80)) 
+        print("\n\nHufflepuff house values dedication,".center(80))
+        print("patience, loyalty, and fair play.".center(80))
+    elif (student['House'] == "Ravenclaw"):
+        print(Fore.BLUE + r"""
+    -@@@@@@@@@@   :+-          
+    @@@@@@@@@@+#@@@@#.        
+    %@@@@@@@@@@#+-+@@@=       
+    +@@@@@@@@@    =@@@@%:     
+    -@@@@@@@@@    -@@@@@@*.   
+    .@@@@@@@@@    :@@@@@@@@.  
+     %@@@@@@@@    .@@@@@@@@   
+     *@@@@@@@@     @@@@@@@%  
+     -@@@@@@@@     @@@@@@@* 
+     .@@@@@@@@     @@@@@@@=  
+      @@@@@@@@     %@@@@@@:   
+   ##+%@@@@@@@.    #@@@@@@    
+   +@@@@@@@@@@@%+-%@@@@@@%    
+   :@@@@@@@@@@@@@@@@@%*=:     
+    %@@@@@@@@*:@@@@@+       
+    +@@@@@@@@# .@@@@%       
+    :@@@@@@@@%  =@@@@-       
+     @@@@@@*@@   %@@@%       
+   : *@@@@@::%   :@@@@-       
+   +@@@@@@@-      +@@@@       
+   .@@@@@@@-       %@@@*      
+    %@@@@@@-       :@@@@-     
+    =@@@@@@=        +@@@@.    
+    .@@@@@@=         @@@@#    
+     #@@@*@+         =@@@@#   
+     =@@@:.=          @@@@@#  
+      @@@             #@@@@@@*
+      #@%             ###%%@@@
+      -@*                    :
+       @=                     
+       *-                     
+       -.                     
+                        """)
+        print (f"Welcome to Ravenclaw {student['Name']}!".center(80))
+        print(Style.RESET_ALL)
+        sleep(1)
+        print ("\nRavenclaw House values wisdom, wit, intellectual".center(80))
+        print("ability and creativity. \n\nStudents in Ravenclaw are noted for".center(80)) 
+        print("their individuality and acceptance of people and things".center(80))
+        print("that others would consider weird, as well as their".center(80))
+        print("outstanding intelligence.".center(80)) 
+    else:
+        print("Hmmm there seems to be something amiss...")
+    
 
 def main():
     #intro_logo_2()
     #print(Style.RESET_ALL)
     welcome()
-    update_house_spreadsheet()
     start_sorting()
-    #determine_house(answers)
+    update_house_spreadsheet()
+    determine_house()
+
 
 main()

@@ -33,6 +33,10 @@ Bug
 Questions were looping twice - was calling fucntion from within sort function and then again in main
 Was breaking after two questions - 
 
+Bug 
+Was updating spreadsheet after welcome moved to after generate questions to update with all details (name etc plus house)
+Moved house determination within function to be able to access house variable
+
 
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
