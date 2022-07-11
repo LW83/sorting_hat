@@ -188,7 +188,7 @@ def generate_questions():
     house = statistics.mode(answers)
     
     if house == 'a':
-        student.update({"House" : "Griffyndor"})
+        student.update({"House" : "Gryffindor"})
     elif house == 'b':
         student.update({"House" : "Slytherin"})
     elif house == 'c':
@@ -336,11 +336,14 @@ def determine_house():
             .+@@@@@@@@@@@@@%*:           
                =%@@@@@@%*=.              
                  .:-:.      """)
-        print (f"Welcome to Gryffindor {student['Name']}!".center(80))
+        print("")
+        print(f"Welcome to Gryffindor {student['Name']}!".center(80))
         print(Style.RESET_ALL)
         sleep(1)
-        print("\nGryffindor students are couragous and daring.".center(80))
-        print("\nGryffindor House values nerve, leadership and chivalry.".center(80))
+        print("")
+        print("Gryffindor students are couragous and daring.".center(80))
+        print("\n")
+        print("Gryffindor House values nerve, leadership and chivalry.".center(80))
     elif (student['House'] == "Slytherin"):
         print(Fore.GREEN + r"""
                       .-*#%-              
@@ -367,20 +370,23 @@ def determine_house():
     -@@@@@@#           .#@@@@@@@@@@@@+   
     *@@@@@@@+            =@@@@@@@@@@@@#  
     .@@@@@@@@#            =@@@@@@@@@@@@. 
-     -@@@@@@@@@-         .#@@@@@@@@@%-.#%
-      -@@@@@@@@@#.      +@@@@@@@@@*- =@@@
-        +@@@@@@@@@+   :%@@@@@@@@+.  :%@@@
-         .#@@@@@@@@@*+@@@@@@@#-       .-*
+     -@@@@@@@@@-         .#@@@@@@@@@%-
+      -@@@@@@@@@#.      +@@@@@@@@@*- 
+        +@@@@@@@@@+   :%@@@@@@@@+.  
+         .#@@@@@@@@@*+@@@@@@@#-       
            -@@@@@@@@@@@@@@%=.            
              *@@@@@@@@@@*:               
               :%@@@@@*-                  
                 ===:           """)
-        print (f"\nWelcome to Slytherin {student['Name']}!".center(80))
+        print("")
+        print(f"Welcome to Slytherin {student['Name']}!".center(80))
         print(Style.RESET_ALL)
         sleep(1)
-        print ("\nSlytherin students are ambitious and shrewd".center(80))
+        print("")
+        print("Slytherin students are ambitious and shrewd".center(80))
         print("with a tendency to look after themselves instead of others.".center(80))
-        print("\nSlytherins are always striving to be the best and will do".center(80))
+        print("\n")
+        print("Slytherins are always striving to be the best and will do".center(80))
         print("almost anything to achieve honor and glory.".center(80))
     elif (student['House'] == "Hufflepuff"):
         print(Fore.YELLOW + r"""
@@ -413,12 +419,15 @@ def determine_house():
        .........::::::   *@@@@@@@@#      
                        :*##########*-  
                        """)
-        print (f"\nWelcome to Hufflepuff {student['Name']}!".center(80))
+        print("")
+        print (f"Welcome to Hufflepuff {student['Name']}!".center(80))
         print(Style.RESET_ALL)
         sleep(1)
-        print("\nHufflepuff students are hard-working,".center(80)
+        print("")
+        print("Hufflepuff students are hard-working,".center(80))
         print("friendly, loyal and honest.".center(80)) 
-        print("\n\nHufflepuff house values dedication,".center(80))
+        print("\n")
+        print("Hufflepuff House values dedication,".center(80))
         print("patience, loyalty, and fair play.".center(80))
     elif (student['House'] == "Ravenclaw"):
         print(Fore.BLUE + r"""
@@ -455,11 +464,15 @@ def determine_house():
        *-                     
        -.                     
                         """)
+        print("")
         print (f"Welcome to Ravenclaw {student['Name']}!".center(80))
         print(Style.RESET_ALL)
         sleep(1)
-        print ("\nRavenclaw House values wisdom, wit, intellectual".center(80))
-        print("ability and creativity. \n\nStudents in Ravenclaw are noted for".center(80)) 
+        print ("")
+        print("Ravenclaw House values wisdom, wit, intellectual".center(80))
+        print("ability and creativity.".center(80))
+        print("\n")
+        print("Students in Ravenclaw are noted for".center(80)) 
         print("their individuality and acceptance of people and things".center(80))
         print("that others would consider weird, as well as their".center(80))
         print("outstanding intelligence.".center(80)) 
