@@ -100,7 +100,7 @@ def welcome():
     sleep(2)
     
     while True: 
-        name = input("Please tell me your name:".center(70))
+        name = input("Please tell me your name:\n>>>".center(70))
         
         if validate_name(name):
             print(f"\nNice to meet you {name}!".center(70))
@@ -110,7 +110,7 @@ def welcome():
     sleep(1)
 
     while True:
-        age = input(f"\nPlease tell me your age:".center(70))  
+        age = input(f"\nPlease tell me your age:\n>>>".center(70))  
         
         if validate_age(age):
             print(f"\nThank you!".center(70))
@@ -151,7 +151,7 @@ def welcome():
 def start_sorting():
     sort = input("\nPlease enter y for 'Let's get sorted!' or n if you wish to remove the sorting hat.".center(70))
     if sort == 'n':
-        print(f"\n\nYou have removed the sorting hat. Goodbye NAME maybe we will see you next term instead.".center(70))
+        print(f"\n\nYou have removed the sorting hat. Goodbye {student['Name']} maybe we will see you next term instead.".center(70))
         sleep (3)
         clear_display()
         main()
@@ -478,7 +478,29 @@ def determine_house():
         print("outstanding intelligence.".center(80)) 
     else:
         print("Hmmm there seems to be something amiss...")
-    
+
+def conclusion():
+  print(f"Congratulations {student['Name']} on being accepted".center(80))
+  print(f"into {student['House']} House. We wish you all the best".center(80))
+  print("and hope you enjoy your time with us here at Hogwarts for".center(80))
+  print(f"the {year} school year.".center(80))
+  sleep(2)
+  print("")
+  print("Alternatively, if you are not happy with the House".center(80))
+  print(f"you have been put into {student['Name']}, we can run".center(80))
+  print("through the questions again to find you a better fit!".center(80))
+  print("")
+  input("""
+        Please enter h if you are happy with your house and wish to
+        see who your fellow housemates will be or r if you wish to be 
+        re-sorted.
+        """.center(80))
+
+def quit():
+
+def re-sort():
+
+def see_housemates():
 
 def main():
     #intro_logo_2()
@@ -487,6 +509,5 @@ def main():
     start_sorting()
     update_house_spreadsheet()
     determine_house()
-
 
 main()
