@@ -490,11 +490,37 @@ def conclusion():
   print(f"you have been put into {student['Name']}, we can run".center(80))
   print("through the questions again to find you a better fit!".center(80))
   print("")
-  input("""
-        Please enter h if you are happy with your house and wish to
-        see who your fellow housemates will be or r if you wish to be 
-        re-sorted.
-        """.center(80))
+    
+    while True: 
+        next_step = input("""
+                        Please enter h if you are happy with your house and wish to
+                        see who your fellow housemates will be or r if you wish to be 
+                        re-sorted.
+                      """.center(80))
+    
+        if validate_conclusion(next_step):
+                print('\n\nThank you'.center(70))
+                break
+
+def validate_conclusion(next_step):
+    """
+    Raises error if answer entered is not h or r.
+    """
+    try: 
+      if answer not in {'h','r'}:
+        raise ValueError(
+          f"\nYou answered {answer},"
+        )
+      elif answer == '':
+        raise ValueError(
+          "\nYou did not provide an answer,"
+        )
+      else:
+        return True
+
+    except ValueError as e:
+      print(f"{e} please select h or r as your answer to proceed.\n")
+      return False
 
 def quit():
 
