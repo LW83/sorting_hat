@@ -24,36 +24,36 @@ student = {"Name" : "", "Age" : "", "Country" : "", "House" : ""}
 
 def intro_logo_1():
     print(Fore.YELLOW + r"""
-       =                             
-       =:                            
-       :+                            
-       .#:                           
-        *+                           
-        =#-                          
-        -##.                         
-        :##=                         
-         ###.                        
-         *##=                :.      
-         =###.            .=*#+      
-         -###+          :+#####.     
-         .####-      :=*#######-     
-          ####*   .=*##########+     
-          +####--*##############.    
-          -##############**#####-    
-          .###########*=. .#####+    
-           *#######+-.     .#####.   
-           +####+:          -####=   
-           -*=:              +####.  
-                             .*###:  
-                              .*##+  
-                               :###  
-                                =##: 
-                                 +#= 
-                                  ** 
-                                  :#:
-                                   ==
-                                    +
-                                    """.center(70))
+               =                             
+               =:                            
+               :+                            
+               .#:                           
+                *+                           
+                =#-                          
+                -##.                         
+                :##=                         
+                 ###.                        
+                 *##=                :.      
+                 =###.            .=*#+      
+                 -###+          :+#####.     
+                 .####-      :=*#######-     
+                  ####*   .=*##########+     
+                  +####--*##############.    
+                  -##############**#####-    
+                  .###########*=. .#####+    
+                   *#######+-.     .#####.   
+                   +####+:          -####=   
+                   -*=:              +####.  
+                                     .*###:  
+                                      .*##+  
+                                       :###  
+                                        =##: 
+                                         +#= 
+                                          ** 
+                                          :#:
+                                           ==
+                                            +
+           """)
 
 def intro_logo_2():
     print(Fore.BLUE +r"""
@@ -100,35 +100,41 @@ def welcome():
     sleep(2)
     
     while True: 
-        name = input("Please tell me your name:\n>>>".center(70))
+        name = input("Please tell me your name:\n>>> ")
         
         if validate_name(name):
-            print(f"\nNice to meet you {name}!".center(70))
+            print("")
+            print(f"Nice to meet you {name}!")
             student.update({"Name" : name}) #rockymiss
             break
     
     sleep(1)
 
     while True:
-        age = input(f"\nPlease tell me your age:\n>>>".center(70))  
+        print("")
+        age = input("Please tell me your age:\n>>> ")  
         
         if validate_age(age):
-            print(f"\nThank you!".center(70))
+            print("")
+            print(f"Thank you!")
             student.update({"Age" : age}) 
             break
     
     sleep(1)
 
     while True: 
-        country = input("\nFinally, please tell us what Country you are from:".center(70))
+        print("")
+        country = input("Finally, please tell us what Country you are from:\n>>> ")
         if validate_country(country):
-            print(f"\nThank you {name}!".center(70))
+            print("")
+            print(f"Thank you {name}!".center(70))
             student.update({"Country" : country})
             break
     
     sleep(2)
     clear_display()
 
+    print("")
     print("Confirming non-Muggle status........\n".center(70))
     sleep(3)
     print("Non-Muggle status VALIDATED\n".center(70))
@@ -141,21 +147,24 @@ def welcome():
     sleep(2)
     print(f"We are delighted to have you join us for the {year} school term.\n".center(70))
     sleep(3)
-    print("In order to place you in the correct house for your time with us, ".center(70))
+    print("In order to place you in the correct House for your time with us, ".center(70))
     print("the Sorting Hat needs to know a little more about you...\n".center(70))
     sleep(3)
-    print(f"So, {name}, are you ready to get started?\n".center(70))
+    print(f"So, {name}, are you ready to get started?".center(70))
 
     return student
 
 def start_sorting():
-    sort = input("\nPlease enter y for 'Let's get sorted!' or n if you wish to remove the sorting hat.".center(70))
+    sort = input("\nPlease enter y to start or n if you wish to remove the Sorting Hat.\n>>> ".center(70))
     if sort == 'n':
-        print(f"\n\nYou have removed the sorting hat. Goodbye {student['Name']} maybe we will see you next term instead.".center(70))
+        print(f"\n\nYou have removed the sorting hat. \nGoodbye {student['Name']} maybe we will see you next term instead.".center(70))
         sleep (3)
         clear_display()
         main()
     elif sort == 'y':
+        print("")
+        print("Let's get sorting!!!".center(80))
+        sleep(1)
         generate_questions()
     else:
         print("\nPlease enter either 'y' or 'n' in order to proceed.\n".center(70))
@@ -306,36 +315,37 @@ def determine_house():
     if (student['House'] == "Gryffindor"):
         print(Fore.RED + r"""
                                         
-                    :=*%%#:              
-                -*%@@@@@@@@*             
-            :+%@@@@@@@@@@@@@@-           
-         -*@@@@@@@@%+-.@@@@@@@#.         
-      -#@@@@@@@@+:     :@@@@@@@@=        
-   .*@@@@@@@@@+         +@@@@@@@@%      .
-   +@@@@@@@@@#           %@@@@@@@@+      
-   +@@@@@@@@@#           +@@@@@%=        
-   +@@@@@@@@@#           =@@@+:          
-   #@@@@@@@@@#           %#-             
-   #@@@@@@@@@*          -.               
-   #@@@@@@@@@+                           
-   @@@@@@@@@@+                           
-   @@@@@@@@@@+                           
-   @@@@@@@@@@+              :=+*#%%##    
-   @@@@@@@@@@+         .=*%@@@@@@@@@@    
-   @@@@@@@@@@+    .-+#@@@@@@@@@@@@@@@    
-   @@@@@@@@@@+   :+*%@@@@@%@@@@@@@@@%    
-   @@@@@@@@@@+         .   @@@@@@@@@#    
-   @@@@@@@@@@+             @@@@@@@@@#    
-   #@@@@@@@@@+             @@@@@@@@@@    
-   #@@@@@@@@@+             @@@@@@@@@@    
-   :@@@@@@@@@+             @@@@@@@@@@    
-    .#@@@@@@@+             @@@@@@@@@%    
-      -@@@@@@%:            @@@@@@@@*.    
-        -%@@@@@*.        -%@@@@@@*:      
-          -*@@@@@#=..-+%@@@@@@@+.        
-            .+@@@@@@@@@@@@@%*:           
-               =%@@@@@@%*=.              
-                 .:-:.      """)
+                                   :=*%%#:              
+                               -*%@@@@@@@@*             
+                           :+%@@@@@@@@@@@@@@-           
+                        -*@@@@@@@@%+-.@@@@@@@#.         
+                     -#@@@@@@@@+:     :@@@@@@@@=        
+                  .*@@@@@@@@@+         +@@@@@@@@%      
+                  +@@@@@@@@@#           %@@@@@@@@+      
+                  +@@@@@@@@@#           +@@@@@%=        
+                  +@@@@@@@@@#           =@@@+:          
+                  #@@@@@@@@@#           %#-             
+                  #@@@@@@@@@*          -.               
+                  #@@@@@@@@@+                           
+                  @@@@@@@@@@+                           
+                  @@@@@@@@@@+                           
+                  @@@@@@@@@@+              :=+*#%%##    
+                  @@@@@@@@@@+         .=*%@@@@@@@@@@    
+                  @@@@@@@@@@+    .-+#@@@@@@@@@@@@@@@    
+                  @@@@@@@@@@+   :+*%@@@@@%@@@@@@@@@%    
+                  @@@@@@@@@@+         .   @@@@@@@@@#    
+                  @@@@@@@@@@+             @@@@@@@@@#    
+                  #@@@@@@@@@+             @@@@@@@@@@    
+                  #@@@@@@@@@+             @@@@@@@@@@    
+                  :@@@@@@@@@+             @@@@@@@@@@    
+                   .#@@@@@@@+             @@@@@@@@@%    
+                     -@@@@@@%:            @@@@@@@@*.    
+                      -%@@@@@*.        -%@@@@@@*:      
+                         -*@@@@@#=..-+%@@@@@@@+.        
+                           .+@@@@@@@@@@@@@%*:           
+                              =%@@@@@@%*=.              
+                                .:-:.      
+               """)
         print("")
         print(f"Welcome to Gryffindor {student['Name']}!".center(80))
         print(Style.RESET_ALL)
@@ -344,40 +354,43 @@ def determine_house():
         print("Gryffindor students are couragous and daring.".center(80))
         print("\n")
         print("Gryffindor House values nerve, leadership and chivalry.".center(80))
+        sleep(3)
     elif (student['House'] == "Slytherin"):
         print(Fore.GREEN + r"""
-                      .-*#%-              
-                  .=%@@@@@@%:            
-                -#@@@@@@@@@@@+           
-             .+@@@@@@@@@@@@@@@@-         
-           -#@@@@@@@@@@@@@@@@@@@%:       
-        :*@@@@@@*. .-*@@@@@@@@@@@@+      
-      =%@@@@@@@:       -#@@@@@@@@@@@:    
-    *@@@@@@@@@*          :*@@@@@@@@@@.   
-   %@@@@@@@@@@@:           .*@@@@@@@@%   
-    *@@@@@@@@@@@*            :%@@@@@@@.  
-     -@@@@@@@@@@@@-           =@@@@@%=   
-       +@@@@@@@@@@@%:       =##+=-:      
-        .#@@@@@@@@@@@*.                  
-          -%@@@@@@@@@@@+                 
-            =@@@@@@@@@@@@=               
-             .*@@@@@@@@@@@%-             
-               :%@@@@@@@@@@@#:           
-                 =@@@@@@@@@@@@*.         
-                   +@@@@@@@@@@@@+        
-         .:=++:     .#@@@@@@@@@@@@=      
-      -*@@@@=         =@@@@@@@@@@@@%:    
-    -@@@@@@#           .#@@@@@@@@@@@@+   
-    *@@@@@@@+            =@@@@@@@@@@@@#  
-    .@@@@@@@@#            =@@@@@@@@@@@@. 
-     -@@@@@@@@@-         .#@@@@@@@@@%-
-      -@@@@@@@@@#.      +@@@@@@@@@*- 
-        +@@@@@@@@@+   :%@@@@@@@@+.  
-         .#@@@@@@@@@*+@@@@@@@#-       
-           -@@@@@@@@@@@@@@%=.            
-             *@@@@@@@@@@*:               
-              :%@@@@@*-                  
-                ===:           """)
+
+                                     .-*#%-              
+                                 .=%@@@@@@%:            
+                               -#@@@@@@@@@@@+           
+                            .+@@@@@@@@@@@@@@@@-         
+                           -#@@@@@@@@@@@@@@@@@@@%:       
+                       :*@@@@@@*. .-*@@@@@@@@@@@@+      
+                     =%@@@@@@@:       -#@@@@@@@@@@@:    
+                   *@@@@@@@@@*          :*@@@@@@@@@@.   
+                  %@@@@@@@@@@@:           .*@@@@@@@@%   
+                   *@@@@@@@@@@@*            :%@@@@@@@.  
+                    -@@@@@@@@@@@@-           =@@@@@%=   
+                      +@@@@@@@@@@@%:       =##+=-:      
+                       .#@@@@@@@@@@@*.                  
+                         -%@@@@@@@@@@@+                 
+                           =@@@@@@@@@@@@=               
+                            .*@@@@@@@@@@@%-             
+                              :%@@@@@@@@@@@#:           
+                                =@@@@@@@@@@@@*.         
+                                  +@@@@@@@@@@@@+        
+                        .:=++:     .#@@@@@@@@@@@@=      
+                     -*@@@@=         =@@@@@@@@@@@@%:    
+                   -@@@@@@#           .#@@@@@@@@@@@@+   
+                   *@@@@@@@+            =@@@@@@@@@@@@#  
+                   .@@@@@@@@#            =@@@@@@@@@@@@. 
+                    -@@@@@@@@@-         .#@@@@@@@@@%-
+                    -@@@@@@@@@#.      +@@@@@@@@@*- 
+                       +@@@@@@@@@+   :%@@@@@@@@+.  
+                        .#@@@@@@@@@*+@@@@@@@#-       
+                          -@@@@@@@@@@@@@@%=.            
+                            *@@@@@@@@@@*:               
+                             :%@@@@@*-                  
+                               ===:          
+               """)
         print("")
         print(f"Welcome to Slytherin {student['Name']}!".center(80))
         print(Style.RESET_ALL)
@@ -388,37 +401,38 @@ def determine_house():
         print("\n")
         print("Slytherins are always striving to be the best and will do".center(80))
         print("almost anything to achieve honor and glory.".center(80))
+        sleep(3)
     elif (student['House'] == "Hufflepuff"):
         print(Fore.YELLOW + r"""
                                             
-                                  ..     
-                       .=%@@@@@@@@@=     
-       :*@@@@@@@@@@=      @@@@@@@@.      
-         *@@@@@@@@*       @@@@@@@#       
-         =@@@@@@@@*       @@@@@@@%       
-         =@@@@@@@@*       @@@@@@@%       
-         =@@@@@@@@*       @@@@@@@%       
-         -@@@@@@@@*       @@@@@@@@       
-         -@@@@@@@@*       @@@@@@@@      
-         -@@@@@@@@*       @@@@@@@@     
-         -@@@@@@@@#       @@@@@@@@:=*%@@@
-     :-: -@@@@@@@@#       @@@@@@@@@@@@@@@
-   *@=   :@@@@@@@@#       @@@@@@@@-   .*@
-   =@#   :@@@@@@@@#     -*@@@@@@@@.    .@
-    =@@*--@@@@@@@@#.-+%@@@@@@@@@@@.    
-      -*%@@@@@@@@@@@@@%+-.@@@@@@@@:    
-         :@@@@@@@@@-.     @@@@@@@@:    
-         :@@@@@@@@%       @@@@@@@@:    
-         .@@@@@@@@%       @@@@@@@@-    
-         .@@@@@@@@%       @@@@@@@@-     
-         .@@@@@@@@%       @@@@@@@@-      
-         .@@@@@@@@@       @@@@@@@@=      
-         .@@@@@@@@@       @@@@@@@@=      
-         :@@@@@@@@@       @@@@@@@@=      
-       :+@@@@@@@@@@%-     @@@@@@@@+      
-       .........::::::   *@@@@@@@@#      
-                       :*##########*-  
-                       """)
+                                                ..     
+                                      .=%@@@@@@@@@=     
+                      :*@@@@@@@@@@=      @@@@@@@@.      
+                        *@@@@@@@@*       @@@@@@@#       
+                        =@@@@@@@@*       @@@@@@@%       
+                        =@@@@@@@@*       @@@@@@@%       
+                        =@@@@@@@@*       @@@@@@@%       
+                        -@@@@@@@@*       @@@@@@@@       
+                        -@@@@@@@@*       @@@@@@@@      
+                        -@@@@@@@@*       @@@@@@@@     
+                        -@@@@@@@@#       @@@@@@@@:=*%@@@
+                    :-: -@@@@@@@@#       @@@@@@@@@@@@@@@
+                  *@=   :@@@@@@@@#       @@@@@@@@-   .*@
+                  =@#   :@@@@@@@@#     -*@@@@@@@@.    .@
+                   =@@*--@@@@@@@@#.-+%@@@@@@@@@@@.    
+                    -*%@@@@@@@@@@@@@%+-.@@@@@@@@:    
+                       :@@@@@@@@@-.     @@@@@@@@:    
+                       :@@@@@@@@%       @@@@@@@@:    
+                       .@@@@@@@@%       @@@@@@@@-    
+                       .@@@@@@@@%       @@@@@@@@-     
+                       .@@@@@@@@%       @@@@@@@@-      
+                       .@@@@@@@@@       @@@@@@@@=      
+                       .@@@@@@@@@       @@@@@@@@=      
+                       :@@@@@@@@@       @@@@@@@@=      
+                     :+@@@@@@@@@@%-     @@@@@@@@+      
+                     .........::::::   *@@@@@@@@#      
+                                     :*##########*-  
+              """)
         print("")
         print (f"Welcome to Hufflepuff {student['Name']}!".center(80))
         print(Style.RESET_ALL)
@@ -429,41 +443,43 @@ def determine_house():
         print("\n")
         print("Hufflepuff House values dedication,".center(80))
         print("patience, loyalty, and fair play.".center(80))
+        sleep(3)
     elif (student['House'] == "Ravenclaw"):
         print(Fore.BLUE + r"""
-    -@@@@@@@@@@   :+-          
-    @@@@@@@@@@+#@@@@#.        
-    %@@@@@@@@@@#+-+@@@=       
-    +@@@@@@@@@    =@@@@%:     
-    -@@@@@@@@@    -@@@@@@*.   
-    .@@@@@@@@@    :@@@@@@@@.  
-     %@@@@@@@@    .@@@@@@@@   
-     *@@@@@@@@     @@@@@@@%  
-     -@@@@@@@@     @@@@@@@* 
-     .@@@@@@@@     @@@@@@@=  
-      @@@@@@@@     %@@@@@@:   
-   ##+%@@@@@@@.    #@@@@@@    
-   +@@@@@@@@@@@%+-%@@@@@@%    
-   :@@@@@@@@@@@@@@@@@%*=:     
-    %@@@@@@@@*:@@@@@+       
-    +@@@@@@@@# .@@@@%       
-    :@@@@@@@@%  =@@@@-       
-     @@@@@@*@@   %@@@%       
-   : *@@@@@::%   :@@@@-       
-   +@@@@@@@-      +@@@@       
-   .@@@@@@@-       %@@@*      
-    %@@@@@@-       :@@@@-     
-    =@@@@@@=        +@@@@.    
-    .@@@@@@=         @@@@#    
-     #@@@*@+         =@@@@#   
-     =@@@:.=          @@@@@#  
-      @@@             #@@@@@@*
-      #@%             ###%%@@@
-      -@*                    :
-       @=                     
-       *-                     
-       -.                     
-                        """)
+   
+                      -@@@@@@@@@@   :+-          
+                      @@@@@@@@@@+#@@@@#.        
+                      %@@@@@@@@@@#+-+@@@=       
+                      +@@@@@@@@@    =@@@@%:     
+                      -@@@@@@@@@    -@@@@@@*.   
+                      .@@@@@@@@@    :@@@@@@@@.  
+                       %@@@@@@@@    .@@@@@@@@   
+                       *@@@@@@@@     @@@@@@@%  
+                       -@@@@@@@@     @@@@@@@* 
+                       .@@@@@@@@     @@@@@@@=  
+                        @@@@@@@@     %@@@@@@:   
+                     ##+%@@@@@@@.    #@@@@@@    
+                     +@@@@@@@@@@@%+-%@@@@@@%    
+                     :@@@@@@@@@@@@@@@@@%*=:     
+                      %@@@@@@@@*:@@@@@+       
+                      +@@@@@@@@# .@@@@%       
+                      :@@@@@@@@%  =@@@@-       
+                       @@@@@@*@@   %@@@%       
+                     : *@@@@@::%   :@@@@-       
+                     +@@@@@@@-      +@@@@       
+                     .@@@@@@@-       %@@@*      
+                      %@@@@@@-       :@@@@-     
+                      =@@@@@@=        +@@@@.    
+                      .@@@@@@=         @@@@#    
+                       #@@@*@+         =@@@@#   
+                       =@@@:.=          @@@@@#  
+                        @@@             #@@@@@@*
+                        #@%             ###%%@@@
+                        -@*                    :
+                         @=                     
+                         *-                     
+                         -.                     
+              """)
         print("")
         print (f"Welcome to Ravenclaw {student['Name']}!".center(80))
         print(Style.RESET_ALL)
@@ -476,27 +492,30 @@ def determine_house():
         print("their individuality and acceptance of people and things".center(80))
         print("that others would consider weird, as well as their".center(80))
         print("outstanding intelligence.".center(80)) 
-    else:
+        sleep(3)
+    else: #Needs additional functionality added 
         print("Hmmm there seems to be something amiss...")
 
 def conclusion():
-  print(f"Congratulations {student['Name']} on being accepted".center(80))
-  print(f"into {student['House']} House. We wish you all the best".center(80))
-  print("and hope you enjoy your time with us here at Hogwarts for".center(80))
-  print(f"the {year} school year.".center(80))
-  sleep(2)
-  print("")
-  print("Alternatively, if you are not happy with the House".center(80))
-  print(f"you have been put into {student['Name']}, we can run".center(80))
-  print("through the questions again to find you a better fit!".center(80))
-  print("")
+    print("")
+    print("")
+    print(f"Congratulations {student['Name']} on being accepted".center(80))
+    print(f"into {student['House']} House. We wish you all the best".center(80))
+    print("and hope you enjoy your time with us here at Hogwarts for".center(80))
+    print(f"the {year} school year.".center(80))
+    sleep(2)
+    print("")
+    print("Alternatively, if you are not happy with the House".center(80))
+    print(f"you have been put into {student['Name']}, we can run".center(80))
+    print("through the questions again to find you a better fit!".center(80))
+    print("")
     
     while True: 
-        next_step = input("""
-                        Please enter h if you are happy with your house and wish to
-                        see who your fellow housemates will be or r if you wish to be 
-                        re-sorted.
-                      """.center(80))
+        print("")
+        print("Please enter h if you are happy with your house and wish to meet".center(80))
+        print("your new housemates.".center(80))
+        print("or".center(80))
+        next_step = input("(enter r if you wish to be re-sorted.".center(80)"\n>>> ")
     
         if validate_conclusion(next_step):
                 print('\n\nThank you'.center(70))
@@ -507,11 +526,11 @@ def validate_conclusion(next_step):
     Raises error if answer entered is not h or r.
     """
     try: 
-      if answer not in {'h','r'}:
+      if next_step not in {'h','r'}:
         raise ValueError(
-          f"\nYou answered {answer},"
+          f"\nYou answered {next_step},"
         )
-      elif answer == '':
+      elif next_step == '':
         raise ValueError(
           "\nYou did not provide an answer,"
         )
@@ -522,18 +541,19 @@ def validate_conclusion(next_step):
       print(f"{e} please select h or r as your answer to proceed.\n")
       return False
 
-def quit():
+#def quit():
 
-def re-sort():
+#def re-sort():
 
-def see_housemates():
+#def see_housemates():
 
 def main():
-    #intro_logo_2()
-    #print(Style.RESET_ALL)
+    intro_logo_2()
+    print(Style.RESET_ALL)
     welcome()
     start_sorting()
     update_house_spreadsheet()
     determine_house()
+    conclusion()
 
 main()
