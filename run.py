@@ -6,6 +6,9 @@ import gspread
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Style
 from questions import questions
+from tabulate import tabulate
+import logos
+import pandas as pd
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -22,81 +25,13 @@ year = datetime.now().year
 houses = SHEET.worksheet('Houses')
 student = {"Name" : "", "Age" : "", "Country" : "", "House" : ""}
 
-def intro_logo_1():
-    print(Fore.YELLOW + r"""
-               =                             
-               =:                            
-               :+                            
-               .#:                           
-                *+                           
-                =#-                          
-                -##.                         
-                :##=                         
-                 ###.                        
-                 *##=                :.      
-                 =###.            .=*#+      
-                 -###+          :+#####.     
-                 .####-      :=*#######-     
-                  ####*   .=*##########+     
-                  +####--*##############.    
-                  -##############**#####-    
-                  .###########*=. .#####+    
-                   *#######+-.     .#####.   
-                   +####+:          -####=   
-                   -*=:              +####.  
-                                     .*###:  
-                                      .*##+  
-                                       :###  
-                                        =##: 
-                                         +#= 
-                                          ** 
-                                          :#:
-                                           ==
-                                            +
-           """)
-
-def intro_logo_2():
-    print(Fore.BLUE +r"""
-                                        =++++=====.             
-                                        +@@@@@@@@@: .-+*:       
-                          :---------=   :@@@@@@@@@%@@%%@@#.     
-          .........::     =@@@@@@@@-    @@@@@@@@@=   .@@@@+    
-          -%@@@@@@@@=     .@@@@@@@*     #@@@@@@@@:    %@@@@%:  
-            :@@@@@@@@       @@@@@@@+     +@@@@@@@@:    *@@@@@@* 
-            :@@@@@@@@       %@@@@@@=     :@@@@@@@@:    =@@@@@@@:
-            .@@@@@@@@       #@@@@@@=      @@@@@@@@:    -@@@@@@@.
-            .@@@@@@@@       #@@@@@@=      #@@@@@@@:    :@@@@@@@ 
-            @@@@@@@@       *@@@@@@=      =@@@@@@@-    .@@@@@@# 
-            @@@@@@@@       *@@@@@@+      .@@@@@@@-    .@@@@@@+ 
-            %@@@@@@@       *@@@@@@+:--=-. @@@@@@@-    .@@@@@@- 
-      .:-   %@@@@@@@       *@@@@@@@%*+=%@%@@@@@@@=*-  .@@@@@@- 
-    #@+:    #@@@@@@@.    :*@@@@@@@*    =@@@@@@@@@=.%#=@@@@@%=  
-    .##=.   #@@@@@@@:.-*@@@@@@@@@@*    .@@@@@@@@@+  *@%#+-.    
-      =%@%+-#@@@@@@@@@@@@%+#@@@@@@*     %@@@@@@@@*             
-        .-+%@@@@@@@@#+=:   =@@@@@@*     +@@@@@@@@%             
-            +@@@@@@@-      =@@@@@@*     :@@@@@@%@@             
-            +@@@@@@@-      -@@@@@@*      @@@@@@==@.            
-            +@@@@@@@-      -@@@@@@*    +-#@@@@@= =.            
-            +@@@@@@@-      -@@@@@@*    -@@@@@@@=               
-            *@@@@@@@-      -@@@@@@*     @@@@@@@=               
-            #@@@@@@@=      =@@@@@@*     #@@@@@@=               
-            -@@@@@@@@=      *@@@@@@*     -@@@@@@=               
-          =#%@@@@@@@@%:     %@@@@@@#      @@@%+@=               
-                      ..  .#@@@@@@@@:     #@@# ==               
-                        -*******##%%+.   -@@*                  
-                                          @@+                  
-                                          #@-                  
-                                          -@:                  
-                                            @                   
-                                            *     """)
-
 def welcome():
     """
     Welcome function to request name, age and 
     country inputs from user. 
     """
+    print("")
     print('THE SORTING HAT\n'.center(70))
-
     sleep(2)
     
     while True: 
@@ -141,7 +76,7 @@ def welcome():
     sleep(2)
     clear_display()
     
-    intro_logo_1()
+    logos.intro_logo_1()
     print(Style.RESET_ALL)
     print(f"Welcome to Hogwarts School of Witchcraft and Wizardry {name}.\n".center(70))
     sleep(2)
@@ -313,39 +248,7 @@ def update_house_spreadsheet():#rockymiss
 
 def determine_house():
     if (student['House'] == "Gryffindor"):
-        print(Fore.RED + r"""
-                                        
-                                   :=*%%#:              
-                               -*%@@@@@@@@*             
-                           :+%@@@@@@@@@@@@@@-           
-                        -*@@@@@@@@%+-.@@@@@@@#.         
-                     -#@@@@@@@@+:     :@@@@@@@@=        
-                  .*@@@@@@@@@+         +@@@@@@@@%      
-                  +@@@@@@@@@#           %@@@@@@@@+      
-                  +@@@@@@@@@#           +@@@@@%=        
-                  +@@@@@@@@@#           =@@@+:          
-                  #@@@@@@@@@#           %#-             
-                  #@@@@@@@@@*          -.               
-                  #@@@@@@@@@+                           
-                  @@@@@@@@@@+                           
-                  @@@@@@@@@@+                           
-                  @@@@@@@@@@+              :=+*#%%##    
-                  @@@@@@@@@@+         .=*%@@@@@@@@@@    
-                  @@@@@@@@@@+    .-+#@@@@@@@@@@@@@@@    
-                  @@@@@@@@@@+   :+*%@@@@@%@@@@@@@@@%    
-                  @@@@@@@@@@+         .   @@@@@@@@@#    
-                  @@@@@@@@@@+             @@@@@@@@@#    
-                  #@@@@@@@@@+             @@@@@@@@@@    
-                  #@@@@@@@@@+             @@@@@@@@@@    
-                  :@@@@@@@@@+             @@@@@@@@@@    
-                   .#@@@@@@@+             @@@@@@@@@%    
-                     -@@@@@@%:            @@@@@@@@*.    
-                      -%@@@@@*.        -%@@@@@@*:      
-                         -*@@@@@#=..-+%@@@@@@@+.        
-                           .+@@@@@@@@@@@@@%*:           
-                              =%@@@@@@%*=.              
-                                .:-:.      
-               """)
+        logos.gryffindor_logo()
         print("")
         print(f"Welcome to Gryffindor {student['Name']}!".center(80))
         print(Style.RESET_ALL)
@@ -356,41 +259,7 @@ def determine_house():
         print("Gryffindor House values nerve, leadership and chivalry.".center(80))
         sleep(3)
     elif (student['House'] == "Slytherin"):
-        print(Fore.GREEN + r"""
-
-                                     .-*#%-              
-                                 .=%@@@@@@%:            
-                               -#@@@@@@@@@@@+           
-                            .+@@@@@@@@@@@@@@@@-         
-                           -#@@@@@@@@@@@@@@@@@@@%:       
-                       :*@@@@@@*. .-*@@@@@@@@@@@@+      
-                     =%@@@@@@@:       -#@@@@@@@@@@@:    
-                   *@@@@@@@@@*          :*@@@@@@@@@@.   
-                  %@@@@@@@@@@@:           .*@@@@@@@@%   
-                   *@@@@@@@@@@@*            :%@@@@@@@.  
-                    -@@@@@@@@@@@@-           =@@@@@%=   
-                      +@@@@@@@@@@@%:       =##+=-:      
-                       .#@@@@@@@@@@@*.                  
-                         -%@@@@@@@@@@@+                 
-                           =@@@@@@@@@@@@=               
-                            .*@@@@@@@@@@@%-             
-                              :%@@@@@@@@@@@#:           
-                                =@@@@@@@@@@@@*.         
-                                  +@@@@@@@@@@@@+        
-                        .:=++:     .#@@@@@@@@@@@@=      
-                     -*@@@@=         =@@@@@@@@@@@@%:    
-                   -@@@@@@#           .#@@@@@@@@@@@@+   
-                   *@@@@@@@+            =@@@@@@@@@@@@#  
-                   .@@@@@@@@#            =@@@@@@@@@@@@. 
-                    -@@@@@@@@@-         .#@@@@@@@@@%-
-                    -@@@@@@@@@#.      +@@@@@@@@@*- 
-                       +@@@@@@@@@+   :%@@@@@@@@+.  
-                        .#@@@@@@@@@*+@@@@@@@#-       
-                          -@@@@@@@@@@@@@@%=.            
-                            *@@@@@@@@@@*:               
-                             :%@@@@@*-                  
-                               ===:          
-               """)
+        logos.slytherin_logo()
         print("")
         print(f"Welcome to Slytherin {student['Name']}!".center(80))
         print(Style.RESET_ALL)
@@ -403,36 +272,7 @@ def determine_house():
         print("almost anything to achieve honor and glory.".center(80))
         sleep(3)
     elif (student['House'] == "Hufflepuff"):
-        print(Fore.YELLOW + r"""
-                                            
-                                                ..     
-                                      .=%@@@@@@@@@=     
-                      :*@@@@@@@@@@=      @@@@@@@@.      
-                        *@@@@@@@@*       @@@@@@@#       
-                        =@@@@@@@@*       @@@@@@@%       
-                        =@@@@@@@@*       @@@@@@@%       
-                        =@@@@@@@@*       @@@@@@@%       
-                        -@@@@@@@@*       @@@@@@@@       
-                        -@@@@@@@@*       @@@@@@@@      
-                        -@@@@@@@@*       @@@@@@@@     
-                        -@@@@@@@@#       @@@@@@@@:=*%@@@
-                    :-: -@@@@@@@@#       @@@@@@@@@@@@@@@
-                  *@=   :@@@@@@@@#       @@@@@@@@-   .*@
-                  =@#   :@@@@@@@@#     -*@@@@@@@@.    .@
-                   =@@*--@@@@@@@@#.-+%@@@@@@@@@@@.    
-                    -*%@@@@@@@@@@@@@%+-.@@@@@@@@:    
-                       :@@@@@@@@@-.     @@@@@@@@:    
-                       :@@@@@@@@%       @@@@@@@@:    
-                       .@@@@@@@@%       @@@@@@@@-    
-                       .@@@@@@@@%       @@@@@@@@-     
-                       .@@@@@@@@%       @@@@@@@@-      
-                       .@@@@@@@@@       @@@@@@@@=      
-                       .@@@@@@@@@       @@@@@@@@=      
-                       :@@@@@@@@@       @@@@@@@@=      
-                     :+@@@@@@@@@@%-     @@@@@@@@+      
-                     .........::::::   *@@@@@@@@#      
-                                     :*##########*-  
-              """)
+        logos.hufflepuff_logo()
         print("")
         print (f"Welcome to Hufflepuff {student['Name']}!".center(80))
         print(Style.RESET_ALL)
@@ -445,41 +285,7 @@ def determine_house():
         print("patience, loyalty, and fair play.".center(80))
         sleep(3)
     elif (student['House'] == "Ravenclaw"):
-        print(Fore.BLUE + r"""
-   
-                      -@@@@@@@@@@   :+-          
-                      @@@@@@@@@@+#@@@@#.        
-                      %@@@@@@@@@@#+-+@@@=       
-                      +@@@@@@@@@    =@@@@%:     
-                      -@@@@@@@@@    -@@@@@@*.   
-                      .@@@@@@@@@    :@@@@@@@@.  
-                       %@@@@@@@@    .@@@@@@@@   
-                       *@@@@@@@@     @@@@@@@%  
-                       -@@@@@@@@     @@@@@@@* 
-                       .@@@@@@@@     @@@@@@@=  
-                        @@@@@@@@     %@@@@@@:   
-                     ##+%@@@@@@@.    #@@@@@@    
-                     +@@@@@@@@@@@%+-%@@@@@@%    
-                     :@@@@@@@@@@@@@@@@@%*=:     
-                      %@@@@@@@@*:@@@@@+       
-                      +@@@@@@@@# .@@@@%       
-                      :@@@@@@@@%  =@@@@-       
-                       @@@@@@*@@   %@@@%       
-                     : *@@@@@::%   :@@@@-       
-                     +@@@@@@@-      +@@@@       
-                     .@@@@@@@-       %@@@*      
-                      %@@@@@@-       :@@@@-     
-                      =@@@@@@=        +@@@@.    
-                      .@@@@@@=         @@@@#    
-                       #@@@*@+         =@@@@#   
-                       =@@@:.=          @@@@@#  
-                        @@@             #@@@@@@*
-                        #@%             ###%%@@@
-                        -@*                    :
-                         @=                     
-                         *-                     
-                         -.                     
-              """)
+        logos.ravenclaw_logo()
         print("")
         print (f"Welcome to Ravenclaw {student['Name']}!".center(80))
         print(Style.RESET_ALL)
@@ -493,8 +299,11 @@ def determine_house():
         print("that others would consider weird, as well as their".center(80))
         print("outstanding intelligence.".center(80)) 
         sleep(3)
-    else: #Needs additional functionality added 
-        print("Hmmm there seems to be something amiss...")
+    else: 
+        print("Hmmm there seems to be something amiss...".center(80))
+        print(" ")
+        print("Let's go back and try again".center(80))
+        re_sort()
 
 def conclusion():
     print("")
@@ -515,11 +324,19 @@ def conclusion():
         print("Please enter h if you are happy with your house and wish to meet".center(80))
         print("your new housemates.".center(80))
         print("or".center(80))
-        next_step = input("(enter r if you wish to be re-sorted.".center(80)"\n>>> ")
+        next_step = input("enter r if you wish to be re-sorted.\n>>> ")
     
         if validate_conclusion(next_step):
-                print('\n\nThank you'.center(70))
+                print("")
+                print('Thank you'.center(70))
+                print("")
                 break
+            
+    if next_step == "r":
+        re_sort()
+    elif next_step == "h":
+        update_house_spreadsheet()
+        see_housemates()
 
 def validate_conclusion(next_step):
     """
@@ -543,16 +360,24 @@ def validate_conclusion(next_step):
 
 #def quit():
 
-#def re-sort():
+def re_sort():
+    generate_questions()
+    determine_house()
+    conclusion()
 
-#def see_housemates():
+def see_housemates():
+    student_data = houses.get_all_values()
+    clear_display()
+    #df = pd.read_csv(student_data) #ERROR IN LINE
+    #print(df)
+    #subset = df.loc[df[student["House"]] == 'Gryffindor'] #ERROR IN LINE
+    print(tabulate(student_data, headers = "firstrow", tablefmt = "simple",))
 
 def main():
-    intro_logo_2()
+    logos.intro_logo_2()
     print(Style.RESET_ALL)
     welcome()
     start_sorting()
-    update_house_spreadsheet()
     determine_house()
     conclusion()
 

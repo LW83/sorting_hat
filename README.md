@@ -40,3 +40,6 @@ Moved house determination within function to be able to access house variable
 
 Bug 
 Centering text on line - not centring when using \n on line so included blank lines before instead of line breaks to ensure centring worked.
+
+Bug
+Initially pushing inputs and house to spreadsheet after first round of questions with option to re-sort. Trying to update house after re-sorting but changed to push details to spreadsheet once 'student' confirmed happy with house. 
