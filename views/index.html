@@ -1,13 +1,17 @@
 <body>
     <div id="background">
+        <div>
         <button onclick="window.location.reload()">Let's Get Sorting!</button>
+        </div>
+        <div id="terminal_container" >
         <div id="terminal"></div>
+        </div>
     </div>
 
     <script>
         var term = new Terminal({
-            cols: 80,
-            rows: 40
+            cols: 100,
+            rows: 60
         });
         term.open(document.getElementById('terminal'));
         term.writeln('One moment please..');
