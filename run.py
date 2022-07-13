@@ -27,10 +27,10 @@ student = {"Name" : "", "Age" : "", "Country" : "", "House" : ""}
 def welcome():
     """
     Welcome function to request name, age and 
-    country inputs from user. 
+    country inputs from user.
     """
     print("")
-    print('THE SORTING HAT\n'.center(70))
+    print('THE SORTING HAT\n'.center(80))
     sleep(2)
     
     while True: 
@@ -61,7 +61,7 @@ def welcome():
         country = input("Finally, please tell us what Country you are from:\n>>> ")
         if validate_country(country):
             print("")
-            print(f"Thank you {name}!".center(70))
+            print(f"Thank you {name}!".center(80))
             student.update({"Country" : country})
             break
     
@@ -69,29 +69,36 @@ def welcome():
     clear_display()
 
     print("")
-    print("Confirming non-Muggle status........\n".center(70))
+    print("Confirming non-Muggle status........\n".center(80))
     sleep(3)
-    print("Non-Muggle status VALIDATED\n".center(70))
+    print("Non-Muggle status VALIDATED\n".center(80))
     sleep(2)
     clear_display()
     
     logos.intro_logo_1()
     print(Style.RESET_ALL)
-    print(f"Welcome to Hogwarts School of Witchcraft and Wizardry {name}.\n".center(70))
+    print(f"Welcome to Hogwarts School of Witchcraft and Wizardry {name}.\n".center(80))
     sleep(2)
-    print(f"We are delighted to have you join us for the {year} school term.\n".center(70))
+    print(f"We are delighted to have you join us for the {year} school term.\n".center(80))
     sleep(3)
-    print("In order to place you in the correct House for your time with us, ".center(70))
-    print("the Sorting Hat needs to know a little more about you...\n".center(70))
+    print("In order to place you in the correct House for your time with us, ".center(80))
+    print("the Sorting Hat needs to know a little more about you...\n".center(80))
     sleep(3)
-    print(f"So, {name}, are you ready to get started?".center(70))
+    print(f"So, {name}, are you ready to get started?".center(80))
 
     return student
 
 def start_sorting():
-    sort = input("\nPlease enter y to start or n if you wish to remove the Sorting Hat.\n>>> ".center(70))
-    if sort == 'n':
-        print(f"\n\nYou have removed the sorting hat. \nGoodbye {student['Name']} maybe we will see you next term instead.".center(70))
+    """
+    Function to verify with user that they wish to proceed.
+    Option to quit at this stage. 
+    """
+    sort = input("\nPlease enter y to start or n if you wish to remove the Sorting Hat.\n>>> ".center(80))
+    if sort == 'n': #Add if sort not in lowercase...
+        print("")
+        print("You have decided to remove the sorting hat.".center(80))
+        print("")
+        print(f"Goodbye {student['Name']} maybe we will see you next term instead.".center(80))
         sleep (3)
         clear_display()
         main()
@@ -105,7 +112,9 @@ def start_sorting():
 
 def generate_questions():
     """
-    Runs through sorting hat questions
+    Function to run through sorting hat questions and
+    calculate mode of answers in order to determine 
+    House.
     """
     clear_display()
     
@@ -118,7 +127,7 @@ def generate_questions():
             print(chr(97 + i) + ':', c)
 
         while True: 
-            answer = input("Enter your answer:\n>>> ".center(70))
+            answer = input("Enter your answer or press q to remove the Sorting Hat:\n>>> ".center(70))
     
             if validate_answer(answer):
                 print('\n\nThank you'.center(70))
@@ -154,7 +163,8 @@ def clear_display(): #dnlBowers
   
 def validate_name(name):
     """
-    Raises error if name entered has numerical entries.
+    Raises error if name entered is numerical 
+    or is blank.
     """
     try: 
       if name.isnumeric():
@@ -173,7 +183,9 @@ def validate_name(name):
 
 def validate_age(number):
     """
-    Raises error if age entered is over 18.
+    Raises error if age entered is under 4,
+    over 18, a number is not entered or the
+    entry is not a number.
     """
     try: 
       if int(number) > 18:
@@ -200,7 +212,8 @@ def validate_age(number):
 
 def validate_country(country):
     """
-    Raises error if name entered has numerical entries.
+    Raises error if name entered is numerical 
+    or is blank.
     """
     try: 
       if country.isnumeric():
@@ -219,33 +232,37 @@ def validate_country(country):
 
 def validate_answer(answer):
     """
-    Raises error if answer entered is not a, b, c, or d.
+    Raises error if answer entered is not 
+    a, b, c, or d or option to quit (q).
     """
     try: 
-      if answer not in {'a','b','c','d'}:
+      if answer not in {'a','b','c','d','q'}:
         raise ValueError(
           f"\nYou answered {answer},"
         )
-      elif answer == '':
-        raise ValueError(
-          "\nYou did not provide an answer,"
-        )
+      elif answer == 'q':
+        quit()
       else:
         return True
 
     except ValueError as e:
-      print(f"{e} please select a, b, c or d as your answer to proceed.\n")
+      print(f"{e} please select a, b, c or as your answer to proceed or q to remove the Sorting Hat.\n")
       return False
 
 def update_house_spreadsheet():#rockymiss
     """
     Populates Houses tab of Google spreadsheet
-    with name, age and country input data.
+    with name, age and country input data and 
+    final determined house.
     """
     new_student = list(student.values())
     houses.append_row(new_student)
 
 def determine_house():
+    """
+    Function to display determined House, 
+    information about House and students.
+    """
     if (student['House'] == "Gryffindor"):
         logos.gryffindor_logo()
         print("")
@@ -305,6 +322,10 @@ def determine_house():
         re_sort()
 
 def conclusion():
+    """
+    Function to give student option to accept 
+    determined House or ask to be re-sorted.
+    """
     print("")
     print("")
     print(f"Congratulations {student['Name']} on being accepted".center(80))
@@ -323,7 +344,7 @@ def conclusion():
         print("Please enter h if you are happy with your house and wish to meet".center(80))
         print("your new housemates.".center(80))
         print("or".center(80))
-        next_step = input("enter r if you wish to be re-sorted.\n>>> ")
+        next_step = input("enter r if you wish to be re-sorted\n>>>".center(80))
     
         if validate_conclusion(next_step):
                 print("")
@@ -357,14 +378,35 @@ def validate_conclusion(next_step):
       print(f"{e} please select h or r as your answer to proceed.\n")
       return False
 
-#def quit():
+def quit():
+    """
+    Function to quit current status and return
+    to start.
+    """
+    print("")
+    print("You have decided to remove the Sorting Hat.".center(80))
+    print("")
+    print("Maybe we will see you back in Hogwarts next year.".center(80))
+    print("")
+    print(f"Goodbye {student['Name']}".center(80))
+    sleep(3)
+    clear_display()
+    main()
 
 def re_sort():
+    """
+    Function to return to questions if student 
+    wishes to be re-sorted.
+    """
     generate_questions()
     determine_house()
     conclusion()
 
 def see_housemates():
+    """
+    Function to generate a table with housemates
+    of student based on determined house for student.
+    """
     clear_display()
     student_data = houses.get_all_values()
     dict_keys = ['Name', 'Age', 'Country', 'House']
@@ -390,6 +432,11 @@ def see_housemates():
     main()
 
 def main():
+    """
+    Function to call main functions of game 
+    to run.
+    """
+    clear_display()
     logos.intro_logo_2()
     print(Style.RESET_ALL)
     welcome()
