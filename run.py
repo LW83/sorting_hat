@@ -8,7 +8,6 @@ from colorama import Fore, Style
 from questions import questions
 from tabulate import tabulate
 import logos
-import pandas as pd
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -366,12 +365,29 @@ def re_sort():
     conclusion()
 
 def see_housemates():
-    student_data = houses.get_all_values()
     clear_display()
-    #df = pd.read_csv(student_data) #ERROR IN LINE
-    #print(df)
-    #subset = df.loc[df[student["House"]] == 'Gryffindor'] #ERROR IN LINE
-    print(tabulate(student_data, headers = "firstrow", tablefmt = "simple",))
+    student_data = houses.get_all_values()
+    dict_keys = ['Name', 'Age', 'Country', 'House']
+    list_of_dict = [dict(zip(dict_keys, student)) for student in student_data]
+
+    if student['House'] == "Gryffindor":
+        classmates = [i for i in list_of_dict if i['House'] == 'Gryffindor']
+    elif student['House'] == "Slytherin":
+        classmates = [i for i in list_of_dict if i['House'] == 'Slytherin']
+    elif student['House'] == "Hufflepuff":
+        classmates = [i for i in list_of_dict if i['House'] == 'Hufflepuff']
+    elif student['House'] == "Ravenclaw":
+        classmates = [i for i in list_of_dict if i['House'] == 'Ravenclaw']
+    print(tabulate(classmates, headers = "keys", tablefmt = "simple",))
+    sleep(3)
+    print(" ")
+    print("Thank you for trying on the Sorting Hat.".center(80))
+    print("")
+    print("We wish you the very best for your time in Hogwarts.".center(80))
+    print("")
+    print("We must now move on to the next student. Goodbye!".center(80))
+    sleep(3)
+    main()
 
 def main():
     logos.intro_logo_2()

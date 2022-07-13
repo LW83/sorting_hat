@@ -43,3 +43,11 @@ Centering text on line - not centring when using \n on line so included blank li
 
 Bug
 Initially pushing inputs and house to spreadsheet after first round of questions with option to re-sort. Trying to update house after re-sorting but changed to push details to spreadsheet once 'student' confirmed happy with house. 
+
+Bug
+Getting subset of spreadsheet to show housemates
+Convert back to list of dictionaries
+Use list comprehension 
+https://www.i2tutorials.com/convert-list-of-lists-to-list-of-dictionaries/
+https://stackoverflow.com/questions/63508906/get-all-keys-with-specific-value-in-dictionary-python
+Looked at using pandas module
