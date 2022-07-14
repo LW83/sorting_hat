@@ -5,6 +5,7 @@ https://pypi.org/project/colorama/ - to add yellow to lightning bolt
 https://harrypotter.fandom.com/wiki/Hufflepuff - for about houses
 https://pypi.org/project/tabulate/
 https://pypi.org/project/colorama/
+https://www.wizardingworld.com/features/try-out-our-new-harry-potter-video-call-backgrounds - for background image
 
 
 '''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers
@@ -62,11 +63,11 @@ Looked at using pandas module
 
 
 
-# Name That Hound 
+# The Sorting Hat 
 ***
 ## Overview 
 
-Welcome to Name That Hound, a just-for-fun quiz to test your knowledge of dog breeds!
+Welcome to The Sorting Hat, a just-for-fun quiz to test your knowledge of dog breeds!
 
 As a dog lover myself, I wanted to create a fun quiz of 10 multiple choice questions that can be played and enjoyed by any age. Each round generates a fresh mix of images so the game can be played time and time again.
 
