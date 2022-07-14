@@ -31,9 +31,13 @@ def welcome():
     """
     print("")
     print('THE SORTING HAT\n'.center(80))
-    sleep(2)
-    
+    sleep(3)
+    clear_display()
+
     while True: 
+        print("")
+        print("")
+        print("")
         name = input("Please tell me your name:\n>>> ")
         
         if validate_name(name):
@@ -66,7 +70,6 @@ def welcome():
             break
     
     sleep(2)
-    clear_display()
 
     print("")
     print("Confirming non-Muggle status........\n".center(80))
