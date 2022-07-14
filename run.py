@@ -29,7 +29,6 @@ def welcome():
     Welcome function to request name, age and 
     country inputs from user.
     """
-    print("")
     print('THE SORTING HAT\n'.center(80))
     sleep(3)
     clear_display()
