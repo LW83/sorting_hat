@@ -80,9 +80,11 @@ def welcome():
     logos.intro_logo_1()
     print(Style.RESET_ALL)
     print(f"Welcome to Hogwarts School of Witchcraft and Wizardry {name}.\n".center(80))
-    sleep(2)
     print(f"We are delighted to have you join us for the {year} school term.\n".center(80))
     sleep(3)
+    clear_display()
+    print("")
+    print("")
     print("In order to place you in the correct House for your time with us, ".center(80))
     print("the Sorting Hat needs to know a little more about you...\n".center(80))
     sleep(3)
@@ -95,7 +97,8 @@ def start_sorting():
     Function to verify with user that they wish to proceed.
     Option to quit at this stage. 
     """
-    sort = input("\nPlease enter y to start or n if you wish to remove the Sorting Hat.\n>>> ".center(80))
+    print("")
+    sort = input("\n    Please enter y to start or n if you wish to remove the Sorting Hat.\n>>> ")
     if sort == 'n': #Add if sort not in lowercase...
         print("")
         print("You have decided to remove the sorting hat.".center(80))
