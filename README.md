@@ -6,6 +6,9 @@ https://harrypotter.fandom.com/wiki/Hufflepuff - for about houses
 https://pypi.org/project/tabulate/
 https://pypi.org/project/colorama/
 https://www.wizardingworld.com/features/try-out-our-new-harry-potter-video-call-backgrounds - for background image
+https://www.hiclipart.com/free-transparent-background-png-clipart-zwlxt for sorting hat image
+logo text
+quiz content
 
 
 '''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers

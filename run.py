@@ -89,6 +89,7 @@ def welcome():
     print("the Sorting Hat needs to know a little more about you...\n".center(80))
     sleep(3)
     print(f"So, {name}, are you ready to get started?".center(80))
+    sleep (1)
 
     return student
 
@@ -97,8 +98,7 @@ def start_sorting():
     Function to verify with user that they wish to proceed.
     Option to quit at this stage. 
     """
-    print("")
-    sort = input("\n    Please enter y to start or n if you wish to remove the Sorting Hat.\n>>> ")
+    sort = input("\n      Please enter y to start or n if you wish to remove the Sorting Hat.\n>>> ")
     if sort == 'n': #Add if sort not in lowercase...
         print("")
         print("You have decided to remove the sorting hat.".center(80))
@@ -251,7 +251,7 @@ def validate_answer(answer):
         return True
 
     except ValueError as e:
-      print(f"{e} please select a, b, c or as your answer to proceed or q to remove the Sorting Hat.\n")
+      print(f"{e} please select a, b, c or as your answer to proceed or q to \n remove the Sorting Hat.\n")
       return False
 
 def update_house_spreadsheet():#rockymiss
