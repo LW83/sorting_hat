@@ -4,7 +4,7 @@ from datetime import datetime
 from time import sleep
 import gspread
 from google.oauth2.service_account import Credentials
-from colorama import Fore, Style
+from colorama import Style
 from questions import questions
 from tabulate import tabulate
 import logos
@@ -22,7 +22,8 @@ SHEET = GSPREAD_CLIENT.open('hogwarts_houses')
 
 year = datetime.now().year
 houses = SHEET.worksheet('Houses')
-student = {"Name" : "", "Age" : "", "Country" : "", "House" : ""}
+student = {"Name": "", "Age": "", "Country": "", "House": ""}
+
 
 def welcome():
     """
@@ -42,7 +43,7 @@ def welcome():
         if validate_name(name):
             print("")
             print(f"Nice to meet you {name}!")
-            student.update({"Name" : name}) #rockymiss
+            student.update({"Name": name})  #rockymiss
             break
     
     sleep(1)
@@ -53,19 +54,20 @@ def welcome():
         
         if validate_age(age):
             print("")
-            print(f"Thank you!")
-            student.update({"Age" : age}) 
+            print("Thank you!")
+            student.update({"Age": age}) 
             break
     
     sleep(1)
 
     while True: 
         print("")
-        country = input("Finally, please tell us what Country you are from:\n>>> ")
+        country = input("""Finally, please tell us what Country you are from:\n
+                          >>> """)
         if validate_country(country):
             print("")
             print(f"Thank you {name}!".center(80))
-            student.update({"Country" : country})
+            student.update({"Country": country})
             break
     
     sleep(2)
@@ -79,7 +81,8 @@ def welcome():
     
     logos.intro_logo_1()
     print(Style.RESET_ALL)
-    print(f"Welcome to Hogwarts School of Witchcraft and Wizardry {name}.\n".center(80))
+    print(f"""Welcome to Hogwarts School of Witchcraft and 
+              Wizardry {name}.\n""".center(80))
     print(f"We are delighted to have you join us for the {year} school term.\n".center(80))
     sleep(3)
     clear_display()

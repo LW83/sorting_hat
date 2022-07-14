@@ -9,6 +9,7 @@ https://www.wizardingworld.com/features/try-out-our-new-harry-potter-video-call-
 https://www.hiclipart.com/free-transparent-background-png-clipart-zwlxt for sorting hat image
 logo text
 quiz content
+house info
 
 
 '''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers
