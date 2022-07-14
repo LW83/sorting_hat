@@ -1,3 +1,6 @@
+"""
+Import os module to allow for clear display function
+"""
 import os
 import statistics
 from datetime import datetime
@@ -76,13 +79,16 @@ def welcome():
     print(Style.RESET_ALL)
     print("Welcome to Hogwarts School of Witchcraft "
           f"and Wizardry {name}.\n".center(80))
-    print(f"We are delighted to have you join us for the {year} school term.\n".center(80))
+    print("We are delighted to have you join us "
+          f"for the {year} school term.\n".center(80))
     sleep(3)
     clear_display()
     print("")
     print("")
-    print("In order to place you in the correct House for your time with us, ".center(80))
-    print("the Sorting Hat needs to know a little more about you...\n".center(80))
+    print("In order to place you in the correct House "
+          "for your time with us, ".center(80))
+    print("the Sorting Hat needs to know a little more about "
+          "you...\n".center(80))
     sleep(3)
     print(f"So, {name}, are you ready to get started?".center(80))
     sleep(1)
@@ -95,12 +101,14 @@ def start_sorting():
     Function to verify with user that they wish to proceed.
     Option to quit at this stage.
     """
-    sort = input("""\n      Please enter y to start or n if you wish to remove the Sorting Hat.\n>>> """)
+    sort = input("\n      Please enter y to start or n if you wish to remove "
+                 "the Sorting Hat.\n>>> ")
     if sort == 'n':  # Add if sort not in lowercase...
         print("")
         print("You have decided to remove the sorting hat.".center(80))
         print("")
-        print(f"""Goodbye {student['Name']} maybe we will see you next term instead.""".center(80))
+        print(f"Goodbye {student['Name']} maybe we will see you next term "
+              "instead.".center(80))
         sleep(3)
         clear_display()
         main()
@@ -110,7 +118,8 @@ def start_sorting():
         sleep(1)
         generate_questions()
     else:
-        print("\nPlease enter either 'y' or 'n' in order to proceed.\n".center(80))
+        print("\nPlease enter either 'y' or 'n' in order to "
+              "proceed.".center(80))
 
 
 def generate_questions():
@@ -128,7 +137,8 @@ def generate_questions():
             print(chr(97 + i) + ':', c)
 
         while True:
-            answer = input("""Enter your answer or press q to remove the Sorting Hat:\n>>> """.center(80))
+            answer = input("Enter your answer or press q to remove the "
+                           "Sorting Hat:\n>>> ".center(80))
             if validate_answer(answer):
                 print('\n\nThank you'.center(80))
                 answers.append(answer)
@@ -173,7 +183,8 @@ def validate_name(name):
             )
         elif len(name.strip()) == 0:  # rockymiss
             raise ValueError(
-              """\nPlease enter your name, we need this to ensure you can be accepted to Hogwarts"""
+              "\nPlease enter your name, we need this to ensure you can be "
+              "accepted to Hogwarts"
             )
         else:
             return True
@@ -192,14 +203,14 @@ def validate_age(number):
     try:
         if int(number) > 18:
             raise ValueError(
-              f"\n{number}! Hogwarts cannot accept students over the age of 18."
-              "\nPlease re-count your years and try again."
+              f"\n{number}! Hogwarts cannot accept students over the age of "
+              "18.\nPlease re-count your years and try again."
             )
         elif int(number) < 4:
             raise ValueError(
               "\nHogwarts can only accept students over the age of 4."
-              f"\nAs you are only {number} you will need to wait a few years and come back."
-              "Please re-count your years and try again."
+              f"\nAs you are only {number} you will need to wait a few years "
+              "and come back. \nPlease re-count your years and try again."
             )
         else:
             return True
@@ -220,7 +231,8 @@ def validate_country(country):
             )
         elif len(country.strip()) == 0:
             raise ValueError(
-              "\nPlease enter your country, we need this to ensure you can be accepted to Hogwarts"
+              "\nPlease enter your country, we need this to ensure you can be "
+              "accepted to Hogwarts"
             )
         else:
             return True
@@ -246,7 +258,8 @@ def validate_answer(answer):
             return True
 
     except ValueError as e:
-        print(f"{e} please select a, b, c or as your answer to proceed or q to \n remove the Sorting Hat.\n")
+        print(f"{e} please select a, b, c or as your answer to proceed or q to"
+              "\n remove the Sorting Hat.\n")
         return False
 
 
@@ -277,7 +290,8 @@ def determine_house():
         print("")
         print("Gryffindor students are couragous and daring.".center(80))
         print("\n")
-        print("Gryffindor House values nerve, leadership and chivalry.".center(80))
+        print("Gryffindor House values nerve, leadership and "
+              "chivalry.".center(80))
         sleep(3)
     elif student['House'] == "Slytherin":
         logos.slytherin_logo()
@@ -290,9 +304,11 @@ def determine_house():
         print("")
         print("")
         print("Slytherin students are ambitious and shrewd".center(80))
-        print("with a tendency to look after themselves instead of others.".center(80))
+        print("with a tendency to look after themselves instead of "
+              "others.".center(80))
         print("\n")
-        print("Slytherins are always striving to be the best and will do".center(80))
+        print("Slytherins are always striving to be the best and will "
+              "do".center(80))
         print("almost anything to achieve honor and glory.".center(80))
         sleep(3)
     elif student['House'] == "Hufflepuff":
@@ -325,7 +341,8 @@ def determine_house():
         print("ability and creativity.".center(80))
         print("\n")
         print("Students in Ravenclaw are noted for".center(80))
-        print("their individuality and acceptance of people and things".center(80))
+        print("their individuality and acceptance of people and "
+              "things".center(80))
         print("that others would consider weird, as well as their".center(80))
         print("outstanding intelligence.".center(80))
         sleep(3)
@@ -344,8 +361,10 @@ def conclusion():
     print("")
     print("")
     print(f"Congratulations {student['Name']} on being accepted".center(80))
-    print(f"into {student['House']} House. We wish you all the best".center(80))
-    print("and hope you enjoy your time with us here at Hogwarts for".center(80))
+    print(f"into {student['House']} House. We wish you all the "
+          "best".center(80))
+    print("and hope you enjoy your time with us here at Hogwarts "
+          "for".center(80))
     print(f"the {year} school year.".center(80))
     sleep(2)
     print("")
@@ -355,10 +374,12 @@ def conclusion():
     print("")
     while True:
         print("")
-        print("Please enter h if you are happy with your house and wish to meet".center(80))
+        print("Please enter h if you are happy with your house and wish to "
+              "meet".center(80))
         print("your new housemates".center(80))
         print("or".center(80))
-        next_step = input("enter r if you wish to be re-sorted.\n>>>".center(80))
+        next_step = input("enter r if you wish to be re-sorted."
+                          "\n>>>".center(80))
         if validate_conclusion(next_step):
             print("")
             print('Thank you'.center(70))
@@ -424,7 +445,7 @@ def see_housemates():
     of student based on determined house for student.
     """
     clear_display()
-    print("Meet some of your fellow housemates for the coming term:".center(80))
+    print("Meet some of your fellow housemates for the coming term".center(80))
     print("")
     print("")
     student_data = houses.get_all_values()
