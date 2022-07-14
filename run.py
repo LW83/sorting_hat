@@ -43,7 +43,7 @@ def welcome():
         if validate_name(name):
             print("")
             print(f"Nice to meet you {name}!")
-            student.update({"Name": name})  #rockymiss
+            student.update({"Name": name})  # rockymiss
             break
     
     sleep(1)
@@ -63,7 +63,7 @@ def welcome():
     while True: 
         print("")
         country = input("""Finally, please tell us what Country you are from:\n
-                          >>> """)
+        >>> """)
         if validate_country(country):
             print("")
             print(f"Thank you {name}!".center(80))
@@ -82,7 +82,7 @@ def welcome():
     logos.intro_logo_1()
     print(Style.RESET_ALL)
     print(f"""Welcome to Hogwarts School of Witchcraft and 
-              Wizardry {name}.\n""".center(80))
+    Wizardry {name}.\n""".center(80))
     print(f"We are delighted to have you join us for the {year} school term.\n".center(80))
     sleep(3)
     clear_display()
@@ -92,22 +92,25 @@ def welcome():
     print("the Sorting Hat needs to know a little more about you...\n".center(80))
     sleep(3)
     print(f"So, {name}, are you ready to get started?".center(80))
-    sleep (1)
+    sleep(1)
 
     return student
+
 
 def start_sorting():
     """
     Function to verify with user that they wish to proceed.
     Option to quit at this stage. 
     """
-    sort = input("\n      Please enter y to start or n if you wish to remove the Sorting Hat.\n>>> ")
-    if sort == 'n': #Add if sort not in lowercase...
+    sort = input("""\n      Please enter y to start or n if you wish to remove 
+    the Sorting Hat.\n>>> """)
+    if sort == 'n':  # Add if sort not in lowercase...
         print("")
         print("You have decided to remove the sorting hat.".center(80))
         print("")
-        print(f"Goodbye {student['Name']} maybe we will see you next term instead.".center(80))
-        sleep (3)
+        print(f"""Goodbye {student['Name']} maybe we will see you next 
+        term instead.""".center(80))
+        sleep(3)
         clear_display()
         main()
     elif sort == 'y':
@@ -117,6 +120,7 @@ def start_sorting():
         generate_questions()
     else:
         print("\nPlease enter either 'y' or 'n' in order to proceed.\n".center(70))
+
 
 def generate_questions():
     """
@@ -129,13 +133,14 @@ def generate_questions():
     answers = []
     
     for q in questions:
-        print(q['question']) #https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
+        print(q['question'])  # from Stackoverflow see Readme
         sleep(1)
         for i, c in enumerate(q['options']):
             print(chr(97 + i) + ':', c)
 
         while True: 
-            answer = input("Enter your answer or press q to remove the Sorting Hat:\n>>> ".center(70))
+            answer = input("""Enter your answer or press q to remove the 
+            Sorting Hat:\n>>> """.center(70))
     
             if validate_answer(answer):
                 print('\n\nThank you'.center(70))
@@ -148,46 +153,50 @@ def generate_questions():
     house = statistics.mode(answers)
     
     if house == 'a':
-        student.update({"House" : "Gryffindor"})
+        student.update({"House": "Gryffindor"})
     elif house == 'b':
-        student.update({"House" : "Slytherin"})
+        student.update({"House": "Slytherin"})
     elif house == 'c':
-        student.update({"House" : "Hufflepuff"})
+        student.update({"House": "Hufflepuff"})
     elif house == 'd':
-        student.update({"House" : "Ravenclaw"})
+        student.update({"House": "Ravenclaw"})
     else:
         print("Hmmmmm...I am having some trouble sorting you.")
         print("Perhaps we should run through the questions again..")
-    
-def clear_display(): #dnlBowers
+
+
+def clear_display():  # dnlBowers
     """"
     Clears the console
     """
     command = 'clear'
     if os.name in (
-            'nt', 'dos'):  # If Machine is running on Windows, use cls
+            'nt', 'dos'):  
         command = 'cls'
     os.system(command)
-  
+
+
 def validate_name(name):
     """
     Raises error if name entered is numerical 
     or is blank.
     """
     try: 
-      if name.isnumeric():
-        raise ValueError(
-          f"\nPlease enter your name as text, you entered {name}"
-        )
-      elif len(name.strip()) == 0: #rockymiss
-        raise ValueError(
-          "\nPlease enter your name, we need this to ensure you can be accepted to Hogwarts"
-        )
+        if name.isnumeric():
+            raise ValueError(
+              f"\nPlease enter your name as text, you entered {name}"
+            )
+        elif len(name.strip()) == 0:  # rockymiss
+            raise ValueError(
+              """\nPlease enter your name, we need this to ensure you 
+              can be accepted to Hogwarts"""
+            )
     except ValueError as e:
-      print(f"{e}, please try again.\n")
-      return False
+        print(f"{e}, please try again.\n")
+        return False
     
     return True
+
 
 def validate_age(number):
     """
@@ -196,27 +205,22 @@ def validate_age(number):
     entry is not a number.
     """
     try: 
-      if int(number) > 18:
-        raise ValueError(
-          f"\n{number}! Hogwarts cannot accept students over the age of 18."
-          "\nPlease re-count your years and try again."
-        )
-      elif int(number) < 4:
-        raise ValueError(
-          "\nHogwarts can only accept students over the age of 4."
-          f"\nAs you are only {number} you will need to wait a few years and come back."
-          "Please re-count your years and try again."
-        )
-      #elif number.isnumeric() = False
-      #  raise ValueError(
-      #    "\nPlease tell us your age so we are sure you can be accepted to Hogwarts."
-      #  )
-      else:
-        return True
-
+        if int(number) > 18:
+            raise ValueError(
+              f"\n{number}! Hogwarts cannot accept students over the age of 18."
+              "\nPlease re-count your years and try again."
+            )
+        elif int(number) < 4:
+            raise ValueError(
+              "\nHogwarts can only accept students over the age of 4."
+              f"""\nAs you are only {number} you will need to wait a 
+              few years and come back."""
+              "Please re-count your years and try again."
+            )   
     except ValueError as e:
-      print(f"\n{e}\n")
-      return False
+        print(f"\n{e}\n")
+        return False
+
 
 def validate_country(country):
     """
@@ -238,6 +242,7 @@ def validate_country(country):
     
     return True
 
+
 def validate_answer(answer):
     """
     Raises error if answer entered is not 
@@ -257,7 +262,8 @@ def validate_answer(answer):
       print(f"{e} please select a, b, c or as your answer to proceed or q to \n remove the Sorting Hat.\n")
       return False
 
-def update_house_spreadsheet():#rockymiss
+
+def update_house_spreadsheet():  # rockymiss
     """
     Populates Houses tab of Google spreadsheet
     with name, age and country input data and 
@@ -265,6 +271,7 @@ def update_house_spreadsheet():#rockymiss
     """
     new_student = list(student.values())
     houses.append_row(new_student)
+
 
 def determine_house():
     """
@@ -341,6 +348,7 @@ def determine_house():
         print("Let's go back and try again".center(80))
         re_sort()
 
+
 def conclusion():
     """
     Function to give student option to accept 
@@ -378,6 +386,7 @@ def conclusion():
         update_house_spreadsheet()
         see_housemates()
 
+
 def validate_conclusion(next_step):
     """
     Raises error if answer entered is not h or r.
@@ -398,6 +407,7 @@ def validate_conclusion(next_step):
       print(f"{e} please select h or r as your answer to proceed.\n")
       return False
 
+
 def quit():
     """
     Function to quit current status and return
@@ -413,6 +423,7 @@ def quit():
     clear_display()
     main()
 
+
 def re_sort():
     """
     Function to return to questions if student 
@@ -421,6 +432,7 @@ def re_sort():
     generate_questions()
     determine_house()
     conclusion()
+
 
 def see_housemates():
     """
@@ -456,6 +468,7 @@ def see_housemates():
     sleep(7)
     main()
 
+
 def main():
     """
     Function to call main functions of game 
@@ -468,5 +481,6 @@ def main():
     start_sorting()
     determine_house()
     conclusion()
+
 
 main()
