@@ -4,29 +4,29 @@ Sorting hat questions
 
 questions = [
     
-    {'question': "You are given a team project to complete\n"
+    {'question': "You are given a team project to complete \n"
     "in school. What role do you play in the team?\n",
-    'options': ["The organiser, assigning roles and tasks"
+    'options': ["The organiser, assigning roles and tasks "
     "to others in the team\n",
     "Team projects are great, I can let everyone "
     "else do all the work!\n",
     "I work hard to make sure I am a good member "
     "of the team.\n",
-    "I work away on my own, researching the best"
+    "I work away on my own, researching the best "
     "options.\n"]},
 
-    {'question': "Its sports day and you are competing in a number\n"
+    {'question': "Its sports day and you are competing in a number \n"
     "of events. Do you..\n",
-    'options' : ["Put in lots of practice in the weeks before"
+    'options' : ["Put in lots of practice in the weeks before. " 
     "You want to win!\n",
-    "Do whatever it takes to win..if that means"
+    "Do whatever it takes to win..if that means "
     "tripping someone esle up so be it!\n",
-    "Give it my best effort but at the end of the"
+    "Give it my best effort but at the end of the "
     "day the best boy or girl wins!\n",
-    "Sports day? Uggh can we not do soemthing more"
+    "Sports day? Uggh can we not do soemthing more "
     "interesting?!.\n"]},
 
-    {'question': "You see another pupil being teased about their clothes."
+    {'question': "You see another pupil being teased about their clothes. "
     "Do you..\n",
     'options': ["Threaten the bullies and tell them to back off.\n",
     "Laugh and maybe join in.\n",
@@ -34,18 +34,18 @@ questions = [
     "Feel sorry for them but mind your own business.\n"]},
 
     {'question': "Which profession appeals to you the most..\n",
-    'options': ["(a) \n",
-    "(b) \n",
-    "(c) \n",
-    "(d) \n"]},
+    'options': ["(a) Celebrity actor or singer \n",
+    "(b) Successful politician \n",
+    "(c) Accountant \n",
+    "(d) Professor\n"]},
 
-    {'question': "You went to HoneyDukes to buy some sweets but "
+    {'question': "You went to Honeydukes to buy some sweets but "
     "realised later you were undercharged. Do you..\n",
     'options': ["Go straight back to tell them and pay the "
     "correct amount.\n",
     "Think brilliant! Their mistake is my win!\n",
-    "Remember to go back next time you are in\n"
-    "Diagon Alley and pay the difference\n",
+    "Remember to go back next time you are in \n"
+    "Hogsmeade and pay the difference\n",
     "Think oh that's lucky!\n"]},   
 
     {'question': "What is your ideal position in a game of Quidditch?\n",
@@ -58,7 +58,7 @@ questions = [
     "upsetting?\n",
     'options': ["Weak\n",
     "Boring\n",
-    "Cheater\n",
+    "Cheat\n",
     "Stupid\n"]}, 
 
     {'question': "You value friends that are...\n",
@@ -73,9 +73,9 @@ questions = [
     "I don't get in trouble!\n",
     "Staying up late reading\n"]},
 
-    {'question': "Placeholder.\n",
-    'options': ["(a) \n",
-    "(b) \n",
-    "(c) \n",
-    "(d) \n"]} 
+    {'question': "If you were choosing a dog would it be...\n",
+    'options': ["(a) A German Shepherd\n",
+    "(b) A chihuhua \n",
+    "(c) A golden retriever \n",
+    "(d) A poddle \n"]} 
 ]
