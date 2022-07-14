@@ -425,6 +425,8 @@ def see_housemates():
     of student based on determined house for student.
     """
     clear_display()
+    print("Meet some of your fellow housemates for the coming term".center(80))
+    print("")
     student_data = houses.get_all_values()
     dict_keys = ['Name', 'Age', 'Country', 'House']
     list_of_dict = [dict(zip(dict_keys, student)) for student in student_data]
@@ -445,7 +447,7 @@ def see_housemates():
     print("We wish you the very best for your time in Hogwarts.".center(80))
     print("")
     print("We must now move on to the next student. Goodbye!".center(80))
-    sleep(3)
+    sleep(7)
     main()
 
 def main():
