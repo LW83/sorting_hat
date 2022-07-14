@@ -175,6 +175,8 @@ def validate_name(name):
             raise ValueError(
               """\nPlease enter your name, we need this to ensure you can be accepted to Hogwarts"""
             )
+        else:
+            return True
     except ValueError as e:
         print(f"{e}, please try again.\n")
         return False
@@ -199,6 +201,8 @@ def validate_age(number):
               f"\nAs you are only {number} you will need to wait a few years and come back."
               "Please re-count your years and try again."
             )
+        else:
+            return True
     except ValueError as e:
         print(f"\n{e}\n")
         return False
@@ -218,6 +222,8 @@ def validate_country(country):
             raise ValueError(
               "\nPlease enter your country, we need this to ensure you can be accepted to Hogwarts"
             )
+        else: 
+            return True
     except ValueError as e:
         print(f"{e}, please try again.\n")
         return False
@@ -236,6 +242,7 @@ def validate_answer(answer):
             )
         elif answer == 'q':
             quit_game()
+        else: 
             return True
 
     except ValueError as e:
