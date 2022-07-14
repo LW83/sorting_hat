@@ -109,7 +109,7 @@ def start_sorting():
         sleep(1)
         generate_questions()
     else:
-        print("\nPlease enter either 'y' or 'n' in order to proceed.\n".center(70))
+        print("\nPlease enter either 'y' or 'n' in order to proceed.\n".center(80))
 
 
 def generate_questions():
@@ -127,9 +127,9 @@ def generate_questions():
             print(chr(97 + i) + ':', c)
 
         while True:
-            answer = input("""Enter your answer or press q to remove the Sorting Hat:\n>>> """.center(70))
+            answer = input("""Enter your answer or press q to remove the Sorting Hat:\n>>> """.center(80))
             if validate_answer(answer):
-                print('\n\nThank you'.center(70))
+                print('\n\nThank you'.center(80))
                 answers.append(answer)
                 break
 
