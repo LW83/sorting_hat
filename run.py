@@ -58,7 +58,7 @@ def welcome():
 
     while True:
         print("")
-        country = input("""Finally, please tell us what Country you are from:\n>>> """)
+        country = input("Finally, what Country are you from:\n>>> ")
         if validate_country(country):
             print("")
             print(f"Thank you {name}!".center(80))
@@ -74,7 +74,8 @@ def welcome():
     clear_display()
     logos.intro_logo_1()
     print(Style.RESET_ALL)
-    print(f"""Welcome to Hogwarts School of Witchcraft and Wizardry {name}.\n""".center(80))
+    print("Welcome to Hogwarts School of Witchcraft "
+          f"and Wizardry {name}.\n".center(80))
     print(f"We are delighted to have you join us for the {year} school term.\n".center(80))
     sleep(3)
     clear_display()

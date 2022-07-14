@@ -10,6 +10,7 @@ https://www.hiclipart.com/free-transparent-background-png-clipart-zwlxt for sort
 logo text
 quiz content
 house info
+https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
 
 
 '''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers
