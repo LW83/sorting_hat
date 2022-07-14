@@ -4,22 +4,22 @@ Sorting hat questions
 
 questions = [
     {'question': "You are given a team project to complete in school. \n"
-      "What role do you play in the team?\n",
-      'options': ["The organiser, assigning roles and tasks "
-      "to others in the team\n",
-      "Team projects are great, I can let everyone "
-      "else do all the work!\n",
-      "I work hard to make sure I am a good member "
-      "of the team.\n",
-      "I work away on my own, researching the best "
-      "options.\n"]},
+                 "What role do you play in the team?\n",
+     'options': ["The organiser, assigning roles and tasks "
+                  "to others in the team.\n",
+                  "Team projects are great, I can let everyone "
+                  "else do all the work!\n",
+                  "I work hard to make sure I am a good member "
+                  "of the team.\n",
+                  "I work away on my own, researching the best "
+                  "options.\n"]},
 
     {'question': "Its sports day and you are competing in a number of "
       "events. \nDo you..\n",
       'options': ["Put in lots of practice in the weeks before. "
       "You want to win!\n",
       "Do whatever it takes to win..if that means "
-      "tripping someone esle up so be it!\n",
+      "tripping someone else up so be it!\n",
       "Give it my best effort but at the end of the "
       "day the best boy or girl wins!\n",
       "Sports day? Uggh can we not do soemthing more "
@@ -34,7 +34,7 @@ questions = [
 
     {'question': "Which profession appeals to you the most?\n",
      'options': ["Celebrity actor or singer \n",
-     "Successful politician \n",
+     "President \n",
      "Accountant \n",
      "Professor\n"]},
 
@@ -43,7 +43,7 @@ questions = [
      'options': ["Go straight back to tell them and pay the "
      "correct amount.\n",
      "Think brilliant! Their mistake is my win!\n",
-     "Remember to go back next time you are in \n"
+     "Remember to go back next time you are in "
      "Hogsmeade and pay the difference\n",
      "Think oh that's lucky!\n"]},
 

@@ -58,8 +58,7 @@ def welcome():
 
     while True:
         print("")
-        country = input("""Finally, please tell us what Country you are from:\n
-        >>> """)
+        country = input("""Finally, please tell us what Country you are from:\n>>> """)
         if validate_country(country):
             print("")
             print(f"Thank you {name}!".center(80))
@@ -222,7 +221,7 @@ def validate_country(country):
             raise ValueError(
               "\nPlease enter your country, we need this to ensure you can be accepted to Hogwarts"
             )
-        else: 
+        else:
             return True
     except ValueError as e:
         print(f"{e}, please try again.\n")
@@ -242,7 +241,7 @@ def validate_answer(answer):
             )
         elif answer == 'q':
             quit_game()
-        else: 
+        else:
             return True
 
     except ValueError as e:
