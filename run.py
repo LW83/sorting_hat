@@ -359,9 +359,9 @@ def conclusion():
     while True: 
         print("")
         print("Please enter h if you are happy with your house and wish to meet".center(80))
-        print("your new housemates.".center(80))
+        print("your new housemates".center(80))
         print("or".center(80))
-        next_step = input("enter r if you wish to be re-sorted\n>>>".center(80))
+        next_step = input("enter r if you wish to be re-sorted.\n>>>".center(80))
     
         if validate_conclusion(next_step):
                 print("")
@@ -425,8 +425,9 @@ def see_housemates():
     of student based on determined house for student.
     """
     clear_display()
-    print("Meet some of your fellow housemates for the coming term".center(80))
+    print("Meet some of your fellow housemates for the coming term:".center(80))
     print("")
+    pring("")
     student_data = houses.get_all_values()
     dict_keys = ['Name', 'Age', 'Country', 'House']
     list_of_dict = [dict(zip(dict_keys, student)) for student in student_data]
@@ -441,12 +442,14 @@ def see_housemates():
         classmates = [i for i in list_of_dict if i['House'] == 'Ravenclaw']
     print(tabulate(classmates, headers = "keys", tablefmt = "simple",))
     sleep(3)
-    print(" ")
+    print("")
     print("Thank you for trying on the Sorting Hat.".center(80))
     print("")
     print("We wish you the very best for your time in Hogwarts.".center(80))
     print("")
-    print("We must now move on to the next student. Goodbye!".center(80))
+    print("We must now move on to the next student.".center(80))
+    print("")
+    print("Goodbye!".center(80))
     sleep(7)
     main()
 

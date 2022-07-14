@@ -4,8 +4,8 @@ Sorting hat questions
 
 questions = [
     
-    {'question': "You are given a team project to complete \n"
-    "in school. What role do you play in the team?\n",
+    {'question': "You are given a team project to complete in school. \n"
+    "What role do you play in the team?\n",
     'options': ["The organiser, assigning roles and tasks "
     "to others in the team\n",
     "Team projects are great, I can let everyone "
@@ -15,8 +15,8 @@ questions = [
     "I work away on my own, researching the best "
     "options.\n"]},
 
-    {'question': "Its sports day and you are competing in a number \n"
-    "of events. Do you..\n",
+    {'question': "Its sports day and you are competing in a number of events. \n"
+    "Do you..\n",
     'options' : ["Put in lots of practice in the weeks before. " 
     "You want to win!\n",
     "Do whatever it takes to win..if that means "
@@ -24,7 +24,7 @@ questions = [
     "Give it my best effort but at the end of the "
     "day the best boy or girl wins!\n",
     "Sports day? Uggh can we not do soemthing more "
-    "interesting?!.\n"]},
+    "interesting?!\n"]},
 
     {'question': "You see another pupil being teased about their clothes. "
     "Do you..\n",
@@ -33,14 +33,14 @@ questions = [
     "Find the pupil afterwards and talk to them.\n",
     "Feel sorry for them but mind your own business.\n"]},
 
-    {'question': "Which profession appeals to you the most..\n",
-    'options': ["(a) Celebrity actor or singer \n",
-    "(b) Successful politician \n",
-    "(c) Accountant \n",
-    "(d) Professor\n"]},
+    {'question': "Which profession appeals to you the most?\n",
+    'options': ["Celebrity actor or singer \n",
+    "Successful politician \n",
+    "Accountant \n",
+    "Professor\n"]},
 
-    {'question': "You went to Honeydukes to buy some sweets but "
-    "realised later you were undercharged. Do you..\n",
+    {'question': "You went to Honeydukes to buy some sweets but realised later "
+    "that you were \nundercharged. Do you..\n",
     'options': ["Go straight back to tell them and pay the "
     "correct amount.\n",
     "Think brilliant! Their mistake is my win!\n",
