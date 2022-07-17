@@ -34,7 +34,7 @@ def welcome():
     country inputs from user.
     """
     print('THE SORTING HAT\n'.center(80))
-    sleep(3)
+    sleep(5)
     clear_display()
 
     while True:
@@ -160,7 +160,7 @@ def generate_questions():
         print("Perhaps we should run through the questions again..")
 
 
-def clear_display():  # dnlBowers
+def clear_display():  # dnlBowers see Readme notes
     """"
     Clears the console
     """
@@ -181,7 +181,7 @@ def validate_name(name):
             raise ValueError(
               f"\nPlease enter your name as text, you entered {name}"
             )
-        elif len(name.strip()) == 0:  # rockymiss
+        elif len(name.strip()) == 0:  # rockymiss see Readme notes
             raise ValueError(
               "\nPlease enter your name, we need this to ensure you can be "
               "accepted to Hogwarts"
@@ -201,7 +201,11 @@ def validate_age(number):
     entry is not a number.
     """
     try:
-        if int(number) > 18:
+        if number.isnumeric() is False:
+            raise ValueError(
+              "Please enter a number for your age."
+            )
+        elif int(number) > 18:
             raise ValueError(
               f"\n{number}! Hogwarts cannot accept students over the age of "
               "18.\nPlease re-count your years and try again."
@@ -232,7 +236,7 @@ def validate_country(country):
         elif len(country.strip()) == 0:
             raise ValueError(
               "\nPlease enter your country, we need this to ensure you can be "
-              "accepted to Hogwarts"
+              "accepted to \nHogwarts."
             )
         else:
             return True
@@ -263,7 +267,7 @@ def validate_answer(answer):
         return False
 
 
-def update_house_spreadsheet():  # rockymiss
+def update_house_spreadsheet():  # rockymiss see Readme notes
     """
     Populates Houses tab of Google spreadsheet
     with name, age and country input data and

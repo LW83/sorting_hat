@@ -73,7 +73,7 @@ questions = [
                  "Staying up late reading\n"]},
 
     {'question': "If you were choosing a dog would it be...\n",
-     'options': ["A German Shepherd\n",
+     'options': ["A German shepherd\n",
                  "A chihuhua \n",
                  "A golden retriever \n",
                  "A poddle \n"]}

@@ -72,9 +72,7 @@ Looked at using pandas module
 ***
 ## Overview 
 
-Welcome to The Sorting Hat, a just-for-fun quiz to test your knowledge of dog breeds!
-
-As a dog lover myself, I wanted to create a fun quiz of 10 multiple choice questions that can be played and enjoyed by any age. Each round generates a fresh mix of images so the game can be played time and time again.
+Welcome to The Sorting Hat, a Harry Potter-themed quiz to determine which Hogwarts House you will in for the upcoming school term!
 
 ![Responsiveness Demo](./docs/responsive-devices.png)
 
