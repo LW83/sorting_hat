@@ -60,6 +60,29 @@ https://www.i2tutorials.com/convert-list-of-lists-to-list-of-dictionaries/
 https://stackoverflow.com/questions/63508906/get-all-keys-with-specific-value-in-dictionary-python
 Looked at using pandas module
 
+Bug - originally checked is entry was only digits changed from is numeric (would accept letters and digits to is alpha only accepting letters)
+def validate_name(name):
+    """
+    Raises error if name entered is numerical
+    or is blank.
+    """
+    try:
+        if name.isalpha() is False:
+            raise ValueError(
+             f"\nPlease enter your name as text, you entered {name}"
+            )
+        elif len(name.strip()) == 0:  # rockymiss see Readme notes
+            raise ValueError(
+             "\nPlease enter your name, we need this to ensure you can be "
+             "accepted to Hogwarts"
+            )
+        else:
+            return True
+    except ValueError as e:
+        print(f"{e}, please try again.\n")
+        return False
+    return True
+
 
 
 

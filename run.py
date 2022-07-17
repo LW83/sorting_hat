@@ -173,18 +173,13 @@ def clear_display():  # dnlBowers see Readme notes
 
 def validate_name(name):
     """
-    Raises error if name entered is numerical
-    or is blank.
+    Raises error if entery is not made up of alphabetical
+    characters or is blank.
     """
     try:
-        if name.isnumeric():
+        if name.isalpha() is False:
             raise ValueError(
-              f"\nPlease enter your name as text, you entered {name}"
-            )
-        elif len(name.strip()) == 0:  # rockymiss see Readme notes
-            raise ValueError(
-              "\nPlease enter your name, we need this to ensure you can be "
-              "accepted to Hogwarts"
+             f"\nPlease enter your name as text, you entered {name}"
             )
         else:
             return True
@@ -225,18 +220,13 @@ def validate_age(number):
 
 def validate_country(country):
     """
-    Raises error if name entered is numerical
-    or is blank.
+    Raises error if entery is not made up of alphabetical
+    characters or is blank.
     """
     try:
-        if country.isnumeric():
+        if country.isalpha() is False:
             raise ValueError(
               f"\nPlease enter your country as text, you entered {country}"
-            )
-        elif len(country.strip()) == 0:
-            raise ValueError(
-              "\nPlease enter your country, we need this to ensure you can be "
-              "accepted to \nHogwarts."
             )
         else:
             return True
@@ -382,7 +372,7 @@ def conclusion():
               "meet".center(80))
         print("your new housemates".center(80))
         print("or".center(80))
-        next_step = input("enter r if you wish to be re-sorted."
+        next_step = input("enter r if you wish to be re-sorted or q to quit."
                           "\n>>>".center(80))
         if validate_conclusion(next_step):
             print("")
@@ -391,6 +381,8 @@ def conclusion():
             break
     if next_step == "r":
         re_sort()
+    elif next_step == "q":
+        quit_game()
     elif next_step == "h":
         update_house_spreadsheet()
         see_housemates()
@@ -398,10 +390,10 @@ def conclusion():
 
 def validate_conclusion(next_step):
     """
-    Raises error if answer entered is not h or r.
+    Raises error if answer entered is not h r or q.
     """
     try:
-        if next_step not in {'h', 'r'}:
+        if next_step not in {'h', 'r', 'q'}:
             raise ValueError(
               f"\nYou answered {next_step},"
             )
@@ -413,7 +405,7 @@ def validate_conclusion(next_step):
             return True
 
     except ValueError as e:
-        print(f"{e} please select h or r as your answer to proceed.\n")
+        print(f"{e} please select h, r or q as your answer to proceed.\n")
         return False
 
 
