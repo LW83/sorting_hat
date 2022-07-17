@@ -28,6 +28,17 @@ houses = SHEET.worksheet('Houses')
 student = {"Name": "", "Age": "", "Country": "", "House": ""}
 
 
+def clear_display():  # dnlBowers see Readme notes
+    """"
+    Clears the console
+    """
+    command = 'clear'
+    if os.name in (
+            'nt', 'dos'):
+        command = 'cls'
+    os.system(command)
+
+
 def welcome():
     """
     Welcome function to request name, age and
@@ -101,8 +112,14 @@ def start_sorting():
     Function to verify with user that they wish to proceed.
     Option to quit at this stage.
     """
-    sort = input("\n      Please enter y to start or n if you wish to remove "
-                 "the Sorting Hat.\n>>> ")
+    while True:
+        sort = input("\n      Please enter y to start or n if you wish to "
+                     "remove the Sorting Hat.\n>>> ")
+        if validate_sorting_selection(sort):
+            print("")
+            print('Thank you'.center(80))
+            print("")
+            break
     if sort == 'n':  # Add if sort not in lowercase...
         print("")
         print("You have decided to remove the sorting hat.".center(80))
@@ -158,17 +175,6 @@ def generate_questions():
     else:
         print("Hmmmmm...I am having some trouble sorting you.")
         print("Perhaps we should run through the questions again..")
-
-
-def clear_display():  # dnlBowers see Readme notes
-    """"
-    Clears the console
-    """
-    command = 'clear'
-    if os.name in (
-            'nt', 'dos'):
-        command = 'cls'
-    os.system(command)
 
 
 def validate_name(name):
@@ -236,6 +242,27 @@ def validate_country(country):
     return True
 
 
+def validate_sorting_selection(sort):
+    """
+    Raises error if answer entered is not y or n.
+    """
+    try:
+        if sort not in {'y', 'n'}:
+            raise ValueError(
+              f"\nYou answered {sort},"
+            )
+        elif sort == '':
+            raise ValueError(
+              "\nYou did not provide an answer,"
+            )
+        else:
+            return True
+
+    except ValueError as e:
+        print(f"{e} please select y or n as your answer to proceed.\n")
+        return False
+
+
 def validate_answer(answer):
     """
     Raises error if answer entered is not
@@ -255,16 +282,6 @@ def validate_answer(answer):
         print(f"{e} please select a, b, c or as your answer to proceed or q to"
               "\n remove the Sorting Hat.\n")
         return False
-
-
-def update_house_spreadsheet():  # rockymiss see Readme notes
-    """
-    Populates Houses tab of Google spreadsheet
-    with name, age and country input data and
-    final determined house.
-    """
-    new_student = list(student.values())
-    houses.append_row(new_student)
 
 
 def determine_house():
@@ -433,6 +450,16 @@ def re_sort():
     generate_questions()
     determine_house()
     conclusion()
+
+
+def update_house_spreadsheet():  # rockymiss see Readme notes
+    """
+    Populates Houses tab of Google spreadsheet
+    with name, age and country input data and
+    final determined house.
+    """
+    new_student = list(student.values())
+    houses.append_row(new_student)
 
 
 def see_housemates():
