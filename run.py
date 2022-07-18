@@ -114,7 +114,7 @@ def start_sorting():
     """
     while True:
         sort = input("\n      Please enter y to start or n if you wish to "
-                     "remove the Sorting Hat.\n>>> ")
+                     "remove the Sorting Hat.\n>>> ").lower()
         if validate_sorting_selection(sort):
             print("")
             print('Thank you'.center(80))
@@ -155,7 +155,7 @@ def generate_questions():
 
         while True:
             answer = input("Enter your answer or press q to remove the "
-                           "Sorting Hat:\n>>> ".center(80))
+                           "Sorting Hat:\n>>> ".center(80)).lower()
             if validate_answer(answer):
                 print('\n\nThank you'.center(80))
                 answers.append(answer)
@@ -180,7 +180,7 @@ def generate_questions():
 def validate_name(name):
     """
     Raises error if entery is not made up of alphabetical
-    characters or is blank.
+    characters.
     """
     try:
         if name.isalpha() is False:
@@ -227,7 +227,7 @@ def validate_age(number):
 def validate_country(country):
     """
     Raises error if entery is not made up of alphabetical
-    characters or is blank.
+    characters.
     """
     try:
         if country.isalpha() is False:
@@ -390,7 +390,8 @@ def conclusion():
         print("your new housemates".center(80))
         print("or".center(80))
         next_step = input("enter r if you wish to be re-sorted or q to quit."
-                          "\n>>>".center(80))
+                          "\n>>>".center(80)).lower()
+        print(next_step)
         if validate_conclusion(next_step):
             print("")
             print('Thank you'.center(70))

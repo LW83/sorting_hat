@@ -101,14 +101,14 @@ Welcome to The Sorting Hat, a Harry Potter-themed quiz to determine which Hogwar
 
 ## Live Site
 
-[Name That Hound](https://lw83.github.io/name-that-hound/)
+[The Sorting Hat](https://sorting-hat-22.herokuapp.com/)
 
 ## Repository 
 
-[GitHub Repository](https://github.com/LW83/name-that-hound/)
+[GitHub Repository](https://github.com/LW83/sorting_hat)
 ***
 ## Table of Contents:
-* [**Name That Hound**](#name-that-hound)
+* [**The Sorting Hat**](#the-sorting-hat)
   * [**Overview**](#overview)
   * [**Concept and Planning**](#concept-and-planning)
     * [**Target Audience**](#target-audience)
@@ -375,19 +375,9 @@ __HTML Validation__
 
   ![W3C validator](./docs/w3c-pre.png)
 
-__CSS Validation__
-  
-  - No errors were found when passing through the official W3C Validator.
-  
-  ![(Jigsaw) validator](./docs/jigsaw.png)
+__Python Validation__
 
-  - One warning remains from the CSS validation which is not considered of significant impact. 
-
-  ![(Jigsaw) validator](./docs/jigsaw-warning.png)
-
-__Javascript Validation__
-
-  - No errors were found when passing through the official JSHint Validator. 
+  - No errors were found when passing through the official XXX Validator. 
 
   ![JSHint validator](./docs/jshint.png)
 
@@ -483,51 +473,28 @@ The live link can be found here: [Name That Hound](https://lw83.github.io/name-t
 ## Credits  
 
 ### Media
- - The winking dog image utilised in the final certificate was taken from [ImgFlip](https://imgflip.com/).
- - All other dog images used in the site have been taken from [DogTime](https://dogtime.com) and copyright remains with this source.
- - The background image used for the site has been downloaded from [Adobe Stock Images](https://stock.adobe.com/ie/). 
- - The border for the final score certificate was downloaded from [istock photo](https://www.istockphoto.com/search/2/image?mediatype=illustration&phrase=dog+borders) and copyright remains with this source.
+ - 
 
 ### Languages Used
   - HTML5
   - CSS3
-  - Javascript
+  - Python
 
 ### Tools & Online Resources Utilised
- - Being new to Javascript, I found there was a lot of trial and error as part of this project and a lot of general research, I have tried to be as complete as possible in noting the resources that were utilised in getting to the final build of the game. 
-
  - The following tools and resources have been utilised in the creation of this project: 
-     - [Balsamiq](https://balsamiq.com/): For creation of wireframes. 
      - GitHub & Gitpod: For development and deployment of the site. 
      - [Image Color Picker](https://imagecolorpicker.com/en): To match colours from the background image for use in color theme of site. 
-     - [Google Fonts](https://fonts.google.com/): For site fonts. 
-     - [Compressor.io](https://compressor.io/): For compressing image file sizes. 
-     - [Font Awesome](https://fontawesome.com/): For icons used across the site. 
-     - [Remove.bg](https://www.remove.bg/upload): To remove background of images for use in header.
-     - [Simple Image Resizer](https://www.simpleimageresizer.com/upload): to resize image header and certificate images.
      - [W3 Schools](https://www.w3schools.com/js/js_random.asp): For general guidance and research and for further direction on how to create a random number used for generating image in game.  
      - [Stack Overflow](https://stackoverflow.com/questions/19089018/how-to-align-form-at-the-center-of-the-page-in-html-css): For general guidance and research - specific examples used in final build set out below. 
-     - [Wave (Web Accessibility Evaluation Tool)](https://wave.webaim.org/): For accessibility checks
-     - [Eight Shapes Contrast Grid](https://contrast-grid.eightshapes.com): For color contract checks
      - [Slack](https://slack.com/intl/en-ie/): For general guidance and research on project considerations. 
      - Google Chrome Dev Tools: For validation and responsiveness checks
      - [Python Tutor](https://pythontutor.com/): For testing code throughout development
      - [Am I Responsive](https://ui.dev/amiresponsive): To create the multi-device screenshot for inclusion in my Readme file. 
-     - [W3C CSS (Jigsaw) Validator](https://jigsaw.w3.org/css-validator/)
      - [W3C HTML Validator](https://validator.w3.org/)
-     - [JSHint Validator](https://jshint.com/)
-     - Code Institute & Love Maths Demonstration: For guidance and inspiration for this site. 
+     - Code Institute & Love Sandwiches Demonstration: For guidance and inspiration for this site. 
 
      Specific Online Resources utilised as references: 
-      - Creating a quiz with random questions from an array: https://stackoverflow.com/questions/70983009/im-creating-a-quiz-with-5-random-questions-out-of-an-array-with-20-i-want-to
-      - Accessing nested objects array: https://stackoverflow.com/questions/11922383/how-can-i-access-and-process-nested-objects-arrays-or-json
-      - Accessing random item from array: https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
-      - Calling a function multiple times: https://stackoverflow.com/questions/44008092/how-to-call-a-function-multiple-times
-      - Identifying selected radio button: https://stackoverflow.com/questions/7275597/getting-the-selected-radio-without-using-id-but-name
-      - Identifying selected DOM elements: https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors
-      - Generating unique random numbers: https://stackoverflow.com/questions/2380019/generate-unique-random-numbers-between-1-and-100
-      - Showing and hiding divs for different sections of the game: https://sebhastian.com/javascript-show-hide-div-onclick-toggle/#:~:text=To%20display%20or%20hide%20a,which%20is%20block%20)%20to%20none%20.
-      - Accessing a variable outside a function:(https://www.codegrepper.com/code-examples/javascript/how+to+access+variable+outside+function+in+javascript)
+      - 
 
 ### Code Utilisation
  - The following elements of code have specifically been utilised from the following sources: 
@@ -539,4 +506,3 @@ The live link can be found here: [Name That Hound](https://lw83.github.io/name-t
  - In addition a big thank you to the following people for their assistance in this project:
      - Kasia Bogucka: Our cohort facilitator for keeping us all on track and answering all and any of the many questions!
      - My cohort: For our weekly checkins and tips
-     - Mike Avgeros: For responding to my query on Slack as set out in more detail in the Bugs section above. 
