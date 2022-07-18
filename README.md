@@ -1,98 +1,8 @@
-
-
-
-
-'''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers
-    """
-    Runs through sorting hat questions
-    """
-    clear_display()
-    answers = []
-    for q in questions:  #https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
-        print(q['question'])
-        sleep(1)
-        for i, c in enumerate(q['options']):
-            print(chr(97 + i)+ ':', c)
-            
-        while True: 
-            answer = input("Enter your answer:\n>>> ".center(70))
-    
-            if validate_answer(answer):
-                print('\n\nThank you'.center(70))
-                answers.append(answer)
-                break
-
-        sleep(1)
-        clear_display()
-
-        return answers'''
-
-Bug
-Questions were looping twice - was calling fucntion from within sort function and then again in main
-Was breaking after two questions - 
-
-Bug 
-Was updating spreadsheet after welcome moved to after generate questions to update with all details (name etc plus house)
-Moved house determination within function to be able to access house variable
-
-Bug 
-Centering text on line - not centring when using \n on line so included blank lines before instead of line breaks to ensure centring worked.
-
-Bug
-Initially pushing inputs and house to spreadsheet after first round of questions with option to re-sort. Trying to update house after re-sorting but changed to push details to spreadsheet once 'student' confirmed happy with house. 
-
-Bug
-Getting subset of spreadsheet to show housemates
-Convert back to list of dictionaries
-Use list comprehension 
-https://www.i2tutorials.com/convert-list-of-lists-to-list-of-dictionaries/
-https://stackoverflow.com/questions/63508906/get-all-keys-with-specific-value-in-dictionary-python
-Looked at using pandas module
-
-Bug - originally checked is entry was only digits changed from is numeric (would accept letters and digits to is alpha only accepting letters)
-def validate_name(name):
-    """
-    Raises error if name entered is numerical
-    or is blank.
-    """
-    try:
-        if name.isalpha() is False:
-            raise ValueError(
-             f"\nPlease enter your name as text, you entered {name}"
-            )
-        elif len(name.strip()) == 0:  # rockymiss see Readme notes
-            raise ValueError(
-             "\nPlease enter your name, we need this to ensure you can be "
-             "accepted to Hogwarts"
-            )
-        else:
-            return True
-    except ValueError as e:
-        print(f"{e}, please try again.\n")
-        return False
-    return True
-
-    Changed back to is numeric as was not accepting space in name/country e.g. South Africa. 
-
-
-    Unfixed bugs
-    1) Allows input before question finished - tried to freeze keyboard
-    2) Validation - name and country only accept letters 
-
-
-
-
-
-
-
-
-
-
 # The Sorting Hat 
 ***
 ## Overview 
 
-Welcome to The Sorting Hat, a Harry Potter-themed quiz to determine which Hogwarts House you will be in for the upcoming school term! This is a purely for fun quiz for Harry Potter fans to simulate the experience of wearing the Sorting Hat from the books. 
+Welcome to The Sorting Hat, a Harry Potter-themed quiz to determine which Hogwarts House you will be in for the upcoming school term! In the Harry Potter series, the Sorting Hat is a hat that new students to Hogwarts put on and it determines which of the four Houses in Hogwarts (Gryffindor, Huffelpuff, Ravenclaw and Slytherin) the student is best suited to based on their personality and characteristics. This is a purely for fun quiz for Harry Potter fans to simulate the experience of wearing the Sorting Hat from the books. 
 
 This site has been created purely for demonstrating Python skills learned as part of the Code Institute's Diploma in Full Stack Software Development. No copyright infringement is intended. 
 
@@ -270,7 +180,8 @@ __Logo__
   - If the user selects r, they are brought back to the first question of the loop to run through and provide new answers. 
   - If the user selects q, the quit message is again displayed for the user and they are brought back to the starting landing page. 
   - If the user selects h, their final student details including determined house are pushed to a Google spreadsheet and they are brought to the concluding view and shown a list of housemates that will be in their year.
-  - This list is pulled from Google sheets using an API and extracts entries where the House matches that of the user. 
+  - This list is pulled from Google sheets using an API and extracts entries where the House matches that of the user.
+  - The tabulate module has been imported and used to display the housemates in a tabular structure. 
 
 ![Google Sheet](./docs/google-sheet.png)
 ![Housemates](./docs/housemates.png)
@@ -280,14 +191,7 @@ __Logo__
 ***
 ## Feature Enhancements
 
- - Potential additional future features for the site include: 
-      - Image selection: As the image is currently randomly generated from an array of dogs, there is the possibility that the same image is generated within a round of 10 questions. This is something I would like to work on removing in a future iteration of the game to further enhance the user experience. 
-
-      - Difficulty levels: There are a few options for potentially adding difficulty levels to the game:
-        1. Subjectively splitting dogs based on how common they are and a perception as to how difficult it may be to name their breed. This however would limit the number of options in each category and would mean that each image appears more frequently for the game type selected. 
-        2. Changing the game type to increase difficulty such as adding a free text box to guess the name or number of spaces with letter clues. A free text box version would require accepting varations of names for example a German Shepherd may also be referred to as an Alsatian. 
-
-      - For the current build of the game I ruled out implementing a timer as I felt it did not add to the game. I also considered and ruled out a leaderboard on the basis that a round is limited to ten questions and as a result there would not be sufficient variation in scores. However, if difficulty levels were added and potentially different score variables for difficulty level it may be more justified to add a leaderboard. 
+ - There are no current features that I believe are oustanding on the game however I would like to revisit the code in future to see if there is further opportunities for refactoring. 
        
 ***
 ## Testing 
@@ -297,49 +201,18 @@ __Logo__
  - All user stories identified have been tested against the final design with the outcome of this testing set out below. 
  - The game has also been tested by family and friends with positive feedback. 
 
-![User Story Testing](./docs/userstory-testing.png)
+![User Story Testing](./docs/user-testing.png)
 
 ### Features Testing
  - All design features have been manually tested with the outcome of this testing set out below. 
 
 ![Features Testing](./docs/feature-testing.png)
 
-### Responsiveness Testing
- - Responsiveness of the site was tested using Dev Tools for all screen size widths from 320px up to 2000px.
- - The user experience starts to diminish at screen sizes under 300px. 
- - Responsiveness was also specifically checked for the following devices either virtually within Dev Tools and/or physically where possible:
-
-![Responsiveness Testing](./docs/responsiveness1.png)
-![Responsiveness Testing](./docs/responsiveness2.png)
-
- - Specific breakpoints for each page were identified and managed through media queries. These were focused on adjusting the layout of boxes on the page, the size of margins and padding and also adjusting the font-size for smaller screen sizes. 
-
- - Images of the various page views are included for: 
-          - [iPhone XR](./docs/iphone_screenshots/)
-          - [iPad Air](./docs/ipad_screenshots/)
-          - [Macbook](./docs/macbook_screenshots/)
-
 ### Browser Testing
   - The site was developed and tested using Google's Chrome browser. 
   - The site has also been tested on Safari and functions as intended. 
 
 ![Browser Testing](./docs/browser-testing.png)
-
-### Accessibility Testing 
-
-  - By the nature of the fact that this is an image based quiz, this may present challenges for visually impaired users. To the extent possible this has been mitigated by including alt tags with a description of the dog image excluding the breed name to try and facilitate usage of the game by visually impaired individuals. 
-  - The accessibility of the site has also been tested through the following tools with no issues: 
-
-    - Dev Tools Lighthouse Report (screenshot included in Code Validation Testing section below)
-    - [Wave (Web Accessibility Evaluation Tool)](https://wave.webaim.org/)
-          - [Wave Test](./docs/wave.png)
-          - [Wave Summary](./docs/wave2.png)
-
-  - The following aspects of the site development have been specifically included with accessibility in mind: 
-    - For all images, alt tags with appropriate descriptions have been applied.
-    - Keyboard navigation for the site has been tested and is functioning as expected. 
-    - All color contrasts have been tested and validated for areas with text. 
-    - Semantic HTML tags have been used including headers, nav, h1, h2, h3, section, footer. 
  
 ### Code Validation Testing 
 
@@ -349,97 +222,94 @@ __Logo__
 
 __HTML Validation__
   
-  - No errors remain for the site when passing through the official W3C Validator. 
+  - As some updates were made to the HTML file included in the Code Institute template, I passed it through the W3C validator. 
+  - There are no errors for the site when passed through the validator. 
 
-  ![W3C validator](./docs/w3c.png)
+  ![W3C validator](./docs/html.png)
 
-  - When first passed through the validator, two errors were raised in relation to alt tags that had been applied to the exit door icon. These were since removed. 
+__CSS Validation__
+  - As some updates were made to the CSS included in the Code Institute template, I passed it through the W3C validator. 
+  - There are no errors for the site when passed through the validator.
 
-  ![W3C validator](./docs/w3c-pre.png)
+  ![CSS validator](./docs/css.png)
 
 __Python Validation__
 
-  - No errors were found when passing through the official XXX Validator. 
+  - No errors were found in any of the three python files when passing through the Pep8 online validator. 
 
-  ![JSHint validator](./docs/jshint.png)
-
-  - Some warnings were raised regarding missing semicolons which were since corrected. 
-  - One warning was raised about the use of a for in loop that was being used in the generation of answer options function. This was changed to a for let loop to mitigate the risks created from using a for in loop and this warning was remediated.  
- 
-  ![JSHint Warning](./docs/jshint-warning.png)
-
-  - One warning remains which is not considered of significant impact. 
-  
-__Lighthouse Report__
-  - In addition to the HTML, CSS and JS Validation, a mobile and desktop lighthouse report for the site was generated through Dev Tools with positive scores.
-
-  ![Lighthouse Desktop Report](./docs/lighthouse-desktop.png)
-
-  ![Lighthouse Mobile Report](./docs/lighthouse-mobile.png)
+  ![Run File](./docs/run-pep.png)
+  ![Questions File](./docs/questions-pep.png)
+  ![Logo File](./docs/logo-pep.png)
 
 ### Fixed Bugs   
   - The following key bugs arose and were fixed during the development of the game: 
 
-    1. Bringing in images: 
-          - Issue: Initially I was struggling with how to structure an array to include images and how to then access those images in subsequent functions to generate the dog image required as the basis for the game. 
-          - Solution: After some research online (primarily Stack Overflow), I structured the images as an array of objects and ensured I had the correct file path structure for accessing the images in the JS script. Finally, I corrected some typos in the template literal wording I had to bring the images into the DOM and this enabled the images to be visible.
-          - Resource: Stack Overflow
+Bug
+Getting subset of spreadsheet to show housemates
+Convert back to list of dictionaries
+Use list comprehension 
+https://www.i2tutorials.com/convert-list-of-lists-to-list-of-dictionaries/
+https://stackoverflow.com/questions/63508906/get-all-keys-with-specific-value-in-dictionary-python
+Looked at using pandas module
 
-    2. Generating random answers and pushing into an array:
-          - Issue: Originally, I created a function which generated a value and was running the function three times to try to push the value generated each time into an array using the following code: 
-                        
-                        let answerOptions = []
-                        
-                        function generateAnswerOptions () {
-                              let newNum = Math.floor(Math.random() * dogs.length);
-                              let addDogs = dogs[newNum];
-                              let addDogName = addDogs.name;
-                                  return addDogName;
-                        }
-       
-                        for (var i = 0; i < 3; i++) {
-                                generateAnswerOptions ();
-                                answerOptions.push(addDogName);
-                        }
-          - Solution: As the dogName variable didn't exist outside the function the above code was not working, so I needed to call the function as part of the loop i.e. answerOptions.push(generateAnswerOptions()). 
-          - Resource: Slack and specifically Mike Avgeros for his input on this. 
-          - Note: I subsequently changed some of the structure of the code here to facilitate the generation of unique answer options. I also made the dogName variable global in order to be accessible outside of the generateGame function. This was based on research from codegrepper.com. 
 
-    3. Not picking up the value of the radio button selected:  
-          - Issue: The radio buttons were not picking up the dog name but were showing as numbers. 
-          - Solution: I hadn't applied a value in creation of radio buttons which once included to reflect the assigned random answer was retested and worked as required.
-          - Resource: Stack Overflow
-    
-    4. Lining up answers with radio buttons:
-          - Issue: Initially, I struggled with generating the radio button options with the buttons showing up in a straight line rather than stacked or showing up as lines of all options. 
-          - Solution: In order to stop all four options showing in one line, I needed to include the [i] after answerOptions. To stop the buttons appearing one after another in a line I add a <br> tag into the code. Finally I found that these answer options generated needed to be pushed into a new array (finalAnswerOptions) in order to be pushed as radio buttons to display correctly in the DOM. 
-          - Resource: General review of course notes and trial and error. 
-
-    5. Generation of unique answer option: 
-          - Issue: When first enabled, the anwer options randomly generated based on the below code could generate an option that was the same as the correct answer or generate the same incorrect answer twice resulting in the same option appearing multiple times in the multiple choice options for a given image. 
+    1. Question loop breaking: 
+          - Issue: Originally, I had the following code to run through the question loop: 
+          '''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers
+                      """
+                      Runs through sorting hat questions
+                      """
+                      clear_display()
+                      answers = []
+                      for q in questions:  
+                          print(q['question'])
+                          sleep(1)
+                          for i, c in enumerate(q['options']):
+                              print(chr(97 + i)+ ':', c)
+                              
+                          while True: 
+                              answer = input("Enter your answer:\n>>> ".center(70))
                       
-                      function generateAnswerOptions () {
-                      let newNum = Math.floor(Math.random() * dogs.length);
-                      let addDogs = dogs[newNum];
-                      return addDogs.name;
-                      }
-        
-                      for (var i = 0; i < 3; i++) {
-                              generateAnswerOptions ();
-                              answerOptions.push(generateAnswerOptions());
-                      }
+                              if validate_answer(answer):
+                                  print('\n\nThank you'.center(70))
+                                  answers.append(answer)
+                                  break
 
-          - Solution: After some research, I found a solution on Stack Overflow to create a number variable created from the dogs array, randomly sort this numbers variable, take the first number to generate the quiz image and associated dog name before taking the next three unique numbers to generate answer options. 
-          - Resource: [Stack Overflow](https://stackoverflow.com/questions/2380019/generate-unique-random-numbers-between-1-and-100)
+                          sleep(1)
+                          clear_display()
+
+                          return answers''' 
+              However, in testing I noticed that the questions would stop after two questions and not complete the loop.  
+          - Solution: After some trial and error, I realised that in removing the return answers at the end of the code block the full loop would run. 
+          - Resource: Self-resolved. 
+
+    2. Questions looping twice:
+          - Issue: As part of testing, I noticed that the questions were looping through twice. 
+          - Solution: After reiviewing my code, I realised I was calling the function twice, once from within the preceding function and then again within the main function. Once removed from the main function this issue was resolved.
+          - Resource: Self-resolved. 
+
+    3. Text not centering:  
+          - Issue: I noticed that on some lines the text was not centering which I had wanted to implement to improve aesthetics and UX.  
+          - Solution: Again after some trial and error I noticed that the text would not center where /n had been used to create a line break. After restructuring the print statements I was able to get the centering to work for all statements I wanted centered. 
+          - Resource: Self-resolved. 
+    
+    4. Updating the House for re-sorting:
+          - Issue: Initially, I was pushing the various student inputs and House to the Google spreadsheet after the first round of questions with option to re-sort. I was then struggling to find a suitable way to update the House for a re-sort and ensure that the update was for the correct student. 
+          - Solution: After a lot of trial and error with functions I concluded on a simpler solution and moved the update spreadsheet function to the end after the user had confirmed that they were happy with the House determination. It is now only at this stage that student details are pushed to the Google sheet which also means that if a user quits the game their details are not stored and do not need to be identified and deleted from the sheet. T
+          - Resource: Self-resolved. 
+
+    5. Generation of Housemates table: 
+          - Issue: For a while, I was struggling with how to generate a subset of the Google spreadsheet based on House in order to generate the Housemates table for the user. 
+          - Solution: After some research, I looked at trying to use the pandas module but then found that if I extracted all data and converted back from a list to a list of dictionaries and then used list comprehension I could then pull the information where the House key had a specific value and push this into a new dataset as the basis for the table. 
+          - Resources: [Stackoverflow](https://stackoverflow.com/questions/63508906/get-all-keys-with-specific-value-in-dictionary-python)
+                       [i2Tutorials](https://www.i2tutorials.com/convert-list-of-lists-to-list-of-dictionaries/)
 
 ### Unfixed Bugs
 - The two bugs that remain unfixed are: 
 
-  - Focus on radio buttons: I wanted to add .focus() to the radio buttons so that the first radio button was already selected for the user when the Game page was generated. Despite researching solutions on Stack Overflow and trying to apply the focus based on ID and name and selected the first element of the array, this functionality did not appear to work so it is something I would like to try and resolve in the future. The focus was added to the name box on the Welcome page successfully. 
+  - 1) Allows input before question finished: Currently the game allows the user to enter input prior to being requested. I tried to implement code to block this and only allow a specified window for the user to enter input into the terminal but was unable to find a workable solution to date. Initial research on [Stackoverflow](https://stackoverflow.com/questions/29289945/how-to-temporarily-disable-keyboard-input-using-python) seemed feasible but I was unable to succesfully import the msvcrt module. I also tried to implement the keyboard module in an attempt to utilise the wait and send functions to achieve this affect but was unable to import this module either without installing as sudo which based on some research has potential wider implications. On this basis I preceded without implementing this functionality. 
 
-  - Duplicate images: As noted above, currently the images are randomly generated from an array. Due to this struture in a given round of 10 questions, there is a chance that the same image may appear for the user. Whilst this does not affect the functionality of the game it is something I would like to try and resolve in a future fix to further enhance the user experience. 
-
-- I would like to fix both of the above for a future iteration of the game. 
+   - 2) Validation limitation: Currently the validation functions for name and country inputs will accept a name that is a mix of both letters and numbers. I had changed this function from using the isnumeric function to the isalpha function which ensured only letters were accepted however I then noticed that this would not accept an entry with a space so for example if somebody entered their first and last name or a country with two words e.g. South Africa. Of the two options I felt not allowing this would be a more frustrating experience for the user and reverted to using isnumeric as the basis for a validation check. 
 
 ***
 ## Deployment
@@ -449,63 +319,69 @@ __Lighthouse Report__
   - From the source section drop-down menu, selecting the Master Branch
   - Once the master branch was been selected, the page automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
 
-The live link can be found here: [Name That Hound](https://lw83.github.io/name-that-hound/) 
+The live link can be found here: [The Sorting Hat](https://sorting-hat-22.herokuapp.com/) 
 
 ***
 ## Credits  
 
-### Media
+### Media & Content
  - Background image from [The Wizarding World of Harry Potter](https://www.wizardingworld.com/features/try-out-our-new-harry-potter-video-call-backgrounds).
- - Sorting Hat favicon
+ - Sorting Hat image from [HiClipArt](https://p1.hiclipart.com/preview/458/460/43/harry-potter-black-witch-hat.jpg)
  - HP Logo from [Wikipedia](https://en.wikipedia.org/wiki/File:HP_-_Harry_Potter_wordmark.svg)
  - House Logo text from [Font Space](https://www.fontspace.com/category/harry-potter)
- - Blank iMac
- - Lightning Bolt
+ - Blank iMac from [QWC](https://eshop.macsales.com/blog/40844-how-to-recover-from-a-white-screen-when-booting-a-mac/)
+ - Lightning bolt from [Clipart Library](http://clipart-library.com/harry-potter-lightning-bolt.html)
+ - House information from [Harry Potter Fandom](https://harrypotter.fandom.com/wiki/Hufflepuff)
+ - Some question content from [Brainfall](https://brainfall.com/quizzes/which-hogwarts-house-would-you-be-in/)
 
 ### Languages Used
+  - Python
   - HTML5
   - CSS3
-  - Python
+
+### Python Libraries & Modules Utilised
+  - Tabulate to create housemates table 
+  - Colorama to add color to logos
+  - OS to enable clear display function
+  - Statistics to facilitate mode of answers to be calculated
+  - Time to enable sleep functionality
+  - gspread and google.oauth2.service_account to connect to Google sheets
+  - Datetime to facilitate determination of current year
 
 ### Tools & Online Resources Utilised
  - The following tools and resources have been utilised in the creation of this project: 
+     - Code Institute & Love Sandwiches Demonstration: For guidance and inspiration for this site. 
      - GitHub & Gitpod: For development and deployment of the site. 
      - [ASCII Generator](https://ascii-generator.site/) to generate ASCII versions of logos.
-     - [Image Color Picker](https://imagecolorpicker.com/en): To match colours from the background image for use in color theme of site. 
-     - [W3 Schools](https://www.w3schools.com/js/js_random.asp): For general guidance and research and for further direction on how to create a random number used for generating image in game.  
-     - [Stack Overflow](https://stackoverflow.com/questions/19089018/how-to-align-form-at-the-center-of-the-page-in-html-css): For general guidance and research - specific examples used in final build set out below. 
+     - [Image Color Picker](https://imagecolorpicker.com/en) 
+     - [Stackoverflow](): For general guidance and research - specific examples used in final build set out below. 
      - [Slack](https://slack.com/intl/en-ie/): For general guidance and research on project considerations. 
-     - Google Chrome Dev Tools: For validation and responsiveness checks
      - [Python Tutor](https://pythontutor.com/): For testing code throughout development
-     - [Am I Responsive](https://ui.dev/amiresponsive): To create the multi-device screenshot for inclusion in my Readme file. 
      - [W3C HTML Validator](https://validator.w3.org/)
-     - Code Institute & Love Sandwiches Demonstration: For guidance and inspiration for this site. 
-     - [Colorama](https://pypi.org/project/colorama/) - module imported to allow coloring of text for logos. 
+     - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+     - [Pep8online Validator](http://pep8online.com/)
+     - Heroku
+     - Lucid Charts
+     - Google Sheets
 
      Specific Online Resources utilised as references: 
-      - 
+      - https://stackoverflow.com/questions/23623288/print-full-ascii-art - how to insert ASCII images into Python
+      - https://www.codespeedy.com/check-if-user-input-is-a-string-or-number-in-python/ - to check name input for digits instead of letters
+      - https://pypi.org/project/colorama/ - to add color to the ASCII images
 
 ### Code Utilisation
- - The following elements of code have specifically been utilised from the following sources: 
-    - function shuffle(array) - from [Stack Overflow](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array): This was added to shuffle the array of answers to ensure placement of the correct answer was not predictable. 
-    - .btn:focus CSS styling - from [ZellWk](https://zellwk.com/blog/style-hover-focus-active-states/): This was used to enhance accessibility. 
-    - Pushing answer options to multiple choice radio buttons: https://www.sitepoint.com/simple-javascript-quiz/: This was used to push the generated answer options to radio buttons in the DOM. 
+ - The following elements of code have specifically been inspired from the following sources: 
+    - update_house_spreadsheet() - rocky miss
+    - clear_display() - dnlbowers
+    - student.update - rocky miss
+    - len(name.strip()) - rocky miss
+    - styling to add terminal border - rockymiss
+    - styling to center terminal - dnlbowers
+    - question iteration - https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
 
 ### People
  - In addition a big thank you to the following people for their assistance in this project:
+     - dnlBowers and rockymiss both provided inspiration to me from their Python projects particularly in relation to styling, centring the terminal adding a background, adding delays in the code and clearing the display all adding to a better UX. 
      - Kasia Bogucka: Our cohort facilitator for keeping us all on track and answering all and any of the many questions!
      - My cohort: For our weekly checkins and tips
 
-
-
-https://stackoverflow.com/questions/23623288/print-full-ascii-art - how to insert ASCII images into Python
-https://www.codespeedy.com/check-if-user-input-is-a-string-or-number-in-python/ - to check name input for digits instead of letters
-https://pypi.org/project/colorama/ - to add yellow to lightning bolt
-https://harrypotter.fandom.com/wiki/Hufflepuff - for about houses
-https://pypi.org/project/tabulate/
-https://pypi.org/project/colorama/
-https://www.hiclipart.com/free-transparent-background-png-clipart-zwlxt for sorting hat image
-logo text
-quiz content
-house info
-https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
