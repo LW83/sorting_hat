@@ -1,6 +1,3 @@
-"""
-Import os module to allow for clear display function
-"""
 import os
 import statistics
 from datetime import datetime
@@ -28,7 +25,7 @@ houses = SHEET.worksheet('Houses')
 student = {"Name": "", "Age": "", "Country": "", "House": ""}
 
 
-def clear_display():  # dnlBowers see Readme notes
+def clear_display():  # credit dnlBowers see Readme notes
     """"
     Clears the console
     """
@@ -56,7 +53,7 @@ def welcome():
         if validate_name(name):
             print("")
             print(f"Nice to meet you {name}!")
-            student.update({"Name": name})  # rockymiss
+            student.update({"Name": name})  # credit rockymiss see Readme
             break
     sleep(1)
 
@@ -120,7 +117,7 @@ def start_sorting():
             print('Thank you'.center(80))
             print("")
             break
-    if sort == 'n':  # Add if sort not in lowercase...
+    if sort == 'n':  
         print("")
         print("You have decided to remove the sorting hat.".center(80))
         print("")
@@ -391,7 +388,6 @@ def conclusion():
         print("or".center(80))
         next_step = input("enter r if you wish to be re-sorted or q to quit."
                           "\n>>>".center(80)).lower()
-        print(next_step)
         if validate_conclusion(next_step):
             print("")
             print('Thank you'.center(70))
@@ -453,7 +449,7 @@ def re_sort():
     conclusion()
 
 
-def update_house_spreadsheet():  # rockymiss see Readme notes
+def update_house_spreadsheet():  # credit rockymiss see Readme notes
     """
     Populates Houses tab of Google spreadsheet
     with name, age and country input data and

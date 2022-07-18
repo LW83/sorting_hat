@@ -11,6 +11,7 @@ logo text
 quiz content
 house info
 https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
+https://stackoverflow.com/questions/29289945/how-to-temporarily-disable-keyboard-input-using-python
 
 
 '''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers
