@@ -117,7 +117,7 @@ def start_sorting():
             print('Thank you'.center(80))
             print("")
             break
-    if sort == 'n':  
+    if sort == 'n': 
         print("")
         print("You have decided to remove the sorting hat.".center(80))
         print("")
