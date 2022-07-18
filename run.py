@@ -237,7 +237,7 @@ def validate_country(country):
         elif len(country.strip()) == 0:
             raise ValueError(
              "\nPlease enter your country, we need this to ensure you can be "
-             "accepted to Hogwarts"
+             "accepted to \nHogwarts"
             )
         else:
             return True

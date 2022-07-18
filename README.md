@@ -1,17 +1,5 @@
-https://ascii-generator.site/ - to create ASCII version of images
-https://stackoverflow.com/questions/23623288/print-full-ascii-art - how to insert ASCII images into Python
-https://www.codespeedy.com/check-if-user-input-is-a-string-or-number-in-python/ - to check name input for digits instead of letters
-https://pypi.org/project/colorama/ - to add yellow to lightning bolt
-https://harrypotter.fandom.com/wiki/Hufflepuff - for about houses
-https://pypi.org/project/tabulate/
-https://pypi.org/project/colorama/
-https://www.wizardingworld.com/features/try-out-our-new-harry-potter-video-call-backgrounds - for background image
-https://www.hiclipart.com/free-transparent-background-png-clipart-zwlxt for sorting hat image
-logo text
-quiz content
-house info
-https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
-https://stackoverflow.com/questions/29289945/how-to-temporarily-disable-keyboard-input-using-python
+
+
 
 
 '''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers
@@ -90,7 +78,7 @@ def validate_name(name):
     Unfixed bugs
     1) Allows input before question finished - tried to freeze keyboard
     2) Validation - name and country only accept letters 
-    
+
 
 
 
@@ -104,9 +92,11 @@ def validate_name(name):
 ***
 ## Overview 
 
-Welcome to The Sorting Hat, a Harry Potter-themed quiz to determine which Hogwarts House you will in for the upcoming school term!
+Welcome to The Sorting Hat, a Harry Potter-themed quiz to determine which Hogwarts House you will be in for the upcoming school term! This is a purely for fun quiz for Harry Potter fans to simulate the experience of wearing the Sorting Hat from the books. 
 
-![Responsiveness Demo](./docs/responsive-devices.png)
+This site has been created purely for demonstrating Python skills learned as part of the Code Institute's Diploma in Full Stack Software Development. No copyright infringement is intended. 
+
+![Responsiveness Demo](./docs/imac.png)
 
 ## Live Site
 
@@ -123,15 +113,15 @@ Welcome to The Sorting Hat, a Harry Potter-themed quiz to determine which Hogwar
     * [**Target Audience**](#target-audience)
     * [**User Stories**](#user-stories)
     * [**Site Aims**](#site-aims)
+  * [**UX**](#ux)
     * [**Wireframes**](#wireframes)
-    * [**Color Scheme**](#color-scheme)
-    * [**Fonts**](#fonts)
+    * [**Background Styling](*background-styling) 
   * [**Existing Features**](#existing-features)
-    * [**Header**](#header)
-    * [**Footer**](#footer)
+    * [**Game Landing Page**](#game-landing-page)
+    * [**User Inputs**](#user-inputs)
     * [**Welcome Page**](#welcome-page)
-    * [**Game Page**](#game-page)
-    * [**Final Score Page**](#final-score-page)
+    * [**Questions**](#questions)
+    * [**House Determination**](#house-determination)
   * [**Feature Enhancements**](#feature-enhancements)
   * [**Testing**](#testing)
     * [**User Story Testing**](#user-story-testing)
@@ -156,153 +146,136 @@ Welcome to The Sorting Hat, a Harry Potter-themed quiz to determine which Hogwar
 
 - __Target Audience__
 
-   - Individuals passionate about the animals and dogs in particular and keen to test their knowledge of the various dog breeds.
+   - Individuals passionate about the Harry Potter.
    - Children and adults looking to play a free fun online game.
-   - Parents/grandparents looking for an entertaining but educational game for their children/grandchildren to play or to play with them.
+   - Parents/grandparents looking for an entertaining game for their children/grandchildren to play.
 
 - __User Stories__
 
-   - As a user, I want a free fun and eductional online game to play.
-   - As a user, I want to be able to understand how to play the game.
+   - As a user, I want a free fun online game to play.
    - As a user, I want to be able to easily navigate my way through the game.
    - As a user, I want to be able to personalise my experience of the game.
    - As a user, I want to be able to dictate the length of time I play.
-   - As a user, I want to get feedback on my answers and progress in the game. 
-   - As a user, I want to see my final score and have a conclusion to the game.
-   - As a user, I want to be able to play the game again easily if I choose.
-   - As a user, I want a different experience each time I play the game.
+   - As a user, I want to see my final House and have a conclusion to the game.
 
 - __Site Aims__
  
   - The site aims to meet the above user requirements through the following: 
-    -  Providing a free, online, education game to meet the target audience requirements.  
-    -  Providing clear game instructions at the outset.
+    -  Providing a free, online, fun game to meet the target audience requirements.  
     -  Providing an easy and intuitive way to start, navigate and end or exit the game. 
-    -  Enabling the user to personalise their game experience by submitting their name. 
+    -  Enabling the user to personalise their game experience by submitting their name, age and country. 
     -  Enabling the user to play the game multiple times or to exit the game if they wish. 
-    -  Providing feedback to the user throughout the game on their score and their answers to facilitate a learning experience. 
-    -  Providing a game conclusion and overall final score and congratulatory message personalised to the user based on their score. 
-    -  Providing an easy mechanism for the user to replay the game as many times as they wish. 
-    -  Ensuring the user has a different experience of the game each time they play to ensure they wish to return to the game and to further the educational aspect of the game. 
+    -  Providing a game conclusion and final house determination and details of fellow housemates for the upcoming term. 
+
+## UX
 
 ### Wireframes
- Once I had decided on the theme for the site, I used Balsamiq to do some high level wireframes for the desktop and mobile versions of the site:
 
- __Welcome Page__
-  
-  - The homepage or welcome container was to welcome the user to the site, set out how to play the game and enable them to commence the game itself. 
+As this is a command line based quiz with a static background, I did not create wireframes for the site.
 
- ![Balsamiq Homepage](./docs/wireframe-home.png)
-
- __Game Page__
-  
-  - The main game page sets out the generated dog image, the multiple choice answers and a submit button. The user also has the option to exit the game if they wish. 
-  - Originally, I considered including a question line but in building the site I abandoned this as I felt it was intuitive and a waste of screen space to include a repeat 'What dog breed is this?' line. 
-
- ![Balsamiq Homepage](./docs/wireframe-game.png)
-
-__Final Page__
-  
-  - The final page sets out a certificate image to congratulate the user on their final score. This screen also enables the user to play the game again or return to the Welcome page. 
-
- ![Balsamiq Homepage](./docs/wireframe-final.png)
-
-### Color Scheme
-- To decide on the color scheme for the site, I first selected the background-image. This image was selected from [Abode Images](https://stock.adobe.com/ie/).
-- Once I had decided on the image, I used [Image Color Picker](https://imagecolorpicker.com/en) to identify different colors within the image to use as the basis for font, border and icon colors within the site. 
-- In order to ensure the font colors selected had sufficient contrast to meet accessibility requirements, I validated the color palette using [Eight Shapes Contrast Grid](https://contrast-grid.eightshapes.com).
-
-![Color Contrast](./docs/color-grid.png)
-
-### Fonts
- - The fonts utilised are consistent across the page views and are from [Google fonts](https://fonts.google.com/). 
- - For the whole site, I have used the Poppins font as it was clean and simple. As there is a lot of imagery in the site I did not want a font that detracted from this or made the site overly fussy.   
- - Sans serif has been applied as a backup font. 
+### Background Styling
+- To add some aesthetics to the site and improve UX, I added a Harry Potter themed background-image. This image was selected from [The Wizarding World of Harry Potter](https://www.wizardingworld.com/features/try-out-our-new-harry-potter-video-call-backgrounds).
+- I also used [Image Color Picker](https://imagecolorpicker.com/en) to identify a color from another Harry Potter image on the same site to use as the basis for the styling of the button.
 
 ***
 ## Existing Features 
 
-### Header
-
-__Logo__
-
-  - The logo is made up of the game and site name ("Name that Hound") and a logo image of a Boxer tilting his head as a nod to the fact that the game is a quiz game. The choice of boxer is also a nod to my own dog Hugo, a boxer!
-  - This image has been taken from [DogTime](https://dogtime.com) and copyright remains with this source. 
-  - [Remove.bg](https://www.remove.bg/upload) was used to remove the background of the images for use in header and [Simple Image Resizer](https://www.simpleimageresizer.com/upload) to resize image. 
-
-  ![Logo](./docs/header.png)
+### Game Landing Page
 
 __Favicon__
 
-  -  A favicon has been added to show up in the title of the page and is a simple dog icon from Font Awesome. 
+  -  A image of the Sorting Hat has been added as a favicon for the page. 
   
-  ![Favicon](./docs/title-favicon.png)
+  ![Favicon](./docs/favicon.png)
 
-### Footer
+__Logo__
 
-  - I decided not to add a footer to the page as I did not feel the game needed it or benefitted from it. It may be worth adding in the future if there are relevant social media pages to be linked to. 
+  - The initial load of the page is comprised of a logo of the Harry Potter initials in the Harry Potter font generated in ASCII. 
+  - [ASCII-Generator](https://ascii-generator.site/) was used to convert images to ASCII for inclusion in the page. 
+  - The [Colorama](https://pypi.org/project/colorama/) module has been used to color this logo text for improved aesthetics. 
+  - There is a sleep delay applied to this page for 5 seconds before the display is cleared and inputs requested from the user. 
+
+  ![Logo](./docs/landing-page.png)
+
+### User Inputs
+
+  - I deliberately decided not to give any information about the game prior to asking for user inputs to maintain a level of secrecy and mystique to the application. 
+  - The user is requested to input their name, age and country prior to proceeding. 
+  - Name and country inputs are validated to ensure they are not blank and are not soley numerical.
+  - Age inputs are validated to ensure they are not blank, are numerical and are between the school-going ages of 4 and 18!
+  - These inputs are pushed into a student object for use throughout the game. 
+
+  ![Name Validation](./docs/name-validations.png)
+  ![Age Validation](./docs/age-validation.png)
+  ![Country Validation](./docs/country-validation.png)
+
+   - Once the user has inputted valid inputs, the computer takes these details to "validate" that the student is magical and not a Muggle!
+   - A delay has been added to help create this illusion that background checks are being performed on the users information. 
+
+  ![Muggle Validation](./docs/country-validation.png)
 
 ### Welcome Page
 
-  - The welcome page is a clean box which welcomes the user and sets out simply the instructions for the game. 
-  - Included in this page is a text box for the user to enter their name, which is then used to personalise the final score certificate generated at the end of the game. 
-  - Finally the page view contains a button to start the game which has a hover effect and pointer added to provide additional feedback to the user. 
-
-  ![Welcome Page](./docs/welcome-screenshot.png)
-  ![Button Hover](./docs/button-hover.png)
-
-### Game Page
-
-  - The main game page of the site is contained in a single container for a clean user interface. 
-  - The background color of the game container is consistent with the bone and paw image color in the background image for aesthetic purposes. 
-  - The game container comprises of the randomly generated dog image from an array created, a multiple choice answer section with four answer options generated, a submit button, a score container and an exit icon. 
+  - Once the users non--muggle status has been confirmed they are brought to a new console view welcoming them to Hogwarts. 
+  - Again, both the ASCII Generator and Colorama module have been utilised to create a yellow lightning bolt image above the welcome text. 
+  - The datetime module has been utilised to get the current year so that this will update to the current year whenever the game is being played.  
   
-![Game Page](./docs/game-container.png)
+![Welcome Page](./docs/welcome-page.png)
 
-  - The answer options are multiple choice options including the correct answer and three other options shuffled to ensure the correct answer placement is not predictable. 
-  - These are presented as radio button options for the user to select. 
+  - The user is then asked if they want to get started or if they wish to remove the Sorting Hat i.e. quit.
+  - The answer input must by y or n and validations are in place to ensure no blank entry or other character is accepted. 
 
-![Answer Options](./docs/radio-buttons.png)
+![Start Sorting](./docs/start-sorting.png)
 
-  - As with the Play the Game button in the Welcome page, the Submit button has a hover effect and pointer added to provide additional feedback to the user. 
-  - Where the user presses the Submit button without selecting an answer, an alert message pops up to ask the user to select an answer in order to proceed with the game. 
+  - If the user enters n they see the follow message and are then brought back to the landing page view. 
 
-![Alert](./docs/alert.png)
+![Remove Sorting Hat](./docs/hat-remove.png)
 
-   - Once an answer has been selected and submitted, the submit button changes to a "Next Question" button. Originally I had the next question button appear in addition to the Submit button but then decided to replace it to only show the Next Question button in order to further simplify navigation for the user. 
-  
-![Next Question](./docs/next-question.png)
+### Questions
 
-   - If the correct answer has been selected, the user is notified that the answer is correct, the correct scores number increases by one and the total questions asked increases by one. 
-   - A Font Awesome icon of a paw has been added to this message simply to create a bit more fun in the game. 
-   - The correct answer message is also styled in green to denote a positive answer. 
+  - When the user has decided to proceed, they are brought through a series of 11 questions with 4 answer options. 
+  - Each question is displayed with a small delay before the answer options are displayed.  
+  - After each question the console display is cleared again to improve UX. 
 
-![Correct Answer](./docs/correct-message.png)
-   
-   - If an incorrect answer has been selected, the user is notified that the answer is incorrect and what the correct answer was in order to facilitate learning the breed. The correct scores number remains unchanged and the total questions asked increases by one. 
-   - Similar to the correct answer, a Font Awesome icon of a broken heart has been added to this message and it is styled in dark red to denote a negative answer.  
+![Question View](./docs/question-display.png)
 
-![Incorrect Answer](./docs/incorrect-message.png)
+  - Again, validations are in place to ensure the user enters a,b,c or d as their answer or alternatively opts to quit the game. 
 
-  - Finally the game page has an exit icon should the user wish to exit the game before it is finished. This icon takes the user back to the Welcome page of the site. 
+![Answer Validation](./docs/answer-validation.png)
+![Exit](./docs/quit.png)
 
-![Exit](./docs/exit.png)
+  - Once an answer has been entered, the next question appears. No feedback is provided on the answer as the quiz is not a right or wrong quiz. 
+  - Answers are pushed to an answers list for use in subsequently determining the correct House for the user. 
 
-### Final Score Page
+### House Determination
 
-  - The final score page of the site is designed to act as a certificate with a message generated for the user based on their inputted user name and the score achieved. 
-  - This is intended as a conclusion to the game but also a bit of fun for younger users. 
-  - This image has been taken from [ImgFlip](https://imgflip.com/) and copyright remains with this source. 
-  - [Remove.bg](https://www.remove.bg/upload) was used to remove the background of the images for use in header and [Simple Image Resizer](https://www.simpleimageresizer.com/upload) to resize image. 
+  - Once all questions have been answered the statistics module imported is used to calculate the mode of the answer list. 
+  - Each answer is a question corresponds to a House so the mode maps to which House the user should be placed. 
+  - The console then clears to display the initial logo of the House determined for the user in the House colors. 
+  - Again, ASCII Generator and Colorama have been used to create these colored logos. 
 
-![High Score](./docs/high-score.png)
-![Medium Score](./docs/medium-score.png)
-![Low Score](./docs/low-score.png)
+![Gryffindor Logo](./docs/gryffindor-logo.png)
+![Slytherin Logo](./docs/slytherin-logo.png)
+![Hufflepuff Logo](./docs/hufflepuff-logo.png)
+![Ravenclaw Logo](./docs/ravenclaw-logo.png)
 
-  - Included on the page are two buttons, one to play the game again directly and the second to return to the Welcome page of the site. 
-  - Consistent with the other site pages, the buttons have a hover effect and pointer added to provide additional feedback to the user. 
+  - The user is then told a bit about the typical characteristics of students in their House.  
 
-![Final Page Buttons](./docs/buttons.png)
+![Gryffindor About](./docs/gryffindor-about.png)
+![Slytherin About](./docs/slytherin-about.png)
+![Hufflepuff About](./docs/hufflepuff-about.png)
+![Ravenclaw About](.docs/ravenclaw-about.png)
+
+  - At this point, the user has three options; to enter h to accept their designated House, to press r to re-sort them into a new house or to press q to quit the game and return to the landing page. 
+  - If the user selects r, they are brought back to the first question of the loop to run through and provide new answers. 
+  - If the user selects q, the quit message is again displayed for the user and they are brought back to the starting landing page. 
+  - If the user selects h, their final student details including determined house are pushed to a Google spreadsheet and they are brought to the concluding view and shown a list of housemates that will be in their year.
+  - This list is pulled from Google sheets using an API and extracts entries where the House matches that of the user. 
+
+![Google Sheet](./docs/google-sheet.png)
+![Housemates](./docs/housemates.png)
+
+  - This final view is also time delayed to display for 7 seconds before the console clears and the landing page is displayed again. 
 
 ***
 ## Feature Enhancements
@@ -482,7 +455,12 @@ The live link can be found here: [Name That Hound](https://lw83.github.io/name-t
 ## Credits  
 
 ### Media
- - 
+ - Background image from [The Wizarding World of Harry Potter](https://www.wizardingworld.com/features/try-out-our-new-harry-potter-video-call-backgrounds).
+ - Sorting Hat favicon
+ - HP Logo from [Wikipedia](https://en.wikipedia.org/wiki/File:HP_-_Harry_Potter_wordmark.svg)
+ - House Logo text from [Font Space](https://www.fontspace.com/category/harry-potter)
+ - Blank iMac
+ - Lightning Bolt
 
 ### Languages Used
   - HTML5
@@ -492,6 +470,7 @@ The live link can be found here: [Name That Hound](https://lw83.github.io/name-t
 ### Tools & Online Resources Utilised
  - The following tools and resources have been utilised in the creation of this project: 
      - GitHub & Gitpod: For development and deployment of the site. 
+     - [ASCII Generator](https://ascii-generator.site/) to generate ASCII versions of logos.
      - [Image Color Picker](https://imagecolorpicker.com/en): To match colours from the background image for use in color theme of site. 
      - [W3 Schools](https://www.w3schools.com/js/js_random.asp): For general guidance and research and for further direction on how to create a random number used for generating image in game.  
      - [Stack Overflow](https://stackoverflow.com/questions/19089018/how-to-align-form-at-the-center-of-the-page-in-html-css): For general guidance and research - specific examples used in final build set out below. 
@@ -501,6 +480,7 @@ The live link can be found here: [Name That Hound](https://lw83.github.io/name-t
      - [Am I Responsive](https://ui.dev/amiresponsive): To create the multi-device screenshot for inclusion in my Readme file. 
      - [W3C HTML Validator](https://validator.w3.org/)
      - Code Institute & Love Sandwiches Demonstration: For guidance and inspiration for this site. 
+     - [Colorama](https://pypi.org/project/colorama/) - module imported to allow coloring of text for logos. 
 
      Specific Online Resources utilised as references: 
       - 
@@ -515,3 +495,17 @@ The live link can be found here: [Name That Hound](https://lw83.github.io/name-t
  - In addition a big thank you to the following people for their assistance in this project:
      - Kasia Bogucka: Our cohort facilitator for keeping us all on track and answering all and any of the many questions!
      - My cohort: For our weekly checkins and tips
+
+
+
+https://stackoverflow.com/questions/23623288/print-full-ascii-art - how to insert ASCII images into Python
+https://www.codespeedy.com/check-if-user-input-is-a-string-or-number-in-python/ - to check name input for digits instead of letters
+https://pypi.org/project/colorama/ - to add yellow to lightning bolt
+https://harrypotter.fandom.com/wiki/Hufflepuff - for about houses
+https://pypi.org/project/tabulate/
+https://pypi.org/project/colorama/
+https://www.hiclipart.com/free-transparent-background-png-clipart-zwlxt for sorting hat image
+logo text
+quiz content
+house info
+https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
