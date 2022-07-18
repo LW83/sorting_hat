@@ -84,6 +84,14 @@ def validate_name(name):
         return False
     return True
 
+    Changed back to is numeric as was not accepting space in name/country e.g. South Africa. 
+
+
+    Unfixed bugs
+    1) Allows input before question finished - tried to freeze keyboard
+    2) Validation - name and country only accept letters 
+    
+
 
 
 

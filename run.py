@@ -398,7 +398,7 @@ def conclusion():
                           "\n>>>".center(80)).lower()
         if validate_conclusion(next_step):
             print("")
-            print('Thank you'.center(70))
+            print('Thank you'.center(80))
             print("")
             break
     if next_step == "r":

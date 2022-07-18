@@ -74,7 +74,7 @@ _QUESTIONS = [
 
     {'question': "If you were choosing a dog would it be...\n",
      'options': ["A German shepherd\n",
-                 "A chihuhua \n",
+                 "A chihuahua \n",
                  "A golden retriever \n",
-                 "A poddle \n"]}
+                 "A poodle \n"]}
 ]
