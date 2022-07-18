@@ -6,7 +6,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from colorama import Style
 from tabulate import tabulate
-from questions import questions
+from questions import _QUESTIONS
 import logos
 
 SCOPE = [
@@ -144,7 +144,7 @@ def generate_questions():
     """
     clear_display()
     answers = []
-    for q in questions:
+    for q in _QUESTIONS:
         print(q['question'])  # from Stackoverflow see Readme
         sleep(1)
         for i, c in enumerate(q['options']):
@@ -176,13 +176,17 @@ def generate_questions():
 
 def validate_name(name):
     """
-    Raises error if entery is not made up of alphabetical
-    characters.
+    Raises error if entry is made up of digits or is blank.
     """
     try:
-        if name.isalpha() is False:
+        if name.isnumeric():
             raise ValueError(
              f"\nPlease enter your name as text, you entered {name}"
+            )
+        elif len(name.strip()) == 0:  # rockymiss see Readme notes
+            raise ValueError(
+             "\nPlease enter your name, we need this to ensure you can be "
+             "accepted to Hogwarts"
             )
         else:
             return True
@@ -223,13 +227,17 @@ def validate_age(number):
 
 def validate_country(country):
     """
-    Raises error if entery is not made up of alphabetical
-    characters.
+    Raises error if entry is made up of digits or is blank.
     """
     try:
-        if country.isalpha() is False:
+        if country.isnumeric():
             raise ValueError(
               f"\nPlease enter your country as text, you entered {country}"
+            )
+        elif len(country.strip()) == 0:
+            raise ValueError(
+             "\nPlease enter your country, we need this to ensure you can be "
+             "accepted to Hogwarts"
             )
         else:
             return True

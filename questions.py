@@ -2,7 +2,7 @@
 Sorting hat questions
 """
 
-questions = [
+_QUESTIONS = [
     {'question': "You are given a team project to complete in school. \n"
                  "What role do you play in the team?\n",
      'options': ["The organiser, assigning roles and tasks "
