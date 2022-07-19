@@ -119,7 +119,7 @@ def start_sorting():
             break
     if sort == 'n':
         print("")
-        print("You have decided to remove the sorting hat.".center(80))
+        print("You have decided to remove the Sorting Hat.".center(80))
         print("")
         print(f"Goodbye {student['Name']} maybe we will see you next term "
               "instead.".center(80))

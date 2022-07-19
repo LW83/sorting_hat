@@ -2,9 +2,9 @@
 ***
 ## Overview 
 
-Welcome to The Sorting Hat, a Harry Potter-themed quiz to determine which Hogwarts House you will be in for the upcoming school term! In the Harry Potter series, the Sorting Hat is a hat that new students to Hogwarts put on and it determines which of the four Houses in Hogwarts (Gryffindor, Huffelpuff, Ravenclaw and Slytherin) the student is best suited to based on their personality and characteristics. This is a purely for fun quiz for Harry Potter fans to simulate the experience of wearing the Sorting Hat from the books. 
+Welcome to The Sorting Hat, a Harry Potter-themed quiz to determine which Hogwarts House you will be in for the upcoming school term! In the Harry Potter series, the Sorting Hat is a hat that students new to Hogwarts put on and it determines which of the four Houses in Hogwarts (Gryffindor, Hufflepuff, Ravenclaw and Slytherin) the student is best suited to based on their personality and characteristics. This is a purely for fun quiz for Harry Potter fans to simulate the experience of wearing the Sorting Hat from the books. 
 
-This site has been created purely for demonstrating Python skills learned as part of the Code Institute's Diploma in Full Stack Software Development. No copyright infringement is intended. 
+NOTE: This site has been created purely for demonstrating Python skills learned as part of the Code Institute's Diploma in Full Stack Software Development. No copyright infringement is intended. 
 
 ![Responsiveness Demo](./docs/imac.png)
 
@@ -22,7 +22,7 @@ This site has been created purely for demonstrating Python skills learned as par
   * [**Concept and Planning**](#concept-and-planning)
     * [**UX**](#ux)
     * [**Game Logic**](#game-logic)
-    * [**Background Styling](*background-styling) 
+    * [**Background Styling**](*background-styling) 
   * [**Existing Features**](#existing-features)
     * [**Game Landing Page**](#game-landing-page)
     * [**User Inputs**](#user-inputs)
@@ -41,7 +41,7 @@ This site has been created purely for demonstrating Python skills learned as par
   * [**Credits**](#credits)
     * [**Media & Content**](#media-&-content)
     * [**Languages Used**](#languages-used)
-    * [**Python Libraries & Modules Utilised](#python-libraries--modules-utilised)
+    * [**Python Libraries & Modules Utilised**](#python-libraries--modules-utilised)
     * [**Tools and Online Resources Utilised**](#tools-and-online-resources-utilised)
     * [**Code Utilisation**](#code-utilisation)
     * [**People**](#people)
@@ -52,7 +52,7 @@ This site has been created purely for demonstrating Python skills learned as par
 
 - __Target Audience__
 
-   - Individuals passionate about the Harry Potter.
+   - Individuals passionate about the Harry Potter series.
    - Children and adults looking to play a free fun online game.
    - Parents/grandparents looking for an entertaining game for their children/grandchildren to play.
 
@@ -71,7 +71,7 @@ This site has been created purely for demonstrating Python skills learned as par
     -  Providing an easy and intuitive way to start, navigate and end or exit the game. 
     -  Enabling the user to personalise their game experience by submitting their name, age and country. 
     -  Enabling the user to play the game multiple times or to exit the game if they wish. 
-    -  Providing a game conclusion and final house determination and details of fellow housemates for the upcoming term. 
+    -  Providing a game conclusion, final house determination and details of fellow housemates for the upcoming term. 
 
 ### Game Logic
 
@@ -122,14 +122,14 @@ __Logo__
 
 ### Welcome Page
 
-  - Once the users non--muggle status has been confirmed they are brought to a new console view welcoming them to Hogwarts. 
+  - Once the users non-Muggle status has been confirmed they are brought to a new console view welcoming them to Hogwarts. 
   - Again, both the ASCII Generator and Colorama module have been utilised to create a yellow lightning bolt image above the welcome text. 
   - The datetime module has been utilised to get the current year so that this will update to the current year whenever the game is being played.  
   
 ![Welcome Page](./docs/welcome-page.png)
 
   - The user is then asked if they want to get started or if they wish to remove the Sorting Hat i.e. quit.
-  - The answer input must by y or n and validations are in place to ensure no blank entry or other character is accepted. 
+  - The answer input must be y or n (or Y or N) and validations are in place to ensure no blank entry or other character is accepted. 
 
 ![Start Sorting](./docs/start-sorting.png)
 
@@ -156,7 +156,7 @@ __Logo__
 ### House Determination
 
   - Once all questions have been answered the statistics module imported is used to calculate the mode of the answer list. 
-  - Each answer is a question corresponds to a House so the mode maps to which House the user should be placed. 
+  - Each answer to a question corresponds to a House so the mode maps to which House the user should be placed. 
   - The console then clears to display the initial logo of the House determined for the user in the House colors. 
   - Again, ASCII Generator and Colorama have been used to create these colored logos. 
 
@@ -175,7 +175,7 @@ __Logo__
   - At this point, the user has three options; to enter h to accept their designated House, to press r to re-sort them into a new house or to press q to quit the game and return to the landing page. 
   - If the user selects r, they are brought back to the first question of the loop to run through and provide new answers. 
   - If the user selects q, the quit message is again displayed for the user and they are brought back to the starting landing page. 
-  - If the user selects h, their final student details including determined house are pushed to a Google spreadsheet and they are brought to the concluding view and shown a list of housemates that will be in their year.
+  - If the user selects h, their final student details including determined house are pushed to a Google spreadsheet, they are brought to the concluding view and shown a list of housemates that will be in their House.
   - This list is pulled from Google sheets using an API and extracts entries where the House matches that of the user.
   - The tabulate module has been imported and used to display the housemates in a tabular structure. 
 
@@ -248,7 +248,7 @@ __Python Validation__
     1. Question loop: 
           - Issue: Originally, I had the following code to run through the question loop: 
             
-            def generate_questions(): 
+                def generate_questions(): 
                       clear_display()
                       answers = []
                       for q in questions:  
