@@ -284,7 +284,7 @@ def validate_answer(answer):
             return True
 
     except ValueError as e:
-        print(f"{e} please select a, b, c or d as your answer to proceed or q to"
+        print(f"{e} please select a, b, c or d as your answer or q to"
               "\n remove the Sorting Hat.\n")
         return False
 
