@@ -38,10 +38,11 @@ NOTE: This site has been created purely for demonstrating Python skills learned 
     * [**Fixed Bugs**](#fixed-bugs)
     * [**Unfixed Bugs**](#unfixed-bugs)
   * [**Deployment**](#deployment)
-  * [**Credits**](#credits)
-    * [**Media & Content**](#media-&-content)
+  * [**Languages & Libraries**](#languages-&-libraries)
     * [**Languages Used**](#languages-used)
     * [**Python Libraries & Modules Utilised**](#python-libraries--modules-utilised)
+  * [**Credits**](#credits)
+    * [**Media & Content**](#media-&-content)
     * [**Tools and Online Resources Utilised**](#tools-and-online-resources-utilised)
     * [**Code Utilisation**](#code-utilisation)
     * [**People**](#people)
@@ -270,13 +271,13 @@ __Python Validation__
 
                           return answers
 
-              However, in testing I noticed that the questions would stop after two questions and not complete the loop. Subsequently I also had an issue with the question loop running twice. 
+              However, in testing I noticed that the questions would stop after two questions and not complete the loop. Subsequently, I also had an issue with the question loop running twice. 
           - Solution: After some trial and error, I realised that in removing the return answers at the end of the code block the full loop would run. After reiviewing my code, I also realised I was calling the function twice, once from within the preceding function and then again within the main function. Once removed from the main function this issue was resolved.
           - Resource: Self-resolved. 
 
     2. Upload of background imaage:
           - Issue: As part of deployment, the original background image I had saved to an assets folder was not loading in Heroku upon deployment. 
-          - Solution: After some research, I discovered that there can be issues with deploying images as static assets in Heroku and decided to change to a linking to a web addess which resolved the issue. 
+          - Solution: After some research, I discovered that there can be issues with deploying images as static assets in Heroku and decided to change to link to a web addess of the image which resolved the issue. 
           - Resource: Self-resolved. 
 
     3. Text not centering:  
@@ -286,26 +287,26 @@ __Python Validation__
     
     4. Updating the House for re-sorting:
           - Issue: Initially, I was pushing the various student inputs and House to the Google spreadsheet after the first round of questions with option to re-sort. I was then struggling to find a suitable way to update the House for a re-sort and ensure that the update was for the correct student. 
-          - Solution: After a lot of trial and error with functions I concluded on a simpler solution and moved the update spreadsheet function to the end after the user had confirmed that they were happy with the House determination. It is now only at this stage that student details are pushed to the Google sheet which also means that if a user quits the game their details are not stored and do not need to be identified and deleted from the sheet. T
+          - Solution: After a lot of trial and error with functions I concluded on a simpler solution and moved the update spreadsheet function to the end after the user had confirmed that they were happy with the House determination. It is now only at this stage that student details are pushed to the Google sheet which also means that if a user quits the game their details are not stored and do not need to be identified and deleted from the sheet. 
           - Resource: Self-resolved. 
 
     5. Generation of Housemates table: 
           - Issue: For a while, I was struggling with how to generate a subset of the Google spreadsheet based on House in order to generate the Housemates table for the user. 
           - Solution: After some research, I looked at trying to use the pandas module but then found that if I extracted all data and converted back from a list to a list of dictionaries and then used list comprehension I could then pull the information where the House key had a specific value and push this into a new dataset as the basis for the table. 
-          - Resources: [Stackoverflow](https://stackoverflow.com/questions/63508906/get-all-keys-with-specific-value-in-dictionary-python)
+          - Resources: [Stackoverflow](https://stackoverflow.com/questions/63508906/get-all-keys-with-specific-value-in-dictionary-python), 
                        [i2Tutorials](https://www.i2tutorials.com/convert-list-of-lists-to-list-of-dictionaries/)
 
 ### Unfixed Bugs
 - The two bugs that remain unfixed are: 
 
-  - 1) Allows input before question finished: Currently the game allows the user to enter input prior to being requested. I tried to implement code to block this and only allow a specified window for the user to enter input into the terminal but was unable to find a workable solution to date. Initial research on [Stackoverflow](https://stackoverflow.com/questions/29289945/how-to-temporarily-disable-keyboard-input-using-python) seemed feasible but I was unable to succesfully import the msvcrt module. I also tried to implement the keyboard module in an attempt to utilise the wait and send functions to achieve this affect but was unable to import this module either without installing as sudo which based on some research has potential wider implications. On this basis I preceded without implementing this functionality. 
+  - Allows input before question finished: Currently the game allows the user to enter input prior to being requested. I tried to implement code to block this and only allow a specified window for the user to enter input into the terminal but was unable to find a workable solution to date. Initial research on [Stackoverflow](https://stackoverflow.com/questions/29289945/how-to-temporarily-disable-keyboard-input-using-python) seemed feasible but I was unable to succesfully import the msvcrt module. I also tried to implement the keyboard module in an attempt to utilise the wait and send functions to achieve this affect but was unable to import this module either without installing as sudo which based on some research has potential wider implications. On this basis I preceded without implementing this functionality. 
 
-   - 2) Validation limitation: Currently the validation functions for name and country inputs will accept a name that is a mix of both letters and numbers. I had changed this function from using the isnumeric function to the isalpha function which ensured only letters were accepted however I then noticed that this would not accept an entry with a space so for example if somebody entered their first and last name or a country with two words e.g. South Africa. Of the two options I felt not allowing this would be a more frustrating experience for the user and reverted to using isnumeric as the basis for a validation check. 
+   - Validation limitation: Currently the validation functions for name and country inputs will accept a name that is a mix of both letters and numbers. I had changed this function from using the isnumeric function to the isalpha function which ensured only letters were accepted however I then noticed that this would not accept an entry with a space so for example if somebody entered their first and last name or a country with two words e.g. South Africa. Of the two options I felt not allowing this would be a more frustrating experience for the user and reverted to using isnumeric as the basis for a validation check. 
 
 ***
 ## Deployment
 
-- Prior to deployment in Heroku, to ensure the dependencies used in Gitpod are installed in Heroku, I ran the pip3 freeze > requirements.txt command in Gitpod. 
+- Prior to deployment in Heroku, to ensure the dependencies used in Gitpod were installed in Heroku, I ran the pip3 freeze > requirements.txt command in Gitpod. 
 
 - As a python based project, the site was deployed to Heroku following the below deployment steps: 
    - Log in to Heroku (or create an account if required).
@@ -330,17 +331,7 @@ __Python Validation__
 The live link can be found here: [The Sorting Hat](https://sorting-hat-22.herokuapp.com/) 
 
 ***
-## Credits  
-
-### Media & Content
- - Background image from [The Wizarding World of Harry Potter](https://www.wizardingworld.com/features/try-out-our-new-harry-potter-video-call-backgrounds).
- - Sorting Hat image from [HiClipArt](https://p1.hiclipart.com/preview/458/460/43/harry-potter-black-witch-hat.jpg)
- - HP Logo from [Wikipedia](https://en.wikipedia.org/wiki/File:HP_-_Harry_Potter_wordmark.svg)
- - House Logo text from [Font Space](https://www.fontspace.com/category/harry-potter)
- - Blank iMac from [QWC](https://eshop.macsales.com/blog/40844-how-to-recover-from-a-white-screen-when-booting-a-mac/)
- - Lightning bolt from [Clipart Library](http://clipart-library.com/harry-potter-lightning-bolt.html)
- - House information from [Harry Potter Fandom](https://harrypotter.fandom.com/wiki/Hufflepuff)
- - Some question content from [Brainfall](https://brainfall.com/quizzes/which-hogwarts-house-would-you-be-in/)
+## Languages & Libraries
 
 ### Languages Used
   - Python
@@ -356,6 +347,19 @@ The live link can be found here: [The Sorting Hat](https://sorting-hat-22.heroku
   - gspread and google.oauth2.service_account to connect to Google sheets
   - Datetime to facilitate determination of current year
 
+***
+## Credits  
+
+### Media & Content
+ - Background image from [The Wizarding World of Harry Potter](https://www.wizardingworld.com/features/try-out-our-new-harry-potter-video-call-backgrounds).
+ - Sorting Hat image from [HiClipArt](https://p1.hiclipart.com/preview/458/460/43/harry-potter-black-witch-hat.jpg)
+ - HP Logo from [Wikipedia](https://en.wikipedia.org/wiki/File:HP_-_Harry_Potter_wordmark.svg)
+ - House Logo text from [Font Space](https://www.fontspace.com/category/harry-potter)
+ - Blank iMac from [QWC](https://eshop.macsales.com/blog/40844-how-to-recover-from-a-white-screen-when-booting-a-mac/)
+ - Lightning bolt from [Clipart Library](http://clipart-library.com/harry-potter-lightning-bolt.html)
+ - House information from [Harry Potter Fandom](https://harrypotter.fandom.com/wiki/Hufflepuff)
+ - Some question content from [Brainfall](https://brainfall.com/quizzes/which-hogwarts-house-would-you-be-in/)
+
 ### Tools & Online Resources Utilised
  - The following tools and resources have been utilised in the creation of this project: 
      - Code Institute & Love Sandwiches Demonstration: For guidance and inspiration for this site. 
@@ -370,10 +374,10 @@ The live link can be found here: [The Sorting Hat](https://sorting-hat-22.heroku
      - [Pep8online Validator](http://pep8online.com/)
      - [Heroku](https://id.heroku.com/login)
      - [Lucidchart](https://www.lucidchart.com): To create a flow chart of the game logic
-     - [Google](www.google.com):For spreadsheet and API to connect to Python
+     - [Google](www.google.com): For spreadsheet and API to connect to Python
 
      Specific Online Resources utilised as references: 
-      - https://stackoverflow.com/questions/23623288/print-full-ascii-art - how to insert ASCII images into Python
+      - https://stackoverflow.com/questions/23623288/print-full-ascii-art - to insert ASCII images into Python
       - https://www.codespeedy.com/check-if-user-input-is-a-string-or-number-in-python/ - to check name input for digits instead of letters
       - https://pypi.org/project/colorama/ - to add color to the ASCII images
 
@@ -382,11 +386,11 @@ The live link can be found here: [The Sorting Hat](https://sorting-hat-22.heroku
     - Code Institute for the deployment terminal 
     - [Rachel Rock](https://github.com/rockymiss) for the folllowing: House spreadsheet update, student update, name validation for blank entry and terminal border. 
     - [David Bowers](https://github.com/dnlbowers) for the following: Clear display functionality and styling to centre the terminal for final deployment. 
-    - [Stackoveflow](https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions for guidance on iterating through a bank of questions. 
+    - [Stackoverflow](https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions) for guidance on iterating through a bank of questions. 
 
 ### People
  - In addition a big thank you to the following people for their assistance or inspiration in this project:
-     - David Bowers and Rachel Rock both provided inspiration to me from their Python projects particularly in relation to styling, centring the terminal adding a background, adding delays in the code and clearing the display all adding to a better UX. 
+     - David Bowers and Rachel Rock both provided inspiration to me from their Python projects particularly in relation to styling, centring the terminal, adding a background, adding delays in the code and clearing the display all adding to a better UX. 
      - Kasia Bogucka: Our cohort facilitator for keeping us all on track and answering all and any of the many questions!
      - My cohort: For our weekly checkins and tips
 
