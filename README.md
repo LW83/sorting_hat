@@ -20,11 +20,8 @@ This site has been created purely for demonstrating Python skills learned as par
 * [**The Sorting Hat**](#the-sorting-hat)
   * [**Overview**](#overview)
   * [**Concept and Planning**](#concept-and-planning)
-    * [**Target Audience**](#target-audience)
-    * [**User Stories**](#user-stories)
-    * [**Site Aims**](#site-aims)
-  * [**UX**](#ux)
-    * [**Wireframes**](#wireframes)
+    * [**UX**](#ux)
+    * [**Game Logic**](#game-logic)
     * [**Background Styling](*background-styling) 
   * [**Existing Features**](#existing-features)
     * [**Game Landing Page**](#game-landing-page)
@@ -36,16 +33,15 @@ This site has been created purely for demonstrating Python skills learned as par
   * [**Testing**](#testing)
     * [**User Story Testing**](#user-story-testing)
     * [**Features Testing**](#features-testing)
-    * [**Responsiveness Testing**](#responsiveness-testing)
     * [**Browser Testing**](#browser-testing)
-    * [**Accessibility Testing**](#accessibility-testing)
     * [**Code Validation Testing**](#code-validation-testing)
     * [**Fixed Bugs**](#fixed-bugs)
     * [**Unfixed Bugs**](#unfixed-bugs)
   * [**Deployment**](#deployment)
   * [**Credits**](#credits)
-    * [**Media**](#media)
+    * [**Media & Content**](#media-&-content)
     * [**Languages Used**](#languages-used)
+    * [**Python Libraries & Modules Utilised](#python-libraries--modules-utilised)
     * [**Tools and Online Resources Utilised**](#tools-and-online-resources-utilised)
     * [**Code Utilisation**](#code-utilisation)
     * [**People**](#people)
@@ -81,13 +77,7 @@ This site has been created purely for demonstrating Python skills learned as par
 
 - I used [Lucidchart](https://www.lucidchart.com) to set out the main logic of the game: 
 
-! [Lucidchart Diagram](./docs/lucidchart.png)
-
-## UX
-
-### Wireframes
-
-As this is a command line based quiz with a static background, I did not create wireframes for the site.
+![Lucidchart Diagram](./docs/lucidchart.png)
 
 ### Background Styling
 - To add some aesthetics to the site and improve UX, I added a Harry Potter themed background-image. This image was selected from [The Wizarding World of Harry Potter](https://www.wizardingworld.com/features/try-out-our-new-harry-potter-video-call-backgrounds).
@@ -211,6 +201,8 @@ __Logo__
 
 ### Features Testing
  - All design features have been manually tested with the outcome of this testing set out below. 
+ - Screenshots have also been included in the Features section above to show the validation output for the various inputs requested from the user. 
+ - Testing was completed in my local terminal and also in Heroku post deployment. 
 
 ![Features Testing](./docs/feature-testing.png)
 
@@ -242,9 +234,12 @@ __CSS Validation__
 __Python Validation__
 
   - No errors were found in any of the three python files when passing through the Pep8 online validator. 
-
+   
+  Run File
   ![Run File](./docs/run-pep.png)
+  Questions File 
   ![Questions File](./docs/questions-pep.png)
+  Logo File
   ![Logo File](./docs/logo-pep.png)
 
 ### Fixed Bugs   
@@ -252,10 +247,8 @@ __Python Validation__
 
     1. Question loop: 
           - Issue: Originally, I had the following code to run through the question loop: 
-          '''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers
-                      """
-                      Runs through sorting hat questions
-                      """
+            
+            def generate_questions(): 
                       clear_display()
                       answers = []
                       for q in questions:  
@@ -275,7 +268,8 @@ __Python Validation__
                           sleep(1)
                           clear_display()
 
-                          return answers''' 
+                          return answers
+
               However, in testing I noticed that the questions would stop after two questions and not complete the loop. Subsequently I also had an issue with the question loop running twice. 
           - Solution: After some trial and error, I realised that in removing the return answers at the end of the code block the full loop would run. After reiviewing my code, I also realised I was calling the function twice, once from within the preceding function and then again within the main function. Once removed from the main function this issue was resolved.
           - Resource: Self-resolved. 
@@ -311,10 +305,27 @@ __Python Validation__
 ***
 ## Deployment
 
-- The site was deployed to GitHub pages following the below deployment steps: 
-  - In the GitHub repository, navigating to the Settings tab 
-  - From the source section drop-down menu, selecting the Master Branch
-  - Once the master branch was been selected, the page automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
+- Prior to deployment in Heroku, to ensure the dependencies used in Gitpod are installed in Heroku, I ran the pip3 freeze > requirements.txt command in Gitpod. 
+
+- As a python based project, the site was deployed to Heroku following the below deployment steps: 
+   - Log in to Heroku (or create an account if required).
+   - Click 'Create a new app'.
+   - Enter a name for the app (must be unique). I selected sorting-hat-22. 
+   - Select your region. For me, this is Europe being based in Ireland. 
+   - Select "Create app".
+   - In the new page for the app, select the Settings tab from the menu at the top of the main screen. 
+   - In the Settings page, go to the 'Config Vars' section and select "Reveal Config Vars".
+   - In the 'Key' field enter a name of 'CREDS' and copy and paste the contents of the creds.json file from Gipod into the 'Value' field in order to connect Heroku to the API with Google sheets. 
+   - Select 'Add'; in this line enter 'PORT' in the 'Key' field and a 'Value' of 8000 to ensure compatability between teh Code Institute template being used and vaious Python libraries. 
+   - Then scroll to the 'Buildpacks' section of teh Settings page and select 'Add Buildpack'.
+   - Select 'Python' and save the changes. 
+   - Then add 'node.js' as a further buildpack. 
+   - Ensure Python is above Node.js in the buildpack order or if not, reorder.
+   - Now select the 'Deplpy' section from the menu at the top of the page. 
+   - Select GitHub as the deployment method and 'Connect to GitHub'.
+   - Find the right repository (here sorting_hat) via the Search functionality and then select 'Connect'.
+   - Scroll down to the new 'Manual Deploy' section and select 'Deploy Branch'
+   - Wait until the deployment is finished running and select "View".
 
 The live link can be found here: [The Sorting Hat](https://sorting-hat-22.herokuapp.com/) 
 
@@ -348,7 +359,7 @@ The live link can be found here: [The Sorting Hat](https://sorting-hat-22.heroku
 ### Tools & Online Resources Utilised
  - The following tools and resources have been utilised in the creation of this project: 
      - Code Institute & Love Sandwiches Demonstration: For guidance and inspiration for this site. 
-     - GitHub & Gitpod: For development and deployment of the site. 
+     - GitHub & Gitpod: For development of the site. 
      - [ASCII Generator](https://ascii-generator.site/) to generate ASCII versions of logos.
      - [Image Color Picker](https://imagecolorpicker.com/en) 
      - [Stackoverflow](): For general guidance and research - specific examples used in final build set out below. 

@@ -25,7 +25,7 @@ houses = SHEET.worksheet('Houses')
 student = {"Name": "", "Age": "", "Country": "", "House": ""}
 
 
-def clear_display():  # credit dnlBowers see Readme notes
+def clear_display():  # credit dnlBowers see Readme
     """"
     Clears the console
     """
@@ -183,7 +183,7 @@ def validate_name(name):
             raise ValueError(
              f"\nPlease enter your name as text, you entered {name}"
             )
-        elif len(name.strip()) == 0:  # rockymiss see Readme notes
+        elif len(name.strip()) == 0:  # rockymiss see Readme
             raise ValueError(
              "\nPlease enter your name, we need this to ensure you can be "
              "accepted to Hogwarts"
