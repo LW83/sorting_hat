@@ -77,6 +77,12 @@ This site has been created purely for demonstrating Python skills learned as par
     -  Enabling the user to play the game multiple times or to exit the game if they wish. 
     -  Providing a game conclusion and final house determination and details of fellow housemates for the upcoming term. 
 
+### Game Logic
+
+- I used [Lucidchart](https://www.lucidchart.com) to set out the main logic of the game: 
+
+! [Lucidchart Diagram](./docs/lucidchart.png)
+
 ## UX
 
 ### Wireframes
@@ -174,7 +180,7 @@ __Logo__
 ![Gryffindor About](./docs/gryffindor-about.png)
 ![Slytherin About](./docs/slytherin-about.png)
 ![Hufflepuff About](./docs/hufflepuff-about.png)
-![Ravenclaw About](.docs/ravenclaw-about.png)
+![Ravenclaw About](./docs/ravenclaw-about.png)
 
   - At this point, the user has three options; to enter h to accept their designated House, to press r to re-sort them into a new house or to press q to quit the game and return to the landing page. 
   - If the user selects r, they are brought back to the first question of the loop to run through and provide new answers. 
@@ -244,16 +250,7 @@ __Python Validation__
 ### Fixed Bugs   
   - The following key bugs arose and were fixed during the development of the game: 
 
-Bug
-Getting subset of spreadsheet to show housemates
-Convert back to list of dictionaries
-Use list comprehension 
-https://www.i2tutorials.com/convert-list-of-lists-to-list-of-dictionaries/
-https://stackoverflow.com/questions/63508906/get-all-keys-with-specific-value-in-dictionary-python
-Looked at using pandas module
-
-
-    1. Question loop breaking: 
+    1. Question loop: 
           - Issue: Originally, I had the following code to run through the question loop: 
           '''def generate_questions(): # only gave one/two questions then stopped - had to remove return answers
                       """
@@ -279,13 +276,13 @@ Looked at using pandas module
                           clear_display()
 
                           return answers''' 
-              However, in testing I noticed that the questions would stop after two questions and not complete the loop.  
-          - Solution: After some trial and error, I realised that in removing the return answers at the end of the code block the full loop would run. 
+              However, in testing I noticed that the questions would stop after two questions and not complete the loop. Subsequently I also had an issue with the question loop running twice. 
+          - Solution: After some trial and error, I realised that in removing the return answers at the end of the code block the full loop would run. After reiviewing my code, I also realised I was calling the function twice, once from within the preceding function and then again within the main function. Once removed from the main function this issue was resolved.
           - Resource: Self-resolved. 
 
-    2. Questions looping twice:
-          - Issue: As part of testing, I noticed that the questions were looping through twice. 
-          - Solution: After reiviewing my code, I realised I was calling the function twice, once from within the preceding function and then again within the main function. Once removed from the main function this issue was resolved.
+    2. Upload of background imaage:
+          - Issue: As part of deployment, the original background image I had saved to an assets folder was not loading in Heroku upon deployment. 
+          - Solution: After some research, I discovered that there can be issues with deploying images as static assets in Heroku and decided to change to a linking to a web addess which resolved the issue. 
           - Resource: Self-resolved. 
 
     3. Text not centering:  
@@ -360,9 +357,9 @@ The live link can be found here: [The Sorting Hat](https://sorting-hat-22.heroku
      - [W3C HTML Validator](https://validator.w3.org/)
      - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
      - [Pep8online Validator](http://pep8online.com/)
-     - Heroku
-     - Lucid Charts
-     - Google Sheets
+     - [Heroku](https://id.heroku.com/login)
+     - [Lucidchart](https://www.lucidchart.com): To create a flow chart of the game logic
+     - [Google](www.google.com):For spreadsheet and API to connect to Python
 
      Specific Online Resources utilised as references: 
       - https://stackoverflow.com/questions/23623288/print-full-ascii-art - how to insert ASCII images into Python
@@ -371,17 +368,14 @@ The live link can be found here: [The Sorting Hat](https://sorting-hat-22.heroku
 
 ### Code Utilisation
  - The following elements of code have specifically been inspired from the following sources: 
-    - update_house_spreadsheet() - rocky miss
-    - clear_display() - dnlbowers
-    - student.update - rocky miss
-    - len(name.strip()) - rocky miss
-    - styling to add terminal border - rockymiss
-    - styling to center terminal - dnlbowers
-    - question iteration - https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions
+    - Code Institute for the deployment terminal 
+    - [Rachel Rock](https://github.com/rockymiss) for the folllowing: House spreadsheet update, student update, name validation for blank entry and terminal border. 
+    - [David Bowers](https://github.com/dnlbowers) for the following: Clear display functionality and styling to centre the terminal for final deployment. 
+    - [Stackoveflow](https://stackoverflow.com/questions/33069253/looping-through-multiple-choice-questions for guidance on iterating through a bank of questions. 
 
 ### People
- - In addition a big thank you to the following people for their assistance in this project:
-     - dnlBowers and rockymiss both provided inspiration to me from their Python projects particularly in relation to styling, centring the terminal adding a background, adding delays in the code and clearing the display all adding to a better UX. 
+ - In addition a big thank you to the following people for their assistance or inspiration in this project:
+     - David Bowers and Rachel Rock both provided inspiration to me from their Python projects particularly in relation to styling, centring the terminal adding a background, adding delays in the code and clearing the display all adding to a better UX. 
      - Kasia Bogucka: Our cohort facilitator for keeping us all on track and answering all and any of the many questions!
      - My cohort: For our weekly checkins and tips
 
